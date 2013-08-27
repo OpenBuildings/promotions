@@ -1,0 +1,26 @@
+{
+	"name": "openbuildings/promotions",
+	"type": "kohana-module",
+	"description": "Promotions for Purchases",
+	"keywords": ["kohana", "purchase", "jam", "cart", "store", "basket", "promotions"],
+	"homepage": "https://github.com/OpenBuildings/promotions",
+	"license": "BSD-3-Clause",
+	"authors": [
+		{
+			"name": "Yasen Yanev",
+			"email": "yasen@openbuildings.com",
+			"role": "Author"
+		}
+	],
+	"require": {
+		"php": ">=5.3.0",
+		"composer/installers": "*",
+		"openbuildings/purchases": "dev-master"
+	},
+	"require-dev": {
+		"openbuildings/kohana-test-bootsrap": "0.1.*"
+	},
+	"autoload": {
+		"psr-0": {"Openbuildings\\Promotions\\": "src/"}
+	}
+}
