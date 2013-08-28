@@ -2,14 +2,11 @@
 
 use OpenBuildings\Monetary\Monetary;
 
-class Kohana_Model_Promotion extends Jam_Model {
+class Kohana_Model_Promotion extends Jam_Model implements Sellable {
 
 	const TYPE_DISCOUNT = 'discount';
-
 	const TYPE_ELLEVISA_DISCOUNT = 'ellevisa-discount';
-
 	const TYPE_MINIMUM_PURCHASE_PRICE = 'min-purchase-price';
-
 	const TYPE_FREE_SHIPPING = 'free-shipping';
 
 	public static $allowed_types = array(
@@ -30,10 +27,7 @@ class Kohana_Model_Promotion extends Jam_Model {
 			->associations(array(
 				'promo_codes' => Jam::association('hasmany', array(
 					'inverse_of' => 'promotion'
-				)),
-				'purchases' => Jam::association('manytomany', array(
-					'inverse_of' => 'promotions'
-				)),
+				))		
 			))
 			->fields(array(
 				'id' => Jam::field('primary'),
@@ -79,12 +73,20 @@ class Kohana_Model_Promotion extends Jam_Model {
 			));
 	}
 
-	public function discount(Model_Store_Purchase $store_purchase)
+	public function currency()
 	{
+		return $this->currency;
+	}
+
+	public function price(Model_Purchase_Item $purchase_item = NULL)
+	{
+		if ($purchase_item === NULL)
+			return $this->value;
+
 		switch ($this->type) 
 		{
 			case self::TYPE_MINIMUM_PURCHASE_PRICE:
-				return $store_purchase->total_price('product') * $this->value / 100;
+				return $purchase_item->store_purchase->total_price('product') * $this->value / 100;
 				break;
 			case self::TYPE_DISCOUNT:
 				return $this->value;
@@ -95,17 +97,17 @@ class Kohana_Model_Promotion extends Jam_Model {
 		}
 	}
 
-	public function applies_to(Model_Store_Purchase $store_purchase)
+	public function applies_to(Model_Purchase_Item $purchase_item)
 	{
 		switch ($this->type)
 		{
 			case self::TYPE_MINIMUM_PURCHASE_PRICE:
-				return ($store_purchase->purchase->total_price('product') >= (float) $this->requirement 
-								AND ( ! $this->requires_promo_code OR ($this->requires_promo_code AND $store_purchase->purchase->promo_code)));
+				return ($purchase_item->store_purchase->purchase->total_price('product') >= (float) $this->requirement 
+								AND ( ! $this->requires_promo_code OR ($this->requires_promo_code AND $purchase_item->store_purchase->purchase->promo_code)));
 			break;
 
 			case self::TYPE_DISCOUNT:
-				return (($this->requires_promo_code AND $store_purchase->purchase->promo_code) OR ( ! $this->requires_promo_code));
+				return (($this->requires_promo_code AND $purchase_item->store_purchase->purchase->promo_code) OR ( ! $this->requires_promo_code));
 			break;
 
 			default:

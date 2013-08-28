@@ -45,15 +45,16 @@ class Model_PromotionTest extends Testcase_Promotions {
 		));
 	}
 	/**
-	 * @covers Model_Promotion::discount
+	 * @covers Model_Promotion::price
 	 */
-	public function test_discount()
+	public function test_price()
 	{
 		$promotion = Jam::find('test_promotion', 3);
 		$promotion_min_purchase = Jam::find('test_promotion', 1);
+		$purchase_item = $this->purchase->store_purchases[0]->items[0];
 
-		$this->assertEquals(10, $promotion->discount($this->purchase->store_purchases[0]));
-		$this->assertEquals(20, $promotion_min_purchase->discount($this->purchase->store_purchases[0])); // 5% of products total price 
+		$this->assertEquals(10, $promotion->price($purchase_item));
+		$this->assertEquals(20, $promotion_min_purchase->price($purchase_item)); // 5% of products total price 
 	}
 
 	/**
@@ -63,8 +64,9 @@ class Model_PromotionTest extends Testcase_Promotions {
 	{
 		$promotion = Jam::find('test_promotion', 3);
 		$promotion_min_purchase = Jam::find('test_promotion', 2);
+		$purchase_item = $this->purchase->store_purchases[0]->items[0];
 
-		$this->assertEquals(FALSE, $promotion->applies_to($this->purchase->store_purchases[0]));
-		$this->assertEquals(TRUE, $promotion_min_purchase->applies_to($this->purchase->store_purchases[0]));
+		$this->assertEquals(FALSE, $promotion->applies_to($purchase_item));
+		$this->assertEquals(TRUE, $promotion_min_purchase->applies_to($purchase_item));
 	}
 }
