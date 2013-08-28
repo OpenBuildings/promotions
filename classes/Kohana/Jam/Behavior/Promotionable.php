@@ -61,6 +61,24 @@ class Kohana_Jam_Behavior_Promotionable extends Jam_Behavior {
 	}
 
 	/**
+	 * Check if we have at least one promotion from specified type
+	 * @param  Jam_Model      $model
+	 * @param  Jam_Event_Data $data
+	 * @param  string $type
+	 * @return bool
+	 */
+	public function model_call_promotion_type_exists(Jam_Model $model, Jam_Event_Data $data, $type)
+	{
+		foreach ($model->items('promotion') as $purchase_item) 
+		{
+			if ($purchase_item->reference->type == $type)
+				return TRUE;
+		}
+
+		return FALSE;
+	}
+
+	/**
 	 * Remove already attached promotions that do not apply for this purchase anymore
 	 * @return void
 	 */
@@ -76,16 +94,6 @@ class Kohana_Jam_Behavior_Promotionable extends Jam_Behavior {
 		}
 	}
 
-	public function model_call_promotion_type_exists(Jam_Model $model, Jam_Event_Data $data, $type)
-	{
-		foreach ($model->items('promotion') as $promotion) 
-		{
-			if ($promotion->type == $type)
-				return TRUE;
-		}
-
-		return FALSE;
-	}
 
 	public function model_call_add_active_promotions(Jam_Model $model)
 	{
