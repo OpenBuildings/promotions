@@ -18,6 +18,7 @@ class Model_PromotionTest extends Testcase_Promotions {
 		parent::setUp();
 
 		$this->purchase = Jam::build('test_purchase', array(
+			'currency' => 'EUR',
 			'payment' => array(
 				'method' => 'emp',
 				'status' => 'paid',
@@ -73,8 +74,30 @@ class Model_PromotionTest extends Testcase_Promotions {
 	/**
 	 * @covers Model_Promotion::currency
 	 */
-	public function test_currency()
+	public function test_promotion_with_currency()
 	{
-		$this->markTestIncomplete();
+		$promotion = Jam::find('test_promotion', 3);
+		$this->purchase->store_purchases[0]->items->build(array(
+			'reference' => $promotion,
+			'quantity' => 1,
+			'type' => 'promotion',
+		));
+
+		$promotion_purchase_item = $this->purchase->store_purchases[0]->items[2];
+		$this->assertEquals(-11.615750958299, $promotion_purchase_item->price($promotion_purchase_item));
+	}
+
+	public function test_promotion_no_currency($value='')
+	{
+		$promotion2 = Jam::build('test_promotion', array('value' => 15, 'type' => 'discount'));
+
+		$this->purchase->store_purchases[0]->items->build(array(
+			'reference' => $promotion2,
+			'quantity' => 1,
+			'type' => 'promotion',
+		));
+
+		$promotion_purchase_item = $this->purchase->store_purchases[0]->items[2];
+		$this->assertEquals(-15, $promotion_purchase_item->price($promotion_purchase_item));
 	}
 }
