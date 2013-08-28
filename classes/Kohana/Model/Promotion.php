@@ -73,26 +73,23 @@ class Kohana_Model_Promotion extends Jam_Model implements Sellable {
 			));
 	}
 
-	public function currency()
+	public function currency(Model_Purchase_Item $purchase_item)
 	{
 		return $this->currency;
 	}
 
-	public function price(Model_Purchase_Item $purchase_item = NULL)
+	public function price(Model_Purchase_Item $purchase_item)
 	{
-		if ($purchase_item === NULL)
-			return $this->value;
-
 		switch ($this->type) 
 		{
 			case self::TYPE_MINIMUM_PURCHASE_PRICE:
-				return $purchase_item->store_purchase->total_price('product') * $this->value / 100;
+				return -$purchase_item->store_purchase->total_price('product') * $this->value / 100;
 				break;
 			case self::TYPE_DISCOUNT:
-				return $this->value;
+				return -$this->value;
 				break;			
 			default:
-				return $this->value;
+				return -$this->value;
 				break;
 		}
 	}

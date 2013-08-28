@@ -372,12 +372,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/purchases.git",
-                "reference": "507a71be4298e3b24ae2848e7f89527071748633"
+                "reference": "f583eda5789e6a273ea67863b6b32827b879b0df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/purchases/zipball/507a71be4298e3b24ae2848e7f89527071748633",
-                "reference": "507a71be4298e3b24ae2848e7f89527071748633",
+                "url": "https://api.github.com/repos/OpenBuildings/purchases/zipball/f583eda5789e6a273ea67863b6b32827b879b0df",
+                "reference": "f583eda5789e6a273ea67863b6b32827b879b0df",
                 "shasum": ""
             },
             "require": {
@@ -418,7 +418,7 @@
                 "purchase",
                 "store"
             ],
-            "time": "2013-08-27 08:06:11"
+            "time": "2013-08-28 08:51:52"
         },
         {
             "name": "rackspace/php-opencloud",

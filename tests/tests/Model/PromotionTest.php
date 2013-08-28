@@ -53,8 +53,8 @@ class Model_PromotionTest extends Testcase_Promotions {
 		$promotion_min_purchase = Jam::find('test_promotion', 1);
 		$purchase_item = $this->purchase->store_purchases[0]->items[0];
 
-		$this->assertEquals(10, $promotion->price($purchase_item));
-		$this->assertEquals(20, $promotion_min_purchase->price($purchase_item)); // 5% of products total price 
+		$this->assertEquals(-10, $promotion->price($purchase_item));
+		$this->assertEquals(-20, $promotion_min_purchase->price($purchase_item)); // 5% of products total price 
 	}
 
 	/**
@@ -68,5 +68,13 @@ class Model_PromotionTest extends Testcase_Promotions {
 
 		$this->assertEquals(FALSE, $promotion->applies_to($purchase_item));
 		$this->assertEquals(TRUE, $promotion_min_purchase->applies_to($purchase_item));
+	}
+
+	/**
+	 * @covers Model_Promotion::currency
+	 */
+	public function test_currency()
+	{
+		$this->markTestIncomplete();
 	}
 }
