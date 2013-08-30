@@ -12,6 +12,12 @@
  */
 class Kohana_Jam_Behavior_Promotionable extends Jam_Behavior {
 
+	const FREE_SHIPPING_THRESHOLD_GBP = 69;
+	const FREE_SHIPPING_THRESHOLD_EUR = 99;
+
+	protected $_inverse_of_association = 'purchases';
+	protected $_promo_code_association = 'promo_code';
+
 	public function initialize(Jam_Meta $meta, $name) 
 	{
 		parent::initialize($meta, $name);
@@ -21,7 +27,7 @@ class Kohana_Jam_Behavior_Promotionable extends Jam_Behavior {
 				'_promo_code' => Jam::field('string', array('in_db' => FALSE)),
 			))
 			->associations(array(
-				'promo_code' => Jam::association('hasone', array('inverse_of' => 'purchase')),
+				$this->_promo_code_association => Jam::association('hasone', array('inverse_of' => $this->_inverse_of_association)),
 			));
 	}
 
@@ -31,7 +37,7 @@ class Kohana_Jam_Behavior_Promotionable extends Jam_Behavior {
 		if ($purchase->_promo_code)
 		{
 			// find promotion with this code
-			$promo_code = Jam::all('promo_code')->where('code', '=', $purchase->_promo_code)->first();
+			$promo_code = Jam::all($this->_promo_code_association)->where('code', '=', $purchase->_promo_code)->first();
 
 			if ( ! $promo_code)
 			{
@@ -84,10 +90,10 @@ class Kohana_Jam_Behavior_Promotionable extends Jam_Behavior {
 	 */
 	public function model_call_remove_unqualified_promotions(Jam_Model $model)
 	{
-		foreach ($purchase->items('promotion') as $purchase_item)
+		foreach ($model->items('promotion') as $purchase_item)
 		{
 			// remove promotion if it does not qualify anymore for this store purchase
-			if ( ! $purchase_item->reference->applies_to($purchase_item->store_purchase))
+			if ( ! $purchase_item->reference->applies_to($purchase_item))
 			{
 				$purchase_item->store_purchase->items->remove($purchase_item);
 			}
@@ -97,18 +103,17 @@ class Kohana_Jam_Behavior_Promotionable extends Jam_Behavior {
 
 	public function model_call_add_active_promotions(Jam_Model $model)
 	{
-		$active_promotions = Jam::all('promotion')
-												 	->is_active();
+		$active_promotions = Jam::all('test_promotion')->is_active();
 
 		foreach ($active_promotions as $promotion) 
 		{
 			if ( ! $model->promotion_type_exists($promotion->type))
 			{
-				foreach ($model->store_purchase as $store_purchase) 
+				foreach ($model->store_purchases as $store_purchase) 
 				{
-					if ($promotion->applies_to($store_purchase))
+					if ($promotion->applies_to($store_purchase->items[0]))
 					{
-						$store_purchase->items->add($promotion);
+						$store_purchase->add_or_update_item(Jam::build('purchase_item', array('type' => 'promotion', 'is_discount' => TRUE, 'reference' => $promotion, 'quantity' => 1)));
 					}
 				}
 			}
@@ -119,5 +124,18 @@ class Kohana_Jam_Behavior_Promotionable extends Jam_Behavior {
 	{
 		$model->remove_unqualified_promotions();
 		$model->add_active_promotions();
+	}
+
+	public function model_call_amount_to_free_shipping(Jam_Model $model, Jam_Event_Data $data, $currency = NULL)
+	{
+		$amount = (($model->currency === 'EUR') ? self::FREE_SHIPPING_THRESHOLD_EUR : self::FREE_SHIPPING_THRESHOLD_GBP) - $model->total_price('product');
+
+		// equivalent to ceil($amount * 100) / 100
+		// but without pointing float bug in ceil
+		// http://stackoverflow.com/q/7825321/679227
+		$amount = (float) rtrim(rtrim(sprintf('%.2f', $amount), '0'), '.');
+
+		$data->return = $amount;
+		return $amount;
 	}
 }

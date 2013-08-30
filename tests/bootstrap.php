@@ -7,8 +7,8 @@ Kohana::modules(array(
 	'auth'       => MODPATH.'auth',
 	'jam'        => __DIR__.'/../modules/jam',
 	'jam-auth'   => __DIR__.'/../modules/jam-auth',
-	'purchases'  => __DIR__.'/../modules/purchases',
 	'promotions' => __DIR__.'/..',
+	'purchases'  => __DIR__.'/../modules/purchases',
 ));
 
 function test_autoload($class)

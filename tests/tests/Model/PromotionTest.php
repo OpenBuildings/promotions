@@ -19,7 +19,8 @@ class Model_PromotionTest extends Testcase_Promotions {
 
 		$this->purchase = Jam::build('test_purchase', array(
 			'currency' => 'EUR',
-			'payment' => array(
+			'country' => 'Europe',
+			'payment' => array(	
 				'method' => 'emp',
 				'status' => 'paid',
 				'raw_response' => array('successful'),
@@ -44,6 +45,8 @@ class Model_PromotionTest extends Testcase_Promotions {
 				)
 			)
 		));
+
+		$this->purchase->monetary()->source(new OpenBuildings\Monetary\Source_Static);
 	}
 	/**
 	 * @covers Model_Promotion::price
@@ -68,7 +71,13 @@ class Model_PromotionTest extends Testcase_Promotions {
 		$purchase_item = $this->purchase->store_purchases[0]->items[0];
 
 		$this->assertEquals(FALSE, $promotion->applies_to($purchase_item));
-		$this->assertEquals(TRUE, $promotion_min_purchase->applies_to($purchase_item));
+		$this->assertEquals(FALSE, $promotion_min_purchase->applies_to($purchase_item));
+
+		$this->purchase->_promo_code = '8BZD45';
+		$valid_purchase = $this->purchase->check();
+		$this->assertEquals(TRUE, $valid_purchase);
+
+		$this->assertEquals(TRUE, $promotion->applies_to($purchase_item));
 	}
 
 	/**
@@ -77,6 +86,7 @@ class Model_PromotionTest extends Testcase_Promotions {
 	public function test_promotion_with_currency()
 	{
 		$promotion = Jam::find('test_promotion', 3);
+
 		$this->purchase->store_purchases[0]->items->build(array(
 			'reference' => $promotion,
 			'quantity' => 1,
@@ -84,7 +94,7 @@ class Model_PromotionTest extends Testcase_Promotions {
 		));
 
 		$promotion_purchase_item = $this->purchase->store_purchases[0]->items[2];
-		$this->assertEquals(-11.615750958299, $promotion_purchase_item->price($promotion_purchase_item));
+		$this->assertEquals(-11.909724289883, $promotion_purchase_item->price($promotion_purchase_item));
 	}
 
 	public function test_promotion_no_currency($value='')
@@ -99,5 +109,49 @@ class Model_PromotionTest extends Testcase_Promotions {
 
 		$promotion_purchase_item = $this->purchase->store_purchases[0]->items[2];
 		$this->assertEquals(-15, $promotion_purchase_item->price($promotion_purchase_item));
+	}
+
+	public function test_promotion_ellevisa()
+	{
+
+	}
+
+	public function test_applies_to_free_shipping()
+	{
+		$promotion = Jam::find('test_promotion', 5);
+		$store_purchase = $this->purchase->store_purchases[0];
+		$this->assertEquals(TRUE, $promotion->applies_to($store_purchase->items[0]));
+
+		$store_purchase->items[0]->price = 98;
+		unset($store_purchase->items[1]);
+
+		$this->assertEquals(FALSE, $promotion->applies_to($store_purchase->items[0]));
+
+		$store_purchase->items[0]->price = 100;
+		$this->purchase->country = 'United States';
+		$this->assertEquals(FALSE, $promotion->applies_to($store_purchase->items[0]));
+	}
+
+	public function test_update_promotions()
+	{
+		$this->purchase->update_promotions();
+
+		foreach ($this->purchase->items('promotion') as $purchase_item) 
+		{
+			$this->assertContains($purchase_item->reference->id(), array(5));
+		}
+
+
+		$promo_code = Jam::find('test_promo_code', 3);
+		// add a promo code to the purchase
+		$this->purchase->_promo_code = $promo_code->code;
+		$this->purchase->check();
+
+		$this->purchase->update_promotions();
+
+		foreach ($this->purchase->items('promotion') as $purchase_item) 
+		{
+			$this->assertContains($purchase_item->reference->id(), array(5, 3));
+		}
 	}
 }

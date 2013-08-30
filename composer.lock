@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "245ea611dd4f322cc63e4b4918c22c69",
+    "hash": "cea8750afcc8bdd4e73d1241e6ff4367",
     "packages": [
         {
             "name": "composer/installers",
@@ -172,6 +172,60 @@
             "time": "2013-01-15 21:37:15"
         },
         {
+            "name": "openbuildings/emp",
+            "version": "0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/OpenBuildings/emp.git",
+                "reference": "57ccec5c89f8a52222658a2a4e0590116bc153b5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/OpenBuildings/emp/zipball/57ccec5c89f8a52222658a2a4e0590116bc153b5",
+                "reference": "57ccec5c89f8a52222658a2a4e0590116bc153b5",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.3.0"
+            },
+            "suggest": {
+                "openbuildings/paypal": "Easy payments with PayPal: ExpressCheckout, AdaptivePayments, subscriptions"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Openbuildings\\Emp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Kerin",
+                    "email": "ivan@openbuildings.com",
+                    "homepage": "https://github.com/OpenBuildings/jam",
+                    "role": "Author"
+                },
+                {
+                    "name": "Haralan Dobrev",
+                    "email": "hdobrev@despark.com"
+                }
+            ],
+            "description": "Payments for eMerchantPay (EMP) https://www.emerchantpay.com/",
+            "homepage": "https://github.com/OpenBuildings/emp",
+            "keywords": [
+                "EMP",
+                "credit cards",
+                "eMerchantPay",
+                "money",
+                "payments"
+            ],
+            "time": "2013-08-29 11:26:45"
+        },
+        {
             "name": "openbuildings/flex-storage",
             "version": "v0.1.2",
             "source": {
@@ -211,16 +265,16 @@
         },
         {
             "name": "openbuildings/jam",
-            "version": "0.4.4",
+            "version": "0.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/jam.git",
-                "reference": "0.4.4"
+                "reference": "a2907522b5f565767aca52f680232d0e90693215"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/jam/zipball/0.4.4",
-                "reference": "0.4.4",
+                "url": "https://api.github.com/repos/OpenBuildings/jam/zipball/a2907522b5f565767aca52f680232d0e90693215",
+                "reference": "a2907522b5f565767aca52f680232d0e90693215",
                 "shasum": ""
             },
             "require": {
@@ -254,7 +308,7 @@
                 "upload",
                 "validation"
             ],
-            "time": "2013-08-20 10:40:17"
+            "time": "2013-08-30 08:25:16"
         },
         {
             "name": "openbuildings/jam-auth",
@@ -262,12 +316,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/jam-auth.git",
-                "reference": "0.1.3"
+                "reference": "725ad4ed124bc27664a0e51ea2c09e72a7e9f7f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/jam-auth/zipball/0.1.3",
-                "reference": "0.1.3",
+                "url": "https://api.github.com/repos/OpenBuildings/jam-auth/zipball/725ad4ed124bc27664a0e51ea2c09e72a7e9f7f6",
+                "reference": "725ad4ed124bc27664a0e51ea2c09e72a7e9f7f6",
                 "shasum": ""
             },
             "require": {
@@ -372,23 +426,27 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/purchases.git",
-                "reference": "f583eda5789e6a273ea67863b6b32827b879b0df"
+                "reference": "253fbf55d5cf6935c350d08b7b48de38d7e320f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/purchases/zipball/f583eda5789e6a273ea67863b6b32827b879b0df",
-                "reference": "f583eda5789e6a273ea67863b6b32827b879b0df",
+                "url": "https://api.github.com/repos/OpenBuildings/purchases/zipball/253fbf55d5cf6935c350d08b7b48de38d7e320f2",
+                "reference": "253fbf55d5cf6935c350d08b7b48de38d7e320f2",
                 "shasum": ""
             },
             "require": {
                 "composer/installers": "*",
+                "openbuildings/emp": "0.1.*",
                 "openbuildings/jam": "0.4.*",
                 "openbuildings/jam-auth": "0.1.*",
                 "openbuildings/monetary": "0.2.*",
+                "paypal/rest-api-sdk-php": "dev-sample-dyna-config",
                 "php": ">=5.3.0"
             },
             "require-dev": {
-                "openbuildings/kohana-test-bootsrap": "0.1.*"
+                "openbuildings/environment-backup": "0.1.*",
+                "openbuildings/kohana-test-bootsrap": "0.1.*",
+                "openbuildings/phpunit-spiderling": "0.1.*"
             },
             "type": "kohana-module",
             "autoload": {
@@ -418,7 +476,99 @@
                 "purchase",
                 "store"
             ],
-            "time": "2013-08-28 08:51:52"
+            "time": "2013-08-30 09:51:24"
+        },
+        {
+            "name": "paypal/rest-api-sdk-php",
+            "version": "dev-sample-dyna-config",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/paypal/rest-api-sdk-php.git",
+                "reference": "e927298a40358ea73030504df16d8b99486c09a5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/paypal/rest-api-sdk-php/zipball/e927298a40358ea73030504df16d8b99486c09a5",
+                "reference": "e927298a40358ea73030504df16d8b99486c09a5",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "paypal/sdk-core-php": "2.4.*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PayPal": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache2"
+            ],
+            "authors": [
+                {
+                    "name": "PayPal",
+                    "homepage": "https://github.com/paypal/rest-api-sdk-php/contributors"
+                }
+            ],
+            "description": "PayPal's PHP SDK for REST APIs",
+            "homepage": "https://github.com/paypal/rest-api-sdk-php",
+            "keywords": [
+                "payments",
+                "paypal",
+                "rest",
+                "sdk"
+            ],
+            "time": "2013-08-26 08:51:28"
+        },
+        {
+            "name": "paypal/sdk-core-php",
+            "version": "v2.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/paypal/sdk-core-php.git",
+                "reference": "4354c7fb5e74b4b4f6861e29641bb4be39bbdca8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/paypal/sdk-core-php/zipball/4354c7fb5e74b4b4f6861e29641bb4be39bbdca8",
+                "reference": "4354c7fb5e74b4b4f6861e29641bb4be39bbdca8",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PayPal": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache2"
+            ],
+            "authors": [
+                {
+                    "name": "PayPal",
+                    "homepage": "https://github.com/paypal/sdk-core-php/contributors"
+                }
+            ],
+            "description": "PayPal Core SDK for PHP",
+            "homepage": "https://github.com/paypal/sdk-core-php",
+            "keywords": [
+                "paypal",
+                "php",
+                "sdk"
+            ],
+            "time": "2013-08-22 16:32:05"
         },
         {
             "name": "rackspace/php-opencloud",
@@ -506,7 +656,7 @@
     "aliases": [
 
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
         "openbuildings/purchases": 20
     },

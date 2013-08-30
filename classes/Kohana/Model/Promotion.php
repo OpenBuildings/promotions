@@ -5,20 +5,11 @@ use OpenBuildings\Monetary\Monetary;
 class Kohana_Model_Promotion extends Jam_Model implements Sellable {
 
 	const TYPE_DISCOUNT = 'discount';
-	const TYPE_ELLEVISA_DISCOUNT = 'ellevisa-discount';
 	const TYPE_MINIMUM_PURCHASE_PRICE = 'min-purchase-price';
-	const TYPE_FREE_SHIPPING = 'free-shipping';
 
 	public static $allowed_types = array(
 		self::TYPE_DISCOUNT,
 		self::TYPE_MINIMUM_PURCHASE_PRICE,
-		self::TYPE_FREE_SHIPPING,
-		self::TYPE_ELLEVISA_DISCOUNT,
-	);
-
-	public static $discount_types = array(
-		self::TYPE_DISCOUNT,
-		self::TYPE_ELLEVISA_DISCOUNT,
 	);
 
 	public static function initialize(Jam_Meta $meta)
@@ -80,36 +71,45 @@ class Kohana_Model_Promotion extends Jam_Model implements Sellable {
 
 	public function price(Model_Purchase_Item $purchase_item)
 	{
-		switch ($this->type) 
-		{
-			case self::TYPE_MINIMUM_PURCHASE_PRICE:
-				return -$purchase_item->store_purchase->total_price('product') * $this->value / 100;
-				break;
-			case self::TYPE_DISCOUNT:
-				return -$this->value;
-				break;			
-			default:
-				return -$this->value;
-				break;
-		}
+		$callback = 'price_'.Inflector::underscore($this->type);
+			
+		if (method_exists($this, $callback))
+			return call_user_func(array($this, $callback), $purchase_item);
+		else
+			return -$this->value;
+	}
+
+	public function price_min_purchase_price(Model_Purchase_Item $purchase_item)
+	{
+		return -$purchase_item->store_purchase->total_price('product') * $this->value / 100;
+	}
+
+	public function price_discount(Model_Purchase_Item $purchase_item)
+	{
+		return -$this->value;
 	}
 
 	public function applies_to(Model_Purchase_Item $purchase_item)
 	{
-		switch ($this->type)
-		{
-			case self::TYPE_MINIMUM_PURCHASE_PRICE:
-				return ($purchase_item->store_purchase->purchase->total_price('product') >= (float) $this->requirement 
-								AND ( ! $this->requires_promo_code OR ($this->requires_promo_code AND $purchase_item->store_purchase->purchase->promo_code)));
-			break;
-
-			case self::TYPE_DISCOUNT:
-				return (($this->requires_promo_code AND $purchase_item->store_purchase->purchase->promo_code) OR ( ! $this->requires_promo_code));
-			break;
-
-			default:
-				return FALSE;
-			break;
-		}
+		$callback = 'applies_to_'.Inflector::underscore($this->type);
+	
+		if (method_exists($this, $callback))
+			return call_user_func(array($this, $callback), $purchase_item);
+		else
+			return FALSE;
 	}
+
+	public function applies_to_min_purchase_price(Model_Purchase_Item $purchase_item)
+	{
+		return ($purchase_item->purchase_insist()->total_price('product') >= (float) $this->requirement AND 
+						( ! $this->requires_promo_code OR 
+						 ($this->requires_promo_code AND $promo_code = $purchase_item->purchase_insist()->promo_code AND 
+						 	$promo_code->promotion->id() == $this->id())));
+	}
+
+	public function applies_to_discount(Model_Purchase_Item $purchase_item)
+	{
+		return (($this->requires_promo_code AND $promo_code = $purchase_item->purchase_insist()->promo_code 
+						 AND $promo_code->promotion->id() == $this->id()) OR ( ! $this->requires_promo_code));
+	}	
 }

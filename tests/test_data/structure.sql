@@ -170,16 +170,18 @@ VALUES
 
 INSERT INTO `test_promotions` (`id`, `name`, `type`, `requirement`, `value`, `currency`, `description`, `requires_promo_code`, `created_at`, `expires_at`)
 VALUES
-  (1, 'Discount Promotion', 'min-purchase-price', 50, 5, 'GBP', '5% discount of the items price for orders above 50GBP', 1, '2013-08-01 12:00:00', NULL),
-  (2, 'Discount Promotion', 'min-purchase-price', 200, 10, 'GBP', '10% discount of the items price for orders above 200GBP', 0, '2013-08-15 12:00:00', NULL),
-  (3, 'Discount Promotion', 'discount', '', 10, 'GBP', '10% discount of the items price', 1, '2013-08-02 16:48:03', NULL);
+  (1, 'Discount Promotion', 'min_purchase_price', 50, 5, 'GBP', '5% discount of the items price for orders above 50GBP', 1, '2013-08-01 12:00:00', NULL),
+  (2, 'Discount Promotion', 'min_purchase_price', 200, 10, 'GBP', '10% discount of the items price for orders above 200GBP', 1, '2013-08-15 12:00:00', NULL),
+  (3, 'Discount Promotion', 'discount', '', 10, 'GBP', '10% discount of the items price', 1, '2013-08-02 16:48:03', NULL),
+  (4, 'Free shipping', 'free_shipping', 69, NULL, 'GBP', 'Free shipping for orders above 69 GBP', 0, '2013-08-15 13:00:00', NULL),
+  (5, 'Free shipping', 'free_shipping', 99, NULL, 'EUR', 'Free shipping for orders above 99 EUR', 0, '2013-08-15 14:00:00', NULL);
 
 
 INSERT INTO `test_promo_codes` (`id`, `code`, `promotion_id`, `purchase_id`, `origin`, `created_at`, `expires_at`)
 VALUES
-  (1, '1ZMA56', 1, NULL, 'successful-purchase', '2013-07-10 12:13:50', '2013-08-10 12:13:50'),
-  (2, '621ZWM', 3, NULL, 'successful-purchase', '2013-07-10 12:13:51', '2013-08-10 12:13:51'),
-  (3, '8BZD45', 3, NULL, 'successful-purchase', '2013-08-16 14:27:18', '2013-08-17 14:27:18');
+  (1, '1ZMA56', 1, NULL, 'successful-purchase', '2013-07-10 12:13:50', NULL),
+  (2, '621ZWM', 2, NULL, 'successful-purchase', '2013-07-10 12:13:51', NULL),
+  (3, '8BZD45', 3, NULL, 'successful-purchase', '2013-08-16 14:27:18', NULL);
 
 
 # Dump of table test_variations
