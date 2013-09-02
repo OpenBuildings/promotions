@@ -79,6 +79,9 @@ Example:
 	}
 ```
 
+
+If certain promotion or promo code expires it is automatically removed when calling the $purchase->update_promotions() method. Also when a purchase covers the requirements for specific promotion, it is automatically added. Only one promotion from specific type can be added to a purchase. 
+
 ## License
 
 Copyright (c) 2012-2013, OpenBuildings Ltd. Developed by Yasen Yanev as part of [clippings.com](http://clippings.com)
