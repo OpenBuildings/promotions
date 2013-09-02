@@ -174,7 +174,8 @@ VALUES
   (2, 'Discount Promotion', 'min_purchase_price', 200, 10, 'GBP', '10% discount of the items price for orders above 200GBP', 1, '2013-08-15 12:00:00', NULL),
   (3, 'Discount Promotion', 'discount', '', 10, 'GBP', '10% discount of the items price', 1, '2013-08-02 16:48:03', NULL),
   (4, 'Free shipping', 'free_shipping', 69, NULL, 'GBP', 'Free shipping for orders above 69 GBP', 0, '2013-08-15 13:00:00', NULL),
-  (5, 'Free shipping', 'free_shipping', 99, NULL, 'EUR', 'Free shipping for orders above 99 EUR', 0, '2013-08-15 14:00:00', NULL);
+  (5, 'Free shipping', 'free_shipping', 99, NULL, 'EUR', 'Free shipping for orders above 99 EUR', 0, '2013-08-15 14:00:00', NULL),
+  (6, 'Elle Visa', 'ellevisa_discount', '', 10, NULL, 'Related to the London Design Festival all purchases with promo code get a 10% discount.', 0, '2013-09-01 14:00:00', NULL);
 
 
 INSERT INTO `test_promo_codes` (`id`, `code`, `promotion_id`, `purchase_id`, `origin`, `created_at`, `expires_at`)

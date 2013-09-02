@@ -113,7 +113,20 @@ class Model_PromotionTest extends Testcase_Promotions {
 
 	public function test_promotion_ellevisa()
 	{
+		$promotion = Jam::find('test_promotion', 6);
+		$store_purchase = $this->purchase->store_purchases[0];
+		$this->assertEquals(FALSE, $promotion->applies_to($store_purchase->items[0]));
 
+		// add a promo code to the purchase
+		$this->purchase->_promo_code = 'TESTVISA';
+		$this->purchase->check();
+
+		$this->purchase->update_promotions();
+
+		foreach ($this->purchase->items('promotion') as $purchase_item) 
+		{
+			$this->assertContains($purchase_item->reference->id(), array(6, 5));
+		}
 	}
 
 	public function test_applies_to_free_shipping()
@@ -140,7 +153,6 @@ class Model_PromotionTest extends Testcase_Promotions {
 		{
 			$this->assertContains($purchase_item->reference->id(), array(5));
 		}
-
 
 		$promo_code = Jam::find('test_promo_code', 3);
 		// add a promo code to the purchase

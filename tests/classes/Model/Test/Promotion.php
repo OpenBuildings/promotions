@@ -35,11 +35,7 @@ class Model_Test_Promotion extends Model_Promotion {
 	{
 		if ($purchase_item->purchase_insist()->_promo_code === Model_Test_Promotion::ELLEVISA_PROMO_CODE)
 		{
-			$ellevisa_promotion = Jam::all('test_promotion')
-				->where('type', '=', Model_Promotion::TYPE_ELLEVISA_DISCOUNT)
-				->first_insist();
-
-			return ( ! $ellevisa_promotion->expires_at OR strtotime($ellevisa_promotion->expires_at) >= time());
+			return ($this->type == Model_Test_Promotion::TYPE_ELLEVISA_DISCOUNT AND ! $this->expires_at OR strtotime($this->expires_at) >= time());
 		}
 
 		return FALSE;
