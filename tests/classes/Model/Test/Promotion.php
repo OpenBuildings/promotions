@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') OR die('No direct access allowed.');
 /**
- *  Promotionable behavior
+ *  Model_Test_Promotion
  * 
  * @package    promotions
  * @category   Model
