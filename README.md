@@ -29,6 +29,40 @@ In order to add your own promotions, one must implement 2 specific methods in th
 - applies_to_{{promotion_type}} - the method is called when $purchase->update_promotions() is called. Must return boolean.
 - price_{{promotion_type}} - the method calculates the price of the specified promotion
 
+Example:
+
+```php
+
+class Model_Test_Promotion extends Model_Promotion {
+
+	const TYPE_FREE_SHIPPING = 'free_shipping';
+
+	public function price_free_shipping(Model_Purchase_Item $purchase_item)
+	{
+		// perform your custom price calculations for this promotion or return a fixed promotion value
+		return $this->value;
+	}
+
+  /**
+   * Apply free shipping promotion for all purchases from Europe 
+   * above certain price (defined in the requirement field)
+   */
+	public function applies_to_free_shipping(Model_Purchase_Item $purchase_item)
+	{
+		if ($this->type == Model_Test_Promotion::TYPE_FREE_SHIPPING)
+		{
+			$purchase = $purchase_item->purchase_insist();
+			$country = $purchase->country;
+			$currency = ($purchase->currency === 'EUR') ? 'EUR' : 'GBP';
+
+			return ($country === 'Europe' AND $purchase->total_price('product') >= (float) $this->requirement AND $currency == $this->currency);
+		}
+		
+		return FALSE;
+	}
+}
+
+```
 
 ## License
 
