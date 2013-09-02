@@ -64,6 +64,21 @@ class Model_Test_Promotion extends Model_Promotion {
 
 ```
 
+## Attaching promo codes
+
+Promo codes are attached to the purchase as a string field and the corresponding promo code object (if its valid) is attached to the purchase before validation. 
+
+Example:
+
+```php
+	$purchase->_promo_code = '2AXHG';
+	if ($purchase->check())
+	{
+	   // we now have our promo code object attached to the purchase
+	   echo $purchase->promo_code->code; // outputs '2AXHG'
+	}
+```
+
 ## License
 
 Copyright (c) 2012-2013, OpenBuildings Ltd. Developed by Yasen Yanev as part of [clippings.com](http://clippings.com)
