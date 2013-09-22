@@ -1,31 +1,31 @@
 <?php 
 
-require_once __DIR__.'/../vendor/autoload.php';
-
-Kohana::modules(array(
-	'database'   => MODPATH.'database',
-	'auth'       => MODPATH.'auth',
-	'jam'        => __DIR__.'/../modules/jam',
-	'jam-auth'   => __DIR__.'/../modules/jam-auth',
-	'promotions' => __DIR__.'/..',
-	'purchases'  => __DIR__.'/../modules/purchases',
-));
-
-function test_autoload($class)
+spl_autoload_register(function($class)
 {
-	$file = str_replace('_', '/', $class);
+	$file = __DIR__.DIRECTORY_SEPARATOR.'classes'.DIRECTORY_SEPARATOR.str_replace('_', '/', $class).'.php';
 
-	if ($file = Kohana::find_file('tests/classes', $file))
+	if (is_file($file))
 	{
 		require_once $file;
 	}
-}
+});
 
-spl_autoload_register('test_autoload');
+require_once __DIR__.'/../vendor/autoload.php';
+
+Kohana::modules(array(
+	'database'     => MODPATH.'database',
+	'auth'         => MODPATH.'auth',
+	'jam'          => __DIR__.'/../modules/jam',
+	'jam-auth'     => __DIR__.'/../modules/jam-auth',
+	'jam-monetary' => __DIR__.'/../modules/jam-monetary',
+	'shipping'     => __DIR__.'/../modules/shipping',
+	'purchases'    => __DIR__.'/../modules/purchases',
+	'promotions'   => __DIR__.'/..',
+));
 
 Kohana::$config
 	->load('database')
-		->set(Kohana::TESTING, array(
+		->set('default', array(
 			'type'       => 'MySQL',
 			'connection' => array(
 				'hostname'   => 'localhost',

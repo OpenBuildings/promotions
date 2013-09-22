@@ -13,13 +13,13 @@ abstract class Testcase_Promotions extends PHPUnit_Framework_TestCase {
 	public function setUp()
 	{
 		parent::setUp();
-		Database::instance(Kohana::TESTING)->begin();
+		Database::instance()->begin();
 		Jam_Association_Creator::current(1);
 	}
 
 	public function tearDown()
 	{
-		Database::instance(Kohana::TESTING)->rollback();	
+		Database::instance()->rollback();	
 		parent::tearDown();
 	}
 }
