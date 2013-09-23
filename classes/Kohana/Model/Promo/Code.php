@@ -1,5 +1,12 @@
 <?php defined('SYSPATH') OR die('No direct script access.');
 
+/**
+ * @package    openbuildings\promotions
+ * @author     Ivan Kerin <ikerin@gmail.com>
+ * @author     Yasen Yanev <yasen@openbuildings.com>
+ * @copyright  (c) 2013 OpenBuildings Ltd.
+ * @license    http://spdx.org/licenses/BSD-3-Clause
+ */
 class Kohana_Model_Promo_Code extends Jam_Model {
 	
 	/**
@@ -30,5 +37,10 @@ class Kohana_Model_Promo_Code extends Jam_Model {
 				'expires_at' => Jam::field('timestamp', array('format' => 'Y-m-d H:i:s'))
 			))
 			->validator('promotion', 'origin', array('present' => TRUE));
+	}
+
+	public function validate_purchase(Model_Purchase $purchase)
+	{
+		$this->get_insist('promotion')->validate_purchase($purchase);
 	}
 }

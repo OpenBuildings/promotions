@@ -12,41 +12,47 @@ use OpenBuildings\Monetary\Source_Static;
  */
 class Model_Promotion_Promocode_GiftcardTest extends Testcase_Promotions {
 
-	/**
-	 * @covers Model_Promotion_Promocode_Giftcard::applies_to
-	 */
-	public function test_applies_to()
+	public function data_validate_purchase()
 	{
 		$monetary = new Monetary(new Source_Static);
 
-		$store_purchase = $this->getMock('Model_Store_Purchase', array('total_price'), array('store_purchase'));
+		return array(
+			array(new Jam_Price(5, 'GBP', $monetary), array('promo_code_text' => array('requirement' => array(':more_than' => '£10.00')))),
+			array(new Jam_Price(20, 'GBP', $monetary), FALSE),
+		);
+	}
 
-		$promotion = $this->getMock('Model_Promotion_Promocode_Giftcard', array('matches_store_purchase_promo_code'), array('promotion_promocode_giftcard'));
+	/**
+	 * @dataProvider data_validate_purchase
+	 * @covers Model_Promotion_Promocode_Giftcard::validate_purchase
+	 */
+	public function test_validate_purchase($total_price, $expected_errors)
+	{
+		$purchase = $this->getMock('Model_Purchase', array('total_price'), array('purchase'));
 
-		$promotion->set(array(
+		$promotion = Jam::build('promotion', array(
 			'currency' => 'GBP',
 			'requirement' => 10,
+			'model' => 'promotion_promocode_giftcard'
 		));
 
-		$promotion
-			->expects($this->exactly(4))
-			->method('matches_store_purchase_promo_code')
-			->will($this->onConsecutiveCalls(FALSE, TRUE, TRUE, TRUE));
-
-		$store_purchase
-			->expects($this->exactly(3))
+		$purchase
+			->expects($this->once())
 			->method('total_price')
 			->with($this->equalTo('product'))
-			->will($this->onConsecutiveCalls(
-				new Jam_Price(5, 'GBP', $monetary),
-				new Jam_Price(10, 'USD', $monetary),
-				new Jam_Price(20, 'GBP', $monetary)
-			));
+			->will($this->returnValue($total_price));
 
-		$this->assertFalse($promotion->applies_to($store_purchase));
-		$this->assertFalse($promotion->applies_to($store_purchase));
-		$this->assertFalse($promotion->applies_to($store_purchase));
-		$this->assertTrue($promotion->applies_to($store_purchase));
+		$promotion->validate_purchase($purchase);
+
+		if ($expected_errors) 
+		{
+			$this->assertFalse($purchase->is_valid());
+			$this->assertEquals($expected_errors, $purchase->errors()->as_array());
+		}
+		else
+		{
+			$this->assertTrue($purchase->is_valid());
+		}
 	}
 
 	/**
@@ -64,8 +70,8 @@ class Model_Promotion_Promocode_GiftcardTest extends Testcase_Promotions {
 			->will($this->returnValue($monetary));
 
 		$promotion = Jam::build('promotion_promocode_giftcard', array(
-			'amount' => 20, 
-			'currency' => 'GBP'
+			'amount' => 20,
+			'currency' => 'GBP',
 		));
 
 		$expected_price = new Jam_Price(-20, 'GBP', $monetary);

@@ -1,5 +1,12 @@
-<?php
+<?php defined('SYSPATH') OR die('No direct script access.');
 
+/**
+ * @package    openbuildings\promotions
+ * @author     Ivan Kerin <ikerin@gmail.com>
+ * @author     Yasen Yanev <yasen@openbuildings.com>
+ * @copyright  (c) 2013 OpenBuildings Ltd.
+ * @license    http://spdx.org/licenses/BSD-3-Clause
+ */
 class Kohana_Model_Promotion_Promocode extends Model_Promotion {
 
 	/**
@@ -21,6 +28,14 @@ class Kohana_Model_Promotion_Promocode extends Model_Promotion {
 	public function applies_to(Model_Store_Purchase $store_purchase)
 	{
 		return $this->matches_store_purchase_promo_code($store_purchase);
+	}
+
+	/**
+	 * @codeCoverageIgnore
+	 */
+	public function validate_purchase(Model_Purchase $store_purchase)
+	{
+		// extend this to add custom validation for the purchase (or promocode)
 	}
 
 	public function matches_store_purchase_promo_code(Model_Store_Purchase $store_purchase)

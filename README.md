@@ -1,86 +1,55 @@
 # Promotions Module
 
-The promotions module gives the ability to attach promotions to specific purchase (depends on the purchases kohana module)
+[![Build Status](https://travis-ci.org/OpenBuildings/promotions.png?branch=master)](https://travis-ci.org/OpenBuildings/promotions)
+[![Coverage Status](https://coveralls.io/repos/OpenBuildings/promotions/badge.png?branch=master)](https://coveralls.io/r/OpenBuildings/promotions?branch=master)
+[![Latest Stable Version](https://poser.pugx.org/openbuildings/promotions/v/stable.png)](https://packagist.org/packages/openbuildings/promotions)
 
-It has support both for attaching promo codes and promotions to a purchase
+This module gives the ability to define promotions with a set of requirements that add themselves to purchases, based on these rules. Each promotion can have a static or dynamic/configurable amount.
 
-## Promotions
+Promotions can also have ontime or multiple time uses for promo_codes
 
-Each promotion is defined by the following fields:
-- __name__ - the name of the promotion
-_ __description__ - short description explaining the promotion
-- __type__ - the type of the promotion e.g free_shipping, discount. __Must__ be underscored word in order the callbacks to work
-- __requirement__ - requirement for the purchase so the promotion is valid
-- __value__ - percent or absolute value of the promotion. Depends from the __type__ field and your own implementation
-- __currency__ - optional
-- __requires_promo_code__ - specify whether the promotion needs an attached promo code or not
-- __created_at__ - creation date
-- __expires_at__ - date of expiry of the promotion
+## Usage
 
-
-### Adding a custom promotion
-
-By default promotions module comes with 2 promotion types:
-- promotion for orders above certain purchase price (min_purchase_price)
-- promotion with promo code attached to the purchase (discount)
-
-In order to add your own promotions, one must implement 2 specific methods in the Promotion model:
-
-- applies_to_{{promotion_type}} - the method is called when $purchase->update_promotions() is called. Must return boolean.
-- price_{{promotion_type}} - the method calculates the price of the specified promotion
-
-Example:
+Add a behavior to the purchase and store_purchase models:
 
 ```php
+class Model_Store_Purchase extends Kohana_Model_Store_Purchase {
 
-class Model_Test_Promotion extends Model_Promotion {
-
-	const TYPE_FREE_SHIPPING = 'free_shipping';
-
-	public function price_free_shipping(Model_Purchase_Item $purchase_item)
+	public static function initialize(Jam_Meta $meta)
 	{
-		// perform your custom price calculations for this promotion or return a fixed promotion value
-		return $this->value;
-	}
+		parent::initialize($meta);
 
-  /**
-   * Apply free shipping promotion for all purchases from Europe 
-   * above certain price (defined in the requirement field)
-   */
-	public function applies_to_free_shipping(Model_Purchase_Item $purchase_item)
-	{
-		if ($this->type == Model_Test_Promotion::TYPE_FREE_SHIPPING)
-		{
-			$purchase = $purchase_item->purchase_insist();
-			$country = $purchase->country;
-			$currency = ($purchase->currency === 'EUR') ? 'EUR' : 'GBP';
-
-			return ($country === 'Europe' AND $purchase->total_price('product') >= (float) $this->requirement AND $currency == $this->currency);
-		}
-		
-		return FALSE;
+		$meta
+			->behaviors(array(
+				'promotable_store_purchase' => Jam::behavior('promotable_store_purchase'),
+			));
 	}
 }
+// ...
+class Model_Purchase extends Kohana_Model_Purchase {
 
-```
-
-## Attaching promo codes
-
-Promo codes are attached to the purchase as a string field and the corresponding promo code object (if its valid) is attached to the purchase before validation. 
-
-Example:
-
-```php
-	$purchase->_promo_code = '2AXHG';
-	if ($purchase->check())
+	public static function initialize(Jam_Meta $meta)
 	{
-	   // we now have our promo code object attached to the purchase
-	   echo $purchase->promo_code->code; // outputs '2AXHG'
+		parent::initialize($meta);
+
+		$meta
+			->behaviors(array(
+				'promotable_purchase' => Jam::behavior('promotable_purchase'),
+			));
 	}
-```
+}
+```php
 
+And you'll need to add actual promotions to the database. The promtion modle uses single table inheritence to have a different class for each promotion. Each of these has to define "applies_to" and "price_for_purchase_item" which your promotions will have to implement. There is also the ``Model_Promotion_Promocode`` class which gives the promotion the ability to use promo codes which exhaust themselves when are used.
 
-If certain promotion or promo code expires it is automatically removed when calling the $purchase->update_promotions() method. Also when a purchase covers the requirements for specific promotion, it is automatically added. Only one promotion from specific type can be added to a purchase. 
+There are 2 availbale predefined promotions:
+
+* Model_Promotion_Promocode_Giftcard - to use it you'll need to enter requirement - the minimum price where the promotion applies, and amount - the amount (Jam_Price) to be reducted from the purchase
+* Model_Promotion_Promocode_Percent - get a static reduction of some percent (amount). Amount is a value from 0 to 1. 
+
+## promo_code_text
+
+The ``promotable_purchase`` behavior adds a promo_code_text field to the purchase (its not in the database). When you set a promocode to this field it would try to find it, and then run "validate_purchase" of the appropriate promotion, if found. If everything checks out, the promotion associated with this promocode will be added to the purchase.
 
 ## License
 

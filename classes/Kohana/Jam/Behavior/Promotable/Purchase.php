@@ -3,12 +3,10 @@
 /**
  *  Promotionable behavior
  * 
- * @package    promotions
- * @category   Behavior
- * @author     Yasen Yanev <yasen@openbuildings.com>
- * @author 		 Ivan Kerin <ivan@openbuildings.com>
- * @copyright  (c) 2011-2013 Despark Ltd.
- * @license    http://www.opensource.org/licenses/isc-license.txt
+ * @package    openbuildings\promotions
+ * @author     Ivan Kerin <ikerin@gmail.com>
+ * @copyright  (c) 2013 OpenBuildings Ltd.
+ * @license    http://spdx.org/licenses/BSD-3-Clause
  */
 class Kohana_Jam_Behavior_Promotable_Purchase extends Jam_Behavior {
 
@@ -27,6 +25,14 @@ class Kohana_Jam_Behavior_Promotable_Purchase extends Jam_Behavior {
 				'promo_code' => Jam::association('belongsto', array('inverse_of' => 'purchases')),
 			))
 			->validator('promo_code_text', array('promocode' => TRUE));
+	}
+
+	public function model_after_load(Model_Purchase $purchase)
+	{
+		if ($purchase->promo_code_id)
+		{
+			$purchase->retrieved('promo_code_text', $purchase->promo_code->code);
+		}
 	}
 
 	public function model_after_check(Model_Purchase $purchase)

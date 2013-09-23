@@ -66,17 +66,19 @@ class Jam_Validator_Rule_PromocodeTest extends Testcase_Promotions {
 	public function test_validate()
 	{
 		$purchase = Jam::find('purchase', 1);
-		$promo_code = Jam::find('promo_code', 1);
+		$purchase2 = Jam::find('purchase', 1);
+		$promo_code = $this->getMock('Model_Promo_Code', array('validate_purchase'), array('promo_code'));
+		$promo_code
+			->expects($this->once())
+			->method('validate_purchase')
+			->with($this->identicalTo($purchase2));
 
 		$validator_rule = $this->getMock('Jam_Validator_Rule_Promocode', array('valid_promo_code'), array(array()));
 		$validator_rule
-			->expects($this->exactly(3))
+			->expects($this->exactly(2))
 			->method('valid_promo_code')
 			->with($this->equalTo('PROMOCODE'), $this->isInstanceOf('Model_Purchase'))
-			->will($this->onConsecutiveCalls($promo_code, NULL, $promo_code));
-
-		$validator_rule->validate($purchase, 'promo_code', 'PROMOCODE');
-		$this->assertTrue($purchase->is_valid());
+			->will($this->onConsecutiveCalls(NULL, $promo_code));
 
 		$validator_rule->validate($purchase, 'promo_code', 'PROMOCODE');
 		$this->assertFalse($purchase->is_valid());
@@ -85,15 +87,7 @@ class Jam_Validator_Rule_PromocodeTest extends Testcase_Promotions {
 		$expected = array('promo_code_text' => array('invalid' => array()));
 		$this->assertEquals($expected, $errors);
 
-		$promo_code->origin = NULL;
-		$purchase = Jam::find('purchase', 1);
-
-		$validator_rule->validate($purchase, 'promo_code', 'PROMOCODE');
-		$this->assertFalse($purchase->is_valid());
-
-		$errors = $purchase->errors()->as_array();
-		$expected = array('promo_code_text' => array('requirement' => array(':error' => 'Origin must not be blank')));
-		$this->assertEquals($expected, $errors);
-
+		$validator_rule->validate($purchase2, 'promo_code', 'PROMOCODE');
+		$this->assertTrue($purchase2->is_valid());
 	}
 }

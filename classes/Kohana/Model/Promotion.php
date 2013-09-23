@@ -1,5 +1,14 @@
-<?php
+<?php defined('SYSPATH') OR die('No direct script access.');
 
+/**
+ * This is a base
+ * 
+ * @package    openbuildings\promotions
+ * @author     Ivan Kerin <ikerin@gmail.com>
+ * @author     Yasen Yanev <yasen@openbuildings.com>
+ * @copyright  (c) 2013 OpenBuildings Ltd.
+ * @license    http://spdx.org/licenses/BSD-3-Clause
+ */
 class Kohana_Model_Promotion extends Jam_Model implements Sellable {
 
 	/**
@@ -31,11 +40,17 @@ class Kohana_Model_Promotion extends Jam_Model implements Sellable {
 			->validator('currency', array('currency' => TRUE));
 	}
 
+	/**
+	 * @codeCoverageIgnore
+	 */
 	public function price_for_purchase_item(Model_Purchase_Item $purchase_item)
 	{
 		throw new Kohana_Exception('Not a valid promotion');
 	}
 
+	/**
+	 * @codeCoverageIgnore
+	 */
 	public function applies_to(Model_Store_Purchase $purchase)
 	{
 		throw new Kohana_Exception('Not a valid promotion');

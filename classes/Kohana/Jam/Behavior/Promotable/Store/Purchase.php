@@ -3,11 +3,10 @@
 /**
  *  Promotionable behavior
  * 
- * @package    promotions
- * @category   Behavior
- * @author 		 Ivan Kerin <ivan@openbuildings.com>
- * @copyright  (c) 2011-2013 Despark Ltd.
- * @license    http://www.opensource.org/licenses/isc-license.txt
+ * @package    openbuildings\promotions
+ * @author     Ivan Kerin <ikerin@gmail.com>
+ * @copyright  (c) 2013 OpenBuildings Ltd.
+ * @license    http://spdx.org/licenses/BSD-3-Clause
  */
 class Kohana_Jam_Behavior_Promotable_Store_Purchase extends Jam_Behavior {
 

@@ -1,5 +1,11 @@
-<?php
+<?php defined('SYSPATH') OR die('No direct script access.');
 
+/**
+ * @package    openbuildings\promotions
+ * @author     Ivan Kerin <ikerin@gmail.com>
+ * @copyright  (c) 2013 OpenBuildings Ltd.
+ * @license    http://spdx.org/licenses/BSD-3-Clause
+ */
 class Kohana_Model_Promotion_Promocode_Giftcard extends Model_Promotion_Promocode {
 
 	/**
@@ -18,14 +24,14 @@ class Kohana_Model_Promotion_Promocode_Giftcard extends Model_Promotion_Promocod
 			->validator('requirement', array('price' => array('greater_than_or_equal_to' => 0)));
 	}
 
-	public function applies_to(Model_Store_Purchase $store_purchase)
+	public function validate_purchase(Model_Purchase $purchase)
 	{
-		if ( ! $this->matches_store_purchase_promo_code($store_purchase)) 
-			return FALSE;
-		
-		$store_purchase_price = $store_purchase->total_price('product');
+		$purchase_price = $purchase->total_price('product');
 
-		return $store_purchase_price->is(Jam_Price::GREATER_THAN_OR_EQUAL_TO, $this->requirement);
+		if ($purchase_price->is(Jam_Price::LESS_THAN, $this->requirement))
+		{
+			$purchase->errors()->add('promo_code_text', 'requirement', array(':more_than' => $this->requirement->humanize()));
+		}
 	}
 
 	public function price_for_purchase_item(Model_Purchase_Item $purchase_item)
