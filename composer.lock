@@ -472,12 +472,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/purchases.git",
-                "reference": "732b17454b0a7a5ea85c0039ae7143c0c71cf8db"
+                "reference": "585f74a08a939127b4006dd9424e222a07244891"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/purchases/zipball/732b17454b0a7a5ea85c0039ae7143c0c71cf8db",
-                "reference": "732b17454b0a7a5ea85c0039ae7143c0c71cf8db",
+                "url": "https://api.github.com/repos/OpenBuildings/purchases/zipball/585f74a08a939127b4006dd9424e222a07244891",
+                "reference": "585f74a08a939127b4006dd9424e222a07244891",
                 "shasum": ""
             },
             "require": {
@@ -517,7 +517,7 @@
                 "purchase",
                 "store"
             ],
-            "time": "2013-09-22 09:25:42"
+            "time": "2013-09-24 12:20:07"
         },
         {
             "name": "paypal/rest-api-sdk-php",
@@ -747,12 +747,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/shipping.git",
-                "reference": "377416eca0c782ad3ff78d2c5902afac20ff7a7b"
+                "reference": "21bb7e1b6b025a04cc0c3bcbf935972a13a96dd9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/shipping/zipball/377416eca0c782ad3ff78d2c5902afac20ff7a7b",
-                "reference": "377416eca0c782ad3ff78d2c5902afac20ff7a7b",
+                "url": "https://api.github.com/repos/OpenBuildings/shipping/zipball/21bb7e1b6b025a04cc0c3bcbf935972a13a96dd9",
+                "reference": "21bb7e1b6b025a04cc0c3bcbf935972a13a96dd9",
                 "shasum": ""
             },
             "require": {
@@ -788,7 +788,7 @@
                 "purchase",
                 "shipping"
             ],
-            "time": "2013-09-21 12:13:15"
+            "time": "2013-09-24 11:05:20"
         }
     ],
     "aliases": [
