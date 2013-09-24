@@ -50,4 +50,26 @@ class Jam_Behavior_Promotable_Store_PurchaseTest extends Testcase_Promotions {
 
 		$behavior->update_promotion_items($store_purchase);
 	}
+
+
+	/**
+	 * @covers Jam_Behavior_Promotable_Store_Purchase::filter_promotion_items
+	 */
+	public function test_filter_promotion_items()
+	{
+		$promocode_giftcard = Jam::build('promotion_promocode_giftcard', array('id' => 20));
+		$promocode_percent = Jam::build('promotion_promocode_percent', array('id' => 21));
+
+		$store_purchase = Jam::find('store_purchase', 2);
+
+		$store_purchase->items->add(Jam::build('purchase_item', array('id' => 12, 'type' => 'promotion', 'reference' => $promocode_giftcard, 'is_discount' => TRUE, 'is_payable' => TRUE)));
+
+		$store_purchase->items->add(Jam::build('purchase_item', array('id' => 16, 'type' => 'promotion', 'reference' => $promocode_percent, 'is_discount' => TRUE, 'is_payable' => TRUE)));
+
+		$items = $store_purchase->items(array('promotion' => 'promocode_giftcard'));
+		$this->assertEquals(array(12), $this->ids($items));
+
+		$items = $store_purchase->items(array('promotion' => 'promocode_percent'));
+		$this->assertEquals(array(16), $this->ids($items));
+	}
 }

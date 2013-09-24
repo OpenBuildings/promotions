@@ -22,4 +22,9 @@ abstract class Testcase_Promotions extends PHPUnit_Framework_TestCase {
 		Database::instance()->rollback();	
 		parent::tearDown();
 	}
+
+	public function ids(array $items)
+	{
+		return array_values(array_map(function($item){ return $item->id(); }, $items));
+	}
 }

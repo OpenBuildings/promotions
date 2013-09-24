@@ -19,8 +19,32 @@ class Kohana_Jam_Behavior_Promotable_Store_Purchase extends Jam_Behavior {
 
 		$meta
 			->events()
+				->bind('model.filter_items', array($this, 'filter_promotion_items'))
 				->bind('model.update_items', array($this, 'update_promotion_items'));
 	}
+
+	public function filter_promotion_items(Model_Store_Purchase $store_purchase, Jam_Event_Data $data, array $items, array $filter)
+	{
+		$items = is_array($data->return) ? $data->return : $items;
+		$filtered = array();
+
+		foreach ($items as $item)
+		{
+			if (array_key_exists('promotion', $filter))
+			{
+				if ($item->type !== 'promotion') 
+					continue;
+
+				if ($item->get_insist('reference')->model != 'promotion_'.$filter['promotion'])
+					continue;
+			}
+
+			$filtered [] = $item;
+		}
+
+		$data->return = $filtered;
+	}
+	
 
 	public function update_promotion_items(Model_Store_Purchase $store_purchase)
 	{
