@@ -17,6 +17,7 @@ class Kohana_Model_Promotion extends Jam_Model implements Sellable {
 	public static function initialize(Jam_Meta $meta)
 	{
 		$meta
+			->name_key('identifier')
 			->table('promotions')
 			->associations(array(
 				'purchase_items' => Jam::association('hasmany', array(
@@ -26,6 +27,7 @@ class Kohana_Model_Promotion extends Jam_Model implements Sellable {
 			->fields(array(
 				'id' => Jam::field('primary'),
 				'name' => Jam::field('string'),
+				'identifier' => Jam::field('string'),
 				'description' => Jam::field('text'),
 				'model' => Jam::field('polymorphic'),
 				'created_at' => Jam::field('timestamp', array(
