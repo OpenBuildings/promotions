@@ -64,6 +64,7 @@ class Kohana_Model_Promotion extends Jam_Model implements Sellable {
 		return $this->purchase_items->build(array(
 			'type' => 'promotion',
 			'is_payable' => TRUE,
+			'is_discount' => TRUE,
 		));
 	}
 
