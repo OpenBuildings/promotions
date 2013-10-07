@@ -27,6 +27,7 @@ class Kohana_Model_Promotion extends Jam_Model implements Sellable {
 			->fields(array(
 				'id' => Jam::field('primary'),
 				'name' => Jam::field('string'),
+				'currency' => Jam::field('string'),
 				'identifier' => Jam::field('string'),
 				'description' => Jam::field('text'),
 				'model' => Jam::field('polymorphic'),
