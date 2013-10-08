@@ -71,5 +71,8 @@ class Jam_Behavior_Promotable_Store_PurchaseTest extends Testcase_Promotions {
 
 		$items = $store_purchase->items(array('promotion' => 'promocode_percent'));
 		$this->assertEquals(array(16), $this->ids($items));
+
+		$items = $store_purchase->items(array('promotion' => array('promocode_percent', 'promocode_giftcard')));
+		$this->assertEquals(array(12, 16), $this->ids($items));
 	}
 }

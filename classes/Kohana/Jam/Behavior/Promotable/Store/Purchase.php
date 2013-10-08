@@ -35,7 +35,11 @@ class Kohana_Jam_Behavior_Promotable_Store_Purchase extends Jam_Behavior {
 				if ($item->type !== 'promotion') 
 					continue;
 
-				if ($item->get_insist('reference')->model != 'promotion_'.$filter['promotion'])
+				$model_names = array_map(function($name) {
+					return 'promotion_'.$name;
+				}, (array) $filter['promotion']);
+
+				if ( ! in_array($item->get_insist('reference')->model, $model_names))
 					continue;
 			}
 
