@@ -76,7 +76,7 @@ class Kohana_Model_Promotion extends Jam_Model implements Sellable {
 	public function update_store_purchase(Model_Store_Purchase $store_purchase)
 	{
 		$promo_item = $this->build_purchase_item();
-		$item_offset = $store_purchase->find_same_item($promo_item);
+		$item_offset = $store_purchase->search_same_item($promo_item);
 
 		if ($this->applies_to($store_purchase)) 
 		{
