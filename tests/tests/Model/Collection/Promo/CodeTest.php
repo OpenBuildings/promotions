@@ -38,4 +38,16 @@ class Model_Collection_Promo_CodeTest extends Testcase_Promotions {
 
 		$this->assertEquals($expected_sql, $sql);
 	}
+
+	/**
+	 * @covers Model_Collection_Promo_Code::available
+	 */
+	public function test_available()
+	{
+		$sql = (string) Jam::all('promo_code')->available();
+
+		$expected_sql = "SELECT `promo_codes`.* FROM `promo_codes` LEFT JOIN `purchases` ON (`purchases`.`promo_code_id` = `promo_codes`.`id`) WHERE (`promo_codes`.`allow_multiple` = '1' OR `purchases`.`id` IS NULL)";
+
+		$this->assertEquals($expected_sql, $sql);
+	}
 }

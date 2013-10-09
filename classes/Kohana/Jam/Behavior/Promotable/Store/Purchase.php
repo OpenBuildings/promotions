@@ -32,7 +32,7 @@ class Kohana_Jam_Behavior_Promotable_Store_Purchase extends Jam_Behavior {
 		{
 			if (array_key_exists('promotion', $filter))
 			{
-				if ($item->type !== 'promotion') 
+				if ($item->type !== 'promotion')
 					continue;
 
 				$model_names = array_map(function($name) {

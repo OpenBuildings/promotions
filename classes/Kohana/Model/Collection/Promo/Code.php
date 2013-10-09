@@ -17,6 +17,16 @@ class Kohana_Model_Collection_Promo_Code extends Jam_Query_Builder_Collection {
 			->where_close();
 	}
 
+	public function available()
+	{
+		return $this
+			->join('purchases', 'LEFT')
+			->where_open()
+				->where('allow_multiple', '=', TRUE)
+				->or_where('purchase.id', '=', NULL)
+			->where_close();
+	}
+
 	public function available_for_purchase(Model_Purchase $purchase)
 	{
 		return $this

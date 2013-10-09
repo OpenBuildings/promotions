@@ -24,7 +24,7 @@ class Kohana_Jam_Behavior_Promotable_Purchase extends Jam_Behavior {
 			->associations(array(
 				'promo_code' => Jam::association('belongsto', array('inverse_of' => 'purchases')),
 			))
-			->validator('promo_code_text', array('promocode' => TRUE));
+			->validator('promo_code_text', array('purchase_promocode' => TRUE));
 	}
 
 	public function model_after_load(Model_Purchase $purchase)
