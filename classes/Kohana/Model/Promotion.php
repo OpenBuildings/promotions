@@ -17,7 +17,9 @@ class Kohana_Model_Promotion extends Jam_Model implements Sellable {
 	public static function initialize(Jam_Meta $meta)
 	{
 		$meta
-			->name_key('identifier')
+			->unique_key(function($key){
+				return is_numeric($key) ? 'id' : 'identifier';
+			})
 			->table('promotions')
 			->associations(array(
 				'purchase_items' => Jam::association('hasmany', array(
@@ -59,6 +61,10 @@ class Kohana_Model_Promotion extends Jam_Model implements Sellable {
 		throw new Kohana_Exception('Not a valid promotion');
 	}
 
+	/**
+	 * Build a purchase item for this promotion (inverseof "reference")
+	 * @return Model_Purchase_Item
+	 */
 	public function build_purchase_item()
 	{
 		return $this->purchase_items->build(array(
@@ -73,6 +79,10 @@ class Kohana_Model_Promotion extends Jam_Model implements Sellable {
 		return $this->currency;
 	}
 
+	/**
+	 * If the promotion applies to the store_purchase - add a purchase_item for this promotion, otherwise remove the associated purchase item
+	 * @param  Model_Store_Purchase $store_purchase 
+	 */
 	public function update_store_purchase(Model_Store_Purchase $store_purchase)
 	{
 		$promo_item = $this->build_purchase_item();

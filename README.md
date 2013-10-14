@@ -38,7 +38,7 @@ class Model_Purchase extends Kohana_Model_Purchase {
 			));
 	}
 }
-```php
+```
 
 And you'll need to add actual promotions to the database. The promtion modle uses single table inheritence to have a different class for each promotion. Each of these has to define "applies_to" and "price_for_purchase_item" which your promotions will have to implement. There is also the ``Model_Promotion_Promocode`` class which gives the promotion the ability to use promo codes which exhaust themselves when are used.
 
