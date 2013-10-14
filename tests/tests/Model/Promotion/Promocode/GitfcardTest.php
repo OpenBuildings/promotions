@@ -74,7 +74,7 @@ class Model_Promotion_Promocode_GiftcardTest extends Testcase_Promotions {
 			'currency' => 'GBP',
 		));
 
-		$expected_price = new Jam_Price(-20, 'GBP', $monetary);
+		$expected_price = new Jam_Price(-20, 'GBP', $monetary, 'GBP');
 
 		$this->assertEquals($expected_price, $promotion->price_for_purchase_item($purchase_item));
 	}
