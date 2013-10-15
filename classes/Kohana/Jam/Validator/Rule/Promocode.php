@@ -1,7 +1,7 @@
 <?php defined('SYSPATH') OR die('No direct script access.');
 
 /**
- * Jam Validatior Rule
+ * Validate for available and not expired promo_code_text
  *
  * @package    openbuildings\promotions
  * @author     Ivan Kerin <ikerin@gmail.com>

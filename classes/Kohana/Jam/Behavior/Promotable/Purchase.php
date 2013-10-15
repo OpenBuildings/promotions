@@ -1,7 +1,10 @@
 <?php defined('SYSPATH') OR die('No direct access allowed.');
 
 /**
- *  Promotionable behavior
+ * Add promo_code assocition and promo_code_text field with associated validation
+ *
+ * When you assign promo_code_text then it tries to find the appropriate promo_code and assign it.
+ * When you assign promo_code object, its code can be retrieved from promo_code_text (two way binding)
  * 
  * @package    openbuildings\promotions
  * @author     Ivan Kerin <ikerin@gmail.com>
@@ -27,6 +30,10 @@ class Kohana_Jam_Behavior_Promotable_Purchase extends Jam_Behavior {
 			->validator('promo_code_text', array('purchase_promocode' => TRUE));
 	}
 
+	/**
+	 * If there is a promo_code object, load it into the promo_code_text
+	 * @param  Model_Purchase $purchase 
+	 */
 	public function model_after_load(Model_Purchase $purchase)
 	{
 		if ($purchase->promo_code_id)
@@ -35,6 +42,11 @@ class Kohana_Jam_Behavior_Promotable_Purchase extends Jam_Behavior {
 		}
 	}
 
+	/**
+	 * If there is a new value in promo_code_text, try to load promo_code object.
+	 * If the new value is NULL, remove it
+	 * @param  Model_Purchase $purchase 
+	 */
 	public function model_after_check(Model_Purchase $purchase)
 	{
 		if ($purchase->changed('promo_code_text') AND ! $purchase->errors('promo_code_text'))

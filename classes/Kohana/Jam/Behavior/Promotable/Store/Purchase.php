@@ -1,7 +1,7 @@
 <?php defined('SYSPATH') OR die('No direct access allowed.');
 
 /**
- *  Promotionable behavior
+ * This behavior adds filter_items and update_items events to work with promotions for Model_Store_Purchase
  * 
  * @package    openbuildings\promotions
  * @author     Ivan Kerin <ikerin@gmail.com>
@@ -23,6 +23,19 @@ class Kohana_Jam_Behavior_Promotable_Store_Purchase extends Jam_Behavior {
 				->bind('model.update_items', array($this, 'update_promotion_items'));
 	}
 
+	/**
+	 * Add a "promotion" filter:
+	 *
+	 * 	array('promotion' => 'promocode_giftcard') 
+	 *
+	 * This will return only items that are "promotion_promocode_giftcard" models. 
+	 * Can be an array too.
+	 * 
+	 * @param  Model_Store_Purchase $store_purchase 
+	 * @param  Jam_Event_Data       $data           
+	 * @param  array                $items          
+	 * @param  array                $filter         
+	 */
 	public function filter_promotion_items(Model_Store_Purchase $store_purchase, Jam_Event_Data $data, array $items, array $filter)
 	{
 		$items = is_array($data->return) ? $data->return : $items;
@@ -49,7 +62,11 @@ class Kohana_Jam_Behavior_Promotable_Store_Purchase extends Jam_Behavior {
 		$data->return = $filtered;
 	}
 	
-
+	/**
+	 * Iterate through available promotions and update its status on the store purchase (does it apply or not)
+	 * 
+	 * @param  Model_Store_Purchase $store_purchase 
+	 */
 	public function update_promotion_items(Model_Store_Purchase $store_purchase)
 	{
 		foreach ($this->available_promotions() as $promotion) 
@@ -58,6 +75,10 @@ class Kohana_Jam_Behavior_Promotable_Store_Purchase extends Jam_Behavior {
 		}
 	}
 
+	/**
+	 * Return available (non expired) promotions
+	 * @return Jam_Array_Model 
+	 */
 	public function available_promotions()
 	{
 		return Jam::all('promotion')->not_expired();
