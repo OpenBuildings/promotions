@@ -81,6 +81,6 @@ class Kohana_Jam_Behavior_Promotable_Store_Purchase extends Jam_Behavior {
 	 */
 	public function available_promotions()
 	{
-		return Jam::all('promotion')->not_expired();
+		return Jam::all('promotion')->not_expired()->order_by('priority', 'ASC');
 	}
 }

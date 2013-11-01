@@ -32,6 +32,7 @@ class Kohana_Model_Promotion extends Jam_Model implements Sellable {
 				'currency' => Jam::field('string'),
 				'identifier' => Jam::field('string'),
 				'description' => Jam::field('text'),
+				'priority' => Jam::field('integer', array('default' => 1)),
 				'model' => Jam::field('polymorphic'),
 				'created_at' => Jam::field('timestamp', array(
 					'format' => 'Y-m-d H:i:s',

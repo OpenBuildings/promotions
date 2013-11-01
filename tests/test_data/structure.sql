@@ -126,6 +126,7 @@ CREATE TABLE `promotions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `identifier` varchar(255) DEFAULT NULL,
+  `priority` int(11) DEFAULT 0,
   `model` varchar(100) DEFAULT NULL,
   `requirement` varchar(255) DEFAULT NULL,
   `amount` int(11) DEFAULT NULL,
