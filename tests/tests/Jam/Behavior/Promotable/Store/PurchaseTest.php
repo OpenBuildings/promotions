@@ -74,5 +74,47 @@ class Jam_Behavior_Promotable_Store_PurchaseTest extends Testcase_Promotions {
 
 		$items = $store_purchase->items(array('promotion' => array('promocode_percent', 'promocode_giftcard')));
 		$this->assertEquals(array(12, 16), $this->ids($items));
+
+		$items = $store_purchase->items(array('promotion', 'not_promotion' => 'promocode_giftcard'));
+		$this->assertEquals(array(16), $this->ids($items));
+	}
+
+	public function data_promotion_model_names()
+	{
+		return array(
+			array('promocode', array('promotion_promocode')),
+			array(array('promocode'), array('promotion_promocode')),
+			array(array('promocode', 'promocode_giftcard'), array('promotion_promocode', 'promotion_promocode_giftcard')),
+		);
+	}
+
+	/**
+	 * @dataProvider data_promotion_model_names
+	 * @covers Jam_Behavior_Promotable_Store_Purchase::promotion_model_names
+	 */
+	public function test_promotion_model_names($promotion, $expected)
+	{
+		$this->assertEquals($expected, Jam_Behavior_Promotable_Store_Purchase::promotion_model_names($promotion));
+	}
+
+	public function data_purchase_item_is_promotion()
+	{
+		return array(
+			array('product', array('promocode'), FALSE),
+			array('promotion', array('promocode'), FALSE),
+			array('promotion_promocode', array('promocode'), TRUE),
+			array('promotion_promocode', array('promocode_giftcard'), FALSE),
+		);
+	}
+
+	/**
+	 * @dataProvider data_purchase_item_is_promotion
+	 * @covers Jam_Behavior_Promotable_Store_Purchase::purchase_item_is_promotion
+	 */
+	public function test_purchase_item_is_promotion($reference_model, $promotion, $expected)
+	{
+		$item = Jam::build('purchase_item', array('reference_model' => $reference_model));
+
+		$this->assertEquals($expected, Jam_Behavior_Promotable_Store_Purchase::purchase_item_is_promotion($item, $promotion));
 	}
 }

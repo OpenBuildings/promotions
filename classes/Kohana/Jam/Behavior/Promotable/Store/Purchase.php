@@ -45,14 +45,13 @@ class Kohana_Jam_Behavior_Promotable_Store_Purchase extends Jam_Behavior {
 		{
 			if (array_key_exists('promotion', $filter))
 			{
-				if ($item->type !== 'promotion')
+				if ( ! Jam_Behavior_Promotable_Store_Purchase::purchase_item_is_promotion($item, $filter['promotion']))
 					continue;
+			}
 
-				$model_names = array_map(function($name) {
-					return 'promotion_'.$name;
-				}, (array) $filter['promotion']);
-
-				if ( ! in_array($item->get_insist('reference')->model, $model_names))
+			if (array_key_exists('not_promotion', $filter))
+			{
+				if (Jam_Behavior_Promotable_Store_Purchase::purchase_item_is_promotion($item, $filter['not_promotion']))
 					continue;
 			}
 
@@ -61,7 +60,32 @@ class Kohana_Jam_Behavior_Promotable_Store_Purchase extends Jam_Behavior {
 
 		$data->return = $filtered;
 	}
-	
+
+	/**
+	 * Convert promotion name to model names
+	 * @param  string|array $name 
+	 * @return array       
+	 */
+	public static function promotion_model_names($name)
+	{
+		return array_map(function($name) {
+			return 'promotion_'.$name;
+		}, (array) $name);
+	}
+
+	/**
+	 * Check if purchase item's reference is one of the given promotions
+	 * @param  Model_Purchase_Item $item      
+	 * @param  string|array              $promotion 
+	 * @return boolean                         
+	 */
+	public static function purchase_item_is_promotion(Model_Purchase_Item $item, $promotion)
+	{
+		$model_names = Jam_Behavior_Promotable_Store_Purchase::promotion_model_names($promotion);
+
+		return in_array($item->reference_model, $model_names);
+	}
+
 	/**
 	 * Iterate through available promotions and update its status on the store purchase (does it apply or not)
 	 * 
