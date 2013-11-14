@@ -20,7 +20,7 @@
 	"require": {
 		"php": ">=5.3.0",
 		"composer/installers": "*",
-		"openbuildings/purchases": ">=0.3.0,<0.4.1"
+		"openbuildings/purchases": "0.4.*"
 	},
 	"require-dev": {
 		"openbuildings/shipping": "0.3.*",
