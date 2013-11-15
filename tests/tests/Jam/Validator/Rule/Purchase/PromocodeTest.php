@@ -10,7 +10,7 @@
 class Jam_Validator_Rule_Purchase_PromocodeTest extends Testcase_Promotions {
 
 	/**
-	 * @covers Jam_Validator_Rule_Promocode::valid_promo_code
+	 * @covers Jam_Validator_Rule_Purchase_Promocode::valid_promo_code
 	 */
 	public function test_valid_promo_code()
 	{
@@ -61,7 +61,7 @@ class Jam_Validator_Rule_Purchase_PromocodeTest extends Testcase_Promotions {
 	}
 
 	/**
-	 * @covers Jam_Validator_Rule_Promocode::validate
+	 * @covers Jam_Validator_Rule_Purchase_Promocode::validate
 	 */
 	public function test_validate()
 	{

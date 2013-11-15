@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS `purchases`;
 CREATE TABLE `purchases` (
   `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `creator_id` INT(11) UNSIGNED NOT NULL,
-  `promo_code_id` INT(11) UNSIGNED NOT NULL,
+  `promo_code_id` INT(11) UNSIGNED DEFAULT NULL,
   `number` VARCHAR(40) NOT NULL,
   `promo_code_text` VARCHAR(40) NOT NULL,
   `currency` VARCHAR(3) NOT NULL,
@@ -69,7 +69,7 @@ CREATE TABLE `purchase_items` (
   `reference_model` VARCHAR(40) NULL,
   `price` DECIMAL(10,2) NULL,
   `quantity` INT(11) NULL,
-  `type` VARCHAR(255) NULL,
+  `model` VARCHAR(255) NULL,
   `is_payable` INT(1) UNSIGNED NOT NULL,
   `is_discount` INT(1) UNSIGNED NOT NULL,
   `is_deleted` INT(1) UNSIGNED NOT NULL,
@@ -184,11 +184,11 @@ VALUES
 # Dump of table purchase_items
 # ------------------------------------------------------------
 
-INSERT INTO `purchase_items` (`id`, `store_purchase_id`, `reference_id`, `reference_model`, `price`, `quantity`, `type`, `is_payable`, `is_discount`, `is_deleted`)
+INSERT INTO `purchase_items` (`id`, `store_purchase_id`, `reference_id`, `reference_model`, `price`, `quantity`, `model`, `is_payable`, `is_discount`, `is_deleted`)
 VALUES
-  (1,1,1,'product',200.00,1,'product',1,0,0),
-  (2,1,1,'variation',200.00,1,'product',1,0,0),
-  (3,2,1,'product',NULL,1,'product',1,0,0);
+  (1,1,1,'product',200.00,1,'purchase_item_product',1,0,0),
+  (2,1,1,'variation',200.00,1,'purchase_item_product',1,0,0),
+  (3,2,1,'product',NULL,1,'purchase_item_product',1,0,0);
 
 # Dump of table stores
 # ------------------------------------------------------------

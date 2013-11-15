@@ -62,7 +62,11 @@ class Model_Promotion_Promocode_GiftcardTest extends Testcase_Promotions {
 	{
 		$monetary = new Monetary(new Source_Static);
 
-		$purchase_item = $this->getMock('Model_Purchase_Item', array('monetary'), array('purchase_item'));
+		$purchase_item = $this->getMock('Model_Purchase_Item_Promotion', array(
+			'monetary'
+		), array(
+			'purchase_item_promotion'
+		));
 
 		$purchase_item
 			->expects($this->once())

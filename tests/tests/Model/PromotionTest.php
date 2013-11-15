@@ -32,7 +32,7 @@ class Model_PromotionTest extends Testcase_Promotions {
 	{
 		$promotion = Jam::build('promotion');
 
-		$promotion->price_for_purchase_item(Jam::build('purchase_item'));
+		$promotion->price_for_purchase_item(Jam::build('purchase_item_promotion'));
 	}
 
 	/**

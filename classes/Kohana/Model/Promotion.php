@@ -24,6 +24,7 @@ class Kohana_Model_Promotion extends Jam_Model implements Sellable {
 			->associations(array(
 				'purchase_items' => Jam::association('hasmany', array(
 					'as' => 'reference',
+					'foreign_model' => 'purchase_item_promotion',
 				))
 			))
 			->fields(array(
@@ -68,7 +69,7 @@ class Kohana_Model_Promotion extends Jam_Model implements Sellable {
 	 */
 	public function build_purchase_item()
 	{
-		return $this->purchase_items->build(array(
+		return $this->purchase_items []= Jam::build('purchase_item_promotion', array(
 			'type' => 'promotion',
 			'is_payable' => TRUE,
 			'is_discount' => TRUE,

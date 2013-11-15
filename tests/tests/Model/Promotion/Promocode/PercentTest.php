@@ -28,7 +28,7 @@ class Model_Promotion_Promocode_PercentTest extends Testcase_Promotions {
 			->with($this->equalTo('product'))
 			->will($this->returnValue($total_price));
 
-		$purchase_item = Jam::build('purchase_item', array('store_purchase' => $store_purchase));
+		$purchase_item = Jam::build('purchase_item_promotion', array('store_purchase' => $store_purchase));
 
 		$promotion = Jam::build('promotion_promocode_percent', array(
 			'amount' => 0.12, 

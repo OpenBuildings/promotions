@@ -62,9 +62,9 @@ class Jam_Behavior_Promotable_Store_PurchaseTest extends Testcase_Promotions {
 
 		$store_purchase = Jam::find('store_purchase', 2);
 
-		$store_purchase->items->add(Jam::build('purchase_item', array('id' => 12, 'type' => 'promotion', 'reference' => $promocode_giftcard, 'is_discount' => TRUE, 'is_payable' => TRUE)));
+		$store_purchase->items->add(Jam::build('purchase_item_promotion', array('id' => 12, 'reference' => $promocode_giftcard, 'is_discount' => TRUE, 'is_payable' => TRUE)));
 
-		$store_purchase->items->add(Jam::build('purchase_item', array('id' => 16, 'type' => 'promotion', 'reference' => $promocode_percent, 'is_discount' => TRUE, 'is_payable' => TRUE)));
+		$store_purchase->items->add(Jam::build('purchase_item_promotion', array('id' => 16, 'reference' => $promocode_percent, 'is_discount' => TRUE, 'is_payable' => TRUE)));
 
 		$items = $store_purchase->items(array('promotion' => 'promocode_giftcard'));
 		$this->assertEquals(array(12), $this->ids($items));
@@ -113,7 +113,7 @@ class Jam_Behavior_Promotable_Store_PurchaseTest extends Testcase_Promotions {
 	 */
 	public function test_purchase_item_is_promotion($reference_model, $promotion, $expected)
 	{
-		$item = Jam::build('purchase_item', array('reference_model' => $reference_model));
+		$item = Jam::build('purchase_item_promotion', array('reference_model' => $reference_model));
 
 		$this->assertEquals($expected, Jam_Behavior_Promotable_Store_Purchase::purchase_item_is_promotion($item, $promotion));
 	}

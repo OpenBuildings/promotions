@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "d3ecb76ce1968a25e51b20fe39ad4db4",
+    "hash": "70223e3b78d40fbd5ada98f2340133bf",
     "packages": [
         {
             "name": "composer/installers",
@@ -412,16 +412,16 @@
         },
         {
             "name": "openbuildings/jam-freezable",
-            "version": "0.1.0",
+            "version": "0.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/jam-freezable.git",
-                "reference": "2ebfbbde386f30b27f6fb65d0ef96621edaf6382"
+                "reference": "4c1b614affc62b210d98f754f918c4c93a687a7f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/jam-freezable/zipball/2ebfbbde386f30b27f6fb65d0ef96621edaf6382",
-                "reference": "2ebfbbde386f30b27f6fb65d0ef96621edaf6382",
+                "url": "https://api.github.com/repos/OpenBuildings/jam-freezable/zipball/4c1b614affc62b210d98f754f918c4c93a687a7f",
+                "reference": "4c1b614affc62b210d98f754f918c4c93a687a7f",
                 "shasum": ""
             },
             "require": {
@@ -451,7 +451,7 @@
                 "freezing",
                 "jam"
             ],
-            "time": "2013-11-13 12:14:29"
+            "time": "2013-11-14 07:50:05"
         },
         {
             "name": "openbuildings/jam-locations",
@@ -615,16 +615,16 @@
         },
         {
             "name": "openbuildings/purchases",
-            "version": "0.4.0",
+            "version": "0.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/purchases.git",
-                "reference": "8bec9961f644424509c7bb39768bc0342fd8f32c"
+                "reference": "b99d0a8eaee204dc70401f97b6ceff779e1a4e1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/purchases/zipball/8bec9961f644424509c7bb39768bc0342fd8f32c",
-                "reference": "8bec9961f644424509c7bb39768bc0342fd8f32c",
+                "url": "https://api.github.com/repos/OpenBuildings/purchases/zipball/b99d0a8eaee204dc70401f97b6ceff779e1a4e1e",
+                "reference": "b99d0a8eaee204dc70401f97b6ceff779e1a4e1e",
                 "shasum": ""
             },
             "require": {
@@ -680,7 +680,7 @@
                 "purchase",
                 "store"
             ],
-            "time": "2013-11-13 14:48:12"
+            "time": "2013-11-14 18:38:53"
         },
         {
             "name": "rackspace/php-opencloud",
@@ -767,21 +767,21 @@
         },
         {
             "name": "openbuildings/shipping",
-            "version": "0.3.18",
+            "version": "0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/shipping.git",
-                "reference": "cc9c39727be78e95d049ee2e79d85b528a9ef2c6"
+                "reference": "92f10b5bd58d88cc17a7f78cdb0029f7d03ad6fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/shipping/zipball/cc9c39727be78e95d049ee2e79d85b528a9ef2c6",
-                "reference": "cc9c39727be78e95d049ee2e79d85b528a9ef2c6",
+                "url": "https://api.github.com/repos/OpenBuildings/shipping/zipball/92f10b5bd58d88cc17a7f78cdb0029f7d03ad6fa",
+                "reference": "92f10b5bd58d88cc17a7f78cdb0029f7d03ad6fa",
                 "shasum": ""
             },
             "require": {
                 "composer/installers": "*",
-                "openbuildings/purchases": ">=0.3.0,<0.4.1",
+                "openbuildings/purchases": "0.5.*",
                 "php": ">=5.3.0"
             },
             "require-dev": {
@@ -811,7 +811,7 @@
                 "purchase",
                 "shipping"
             ],
-            "time": "2013-11-13 16:01:06"
+            "time": "2013-11-15 00:25:25"
         }
     ],
     "aliases": [
