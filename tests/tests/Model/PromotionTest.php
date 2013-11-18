@@ -57,7 +57,7 @@ class Model_PromotionTest extends Testcase_Promotions {
 		$purchase_item = $promotion->build_purchase_item();
 
 		$this->assertSame($promotion, $purchase_item->reference);
-		$this->assertEquals('promotion', $purchase_item->type);
+		$this->assertEquals('promotion', $purchase_item->type());
 		$this->assertTrue($purchase_item->is_payable);
 	}
 
