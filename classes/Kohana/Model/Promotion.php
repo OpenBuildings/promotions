@@ -69,11 +69,7 @@ class Kohana_Model_Promotion extends Jam_Model implements Sellable {
 	 */
 	public function build_purchase_item()
 	{
-		return $this->purchase_items []= Jam::build('purchase_item_promotion', array(
-			'type' => 'promotion',
-			'is_payable' => TRUE,
-			'is_discount' => TRUE,
-		));
+		return $this->purchase_items []= Jam::build('purchase_item_promotion');
 	}
 
 	public function currency()
