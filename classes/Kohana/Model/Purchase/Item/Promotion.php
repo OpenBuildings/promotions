@@ -15,7 +15,16 @@ class Kohana_Model_Purchase_Item_Promotion extends Model_Purchase_Item {
 	{
 		parent::initialize($meta);
 
-		$meta->table('purchase_items');
+		$meta
+			->table('purchase_items')
+			->fields(array(
+				'is_payable' => Jam::field('boolean', array(
+					'default' => TRUE
+				)),
+				'is_discount' => Jam::field('boolean', array(
+					'default' => TRUE
+				)),
+			));
 	}
 
 	public function get_price()

@@ -13,6 +13,8 @@ class Model_Purchase_Item_PromotionTest extends Testcase_Promotions {
 	{
 		$meta = Jam::meta('purchase_item_promotion');
 		$this->assertSame('purchase_items', $meta->table());
+		$this->assertTrue($meta->field('is_payable')->default);
+		$this->assertTrue($meta->field('is_discount')->default);
 	}
 
 	/**
