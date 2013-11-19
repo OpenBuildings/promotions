@@ -63,7 +63,11 @@ class Model_PromotionTest extends Testcase_Promotions {
 
 	public function test_update_store_purchase()
 	{
-		$store_purchase = $this->getMock('Model_Store_Purchase', array('search_same_item'), array('store_purchase'));
+		$store_purchase = $this->getMock('Model_Store_Purchase', array(
+			'search_same_item'
+		), array(
+			'store_purchase'
+		));
 
 		$store_purchase
 			->expects($this->exactly(4))
@@ -71,11 +75,15 @@ class Model_PromotionTest extends Testcase_Promotions {
 			->will($this->onConsecutiveCalls(0, NULL, 1, NULL));
 
 		$store_purchase->items = array(
-			array('id' => 10, 'type' => 'product'),
-			array('id' => 15, 'type' => 'product'),
+			array('id' => 10, 'model' => 'product'),
+			array('id' => 15, 'model' => 'product'),
 		);
 
-		$promotion = $this->getMock('Model_Promotion', array('applies_to'), array('promotion'));
+		$promotion = $this->getMock('Model_Promotion', array(
+			'applies_to'
+		), array(
+			'promotion'
+		));
 
 		$promotion
 			->expects($this->exactly(4))
