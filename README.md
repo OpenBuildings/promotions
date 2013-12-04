@@ -1,7 +1,8 @@
 # Promotions Module
 
 [![Build Status](https://travis-ci.org/OpenBuildings/promotions.png?branch=master)](https://travis-ci.org/OpenBuildings/promotions)
-[![Coverage Status](https://coveralls.io/repos/OpenBuildings/promotions/badge.png?branch=master)](https://coveralls.io/r/OpenBuildings/promotions?branch=master)
+[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/OpenBuildings/promotions/badges/quality-score.png?s=20baff344016491bae5310cc596b38dd6fa2ba9d)](https://scrutinizer-ci.com/g/OpenBuildings/promotions/)
+[![Code Coverage](https://scrutinizer-ci.com/g/OpenBuildings/promotions/badges/coverage.png?s=bf16bf4b210ad6aec38ef536039ba7a72d4c1871)](https://scrutinizer-ci.com/g/OpenBuildings/promotions/)
 [![Latest Stable Version](https://poser.pugx.org/openbuildings/promotions/v/stable.png)](https://packagist.org/packages/openbuildings/promotions)
 
 This module gives the ability to define promotions with a set of requirements that add themselves to purchases, based on these rules. Each promotion can have a static or dynamic/configurable amount.
