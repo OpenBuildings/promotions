@@ -69,7 +69,7 @@ class Kohana_Model_Promotion extends Jam_Model implements Sellable {
 	 */
 	public function build_purchase_item()
 	{
-		return $this->purchase_items []= Jam::build('purchase_item_promotion');
+		return $this->purchase_items->build(array('model' => 'purchase_item_promotion'));
 	}
 
 	public function currency()
@@ -79,20 +79,22 @@ class Kohana_Model_Promotion extends Jam_Model implements Sellable {
 
 	/**
 	 * If the promotion applies to the store_purchase - add a purchase_item for this promotion, otherwise remove the associated purchase item
-	 * @param  Model_Store_Purchase $store_purchase 
+	 * @param  Model_Store_Purchase $store_purchase
 	 */
 	public function update_store_purchase(Model_Store_Purchase $store_purchase)
 	{
+		$items = $store_purchase->items->as_array();
 		$promo_item = $this->build_purchase_item();
-		$item_offset = $store_purchase->search_same_item($promo_item);
 
-		if ($this->applies_to($store_purchase)) 
+		$items = array_filter($items, function($item) use ($promo_item) {
+			return ! $item->is_same($promo_item);
+		});
+
+		if ($this->applies_to($store_purchase))
 		{
-			$store_purchase->items[$item_offset] = $promo_item;
+			$items []= $promo_item;
 		}
-		elseif ($item_offset !== NULL)
-		{
-			unset($store_purchase->items[$item_offset]);
-		}
+
+		$store_purchase->items = $items;
 	}
 }
