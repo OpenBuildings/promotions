@@ -34,12 +34,22 @@ class Jam_Behavior_Promotable_Store_PurchaseTest extends Testcase_Promotions {
 	{
 		$store_purchase = Jam::build('store_purchase');
 
-		$promotion = $this->getMock('Model_Promotion', array('update_store_purchase'), array('promotion'));
+		$promotion = $this->getMock('Model_Promotion', array('update_store_purchase_items', 'applies_to'), array('promotion'));
+
+		$promotion
+			->expects($this->at(1))
+			->method('update_store_purchase_items')
+			->with($this->equalTo(TRUE), $this->equalTo(array()));
+
+		$promotion
+			->expects($this->at(3))
+			->method('update_store_purchase_items')
+			->with($this->equalTo(FALSE), $this->equalTo(array()));
 
 		$promotion
 			->expects($this->exactly(2))
-			->method('update_store_purchase')
-			->with($this->identicalTo($store_purchase));
+			->method('applies_to')
+			->will($this->onConsecutiveCalls(TRUE, FALSE));
 
 		$behavior = $this->getMock('Jam_Behavior_Promotable_Store_Purchase', array('available_promotions'));
 

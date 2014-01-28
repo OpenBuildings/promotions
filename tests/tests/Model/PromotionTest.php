@@ -74,40 +74,31 @@ class Model_PromotionTest extends Testcase_Promotions {
 			array('id' => 15, 'model' => 'purchase_item_product'),
 		);
 
-		$promotion = $this->getMock('Model_Promotion', array(
-			'applies_to'
-		), array(
-			'promotion'
-		));
+		$promotion = Jam::build('promotion')->load_fields(array('id' => 10));
 
-		$promotion->load_fields(array('id' => 10));
-
-		$promotion
-			->expects($this->exactly(4))
-			->method('applies_to')
-			->will($this->onConsecutiveCalls(TRUE, TRUE, FALSE, FALSE));
+		$items = $store_purchase->items->as_array();
 
 		// applies_to = TRUE, offset = 0
-		$promotion->update_store_purchase($store_purchase);
+		$promotion->update_store_purchase_items(TRUE, $items);
 
-		$this->assertCount(3, $store_purchase->items);
-		$this->assertSame($promotion, $store_purchase->items[2]->reference);
+		$this->assertCount(3, $items);
+		$this->assertSame($promotion, $items[2]->reference);
 
 		// applies_to = TRUE, offset = NULL
-		$promotion->update_store_purchase($store_purchase);
+		$promotion->update_store_purchase_items(TRUE, $items);
 
-		$this->assertCount(3, $store_purchase->items);
-		$this->assertSame($promotion, $store_purchase->items[2]->reference);
+		$this->assertCount(3, $items);
+		$this->assertSame($promotion, $items[2]->reference);
 
 		// applies_to = FALSE, offset = 1
-		$promotion->update_store_purchase($store_purchase);
+		$promotion->update_store_purchase_items(FALSE, $items);
 
-		$this->assertCount(2, $store_purchase->items);
-		$this->assertNull($store_purchase->items[2]);
+		$this->assertCount(2, $items);
+		$this->assertFalse(isset($items[2]));
 
 		// applies_to = FALSE, offset = NULL
-		$promotion->update_store_purchase($store_purchase);
+		$promotion->update_store_purchase_items(FALSE, $items);
 
-		$this->assertCount(2, $store_purchase->items);
+		$this->assertCount(2, $items);
 	}
 }

@@ -2,7 +2,7 @@
 
 /**
  * This behavior adds filter_items and update_items events to work with promotions for Model_Store_Purchase
- * 
+ *
  * @package    openbuildings\promotions
  * @author     Ivan Kerin <ikerin@gmail.com>
  * @copyright  (c) 2013 OpenBuildings Ltd.
@@ -13,7 +13,7 @@ class Kohana_Jam_Behavior_Promotable_Store_Purchase extends Jam_Behavior {
 	/**
 	 * @codeCoverageIgnore
 	 */
-	public function initialize(Jam_Meta $meta, $name) 
+	public function initialize(Jam_Meta $meta, $name)
 	{
 		parent::initialize($meta, $name);
 
@@ -26,15 +26,15 @@ class Kohana_Jam_Behavior_Promotable_Store_Purchase extends Jam_Behavior {
 	/**
 	 * Add a "promotion" filter:
 	 *
-	 * 	array('promotion' => 'promocode_giftcard') 
+	 * 	array('promotion' => 'promocode_giftcard')
 	 *
-	 * This will return only items that are "promotion_promocode_giftcard" models. 
+	 * This will return only items that are "promotion_promocode_giftcard" models.
 	 * Can be an array too.
-	 * 
-	 * @param  Model_Store_Purchase $store_purchase 
-	 * @param  Jam_Event_Data       $data           
-	 * @param  array                $items          
-	 * @param  array                $filter         
+	 *
+	 * @param  Model_Store_Purchase $store_purchase
+	 * @param  Jam_Event_Data       $data
+	 * @param  array                $items
+	 * @param  array                $filter
 	 */
 	public function filter_promotion_items(Model_Store_Purchase $store_purchase, Jam_Event_Data $data, array $items, array $filter)
 	{
@@ -63,8 +63,8 @@ class Kohana_Jam_Behavior_Promotable_Store_Purchase extends Jam_Behavior {
 
 	/**
 	 * Convert promotion name to model names
-	 * @param  string|array $name 
-	 * @return array       
+	 * @param  string|array $name
+	 * @return array
 	 */
 	public static function promotion_model_names($name)
 	{
@@ -75,9 +75,9 @@ class Kohana_Jam_Behavior_Promotable_Store_Purchase extends Jam_Behavior {
 
 	/**
 	 * Check if purchase item's reference is one of the given promotions
-	 * @param  Model_Purchase_Item $item      
-	 * @param  string|array              $promotion 
-	 * @return boolean                         
+	 * @param  Model_Purchase_Item $item
+	 * @param  string|array              $promotion
+	 * @return boolean
 	 */
 	public static function purchase_item_is_promotion(Model_Purchase_Item $item, $promotion)
 	{
@@ -88,20 +88,22 @@ class Kohana_Jam_Behavior_Promotable_Store_Purchase extends Jam_Behavior {
 
 	/**
 	 * Iterate through available promotions and update its status on the store purchase (does it apply or not)
-	 * 
-	 * @param  Model_Store_Purchase $store_purchase 
+	 *
+	 * @param  Model_Store_Purchase $store_purchase
 	 */
 	public function update_promotion_items(Model_Store_Purchase $store_purchase)
 	{
-		foreach ($this->available_promotions() as $promotion) 
+		$items = $store_purchase->items->as_array();
+		foreach ($this->available_promotions() as $promotion)
 		{
-			$promotion->update_store_purchase($store_purchase);
+			$promotion->update_store_purchase_items($promotion->applies_to($store_purchase), $items);
 		}
+		$store_purchase->items = $items;
 	}
 
 	/**
 	 * Return available (non expired) promotions
-	 * @return Jam_Array_Model 
+	 * @return Jam_Array_Model
 	 */
 	public function available_promotions()
 	{

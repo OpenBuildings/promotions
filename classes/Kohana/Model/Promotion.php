@@ -81,20 +81,17 @@ class Kohana_Model_Promotion extends Jam_Model implements Sellable {
 	 * If the promotion applies to the store_purchase - add a purchase_item for this promotion, otherwise remove the associated purchase item
 	 * @param  Model_Store_Purchase $store_purchase
 	 */
-	public function update_store_purchase(Model_Store_Purchase $store_purchase)
+	public function update_store_purchase_items($applies, & $items)
 	{
-		$items = $store_purchase->items->as_array();
-		$promo_item = $this->build_purchase_item();
+		$promo_item = Jam::build('purchase_item_promotion', array('reference' => $this));
 
 		$items = array_filter($items, function($item) use ($promo_item) {
 			return ! $item->is_same($promo_item);
 		});
 
-		if ($this->applies_to($store_purchase))
+		if ($applies)
 		{
 			$items []= $promo_item;
 		}
-
-		$store_purchase->items = $items;
 	}
 }
