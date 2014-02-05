@@ -25,6 +25,9 @@ class Kohana_Model_Promotion extends Jam_Model implements Sellable {
 				'purchase_items' => Jam::association('hasmany', array(
 					'as' => 'reference',
 					'foreign_model' => 'purchase_item_promotion',
+				)),
+				'promo_codes' => Jam::association('hasmany', array(
+					'inverse_of' => 'promotion',
 				))
 			))
 			->fields(array(
@@ -75,6 +78,11 @@ class Kohana_Model_Promotion extends Jam_Model implements Sellable {
 	public function currency()
 	{
 		return $this->currency;
+	}
+
+	public function is_expired()
+	{
+		return ($this->expires_at !== NULL AND strtotime($this->expires_at) < time());
 	}
 
 	/**
