@@ -7,16 +7,16 @@
     "packages": [
         {
             "name": "composer/installers",
-            "version": "v1.0.6",
+            "version": "v1.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "b3bd071ea114a57212c75aa6a2eef5cfe0cc798f"
+                "reference": "35a07647186a910b725fca9290b13ca2e265491a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/b3bd071ea114a57212c75aa6a2eef5cfe0cc798f",
-                "reference": "b3bd071ea114a57212c75aa6a2eef5cfe0cc798f",
+                "url": "https://api.github.com/repos/composer/installers/zipball/35a07647186a910b725fca9290b13ca2e265491a",
+                "reference": "35a07647186a910b725fca9290b13ca2e265491a",
                 "shasum": ""
             },
             "replace": {
@@ -46,37 +46,47 @@
                 {
                     "name": "Kyle Robinson Young",
                     "email": "kyle@dontkry.com",
-                    "homepage": "http://dontkry.com",
+                    "homepage": "https://github.com/shama",
                     "role": "Developer"
                 }
             ],
             "description": "A multi-framework Composer library installer",
             "homepage": "http://composer.github.com/installers/",
             "keywords": [
-                "TYPO3 CMS",
-                "TYPO3 Flow",
-                "TYPO3 Neos",
+                "Craft",
+                "Hurad",
+                "MODX Evo",
+                "OXID",
                 "agl",
+                "annotatecms",
                 "cakephp",
                 "codeigniter",
+                "concrete5",
+                "croogo",
                 "drupal",
+                "elgg",
                 "fuelphp",
                 "installer",
                 "joomla",
                 "kohana",
                 "laravel",
-                "li3",
                 "lithium",
+                "magento",
                 "mako",
+                "mediawiki",
                 "modulework",
                 "phpbb",
+                "piwik",
                 "ppi",
+                "shopware",
                 "silverstripe",
                 "symfony",
+                "typo3",
                 "wordpress",
-                "zend"
+                "zend",
+                "zikula"
             ],
-            "time": "2013-08-20 04:37:09"
+            "time": "2014-01-31 16:53:31"
         },
         {
             "name": "desarrolla2/cache",
@@ -131,22 +141,25 @@
         },
         {
             "name": "facebook/php-sdk",
-            "version": "v3.2.2",
+            "version": "v3.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facebook/facebook-php-sdk.git",
-                "reference": "bf99924386be074da30a8e9d6bbcb49d3333da12"
+                "reference": "6714042fa2f5979d4c64c7d11fb4bcab16bdf6cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facebook/facebook-php-sdk/zipball/bf99924386be074da30a8e9d6bbcb49d3333da12",
-                "reference": "bf99924386be074da30a8e9d6bbcb49d3333da12",
+                "url": "https://api.github.com/repos/facebook/facebook-php-sdk/zipball/6714042fa2f5979d4c64c7d11fb4bcab16bdf6cb",
+                "reference": "6714042fa2f5979d4c64c7d11fb4bcab16bdf6cb",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
                 "ext-json": "*",
                 "php": ">=5.2.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
             },
             "type": "library",
             "autoload": {
@@ -170,7 +183,7 @@
                 "facebook",
                 "sdk"
             ],
-            "time": "2013-01-15 21:37:15"
+            "time": "2013-11-19 23:11:14"
         },
         {
             "name": "openbuildings/emp",
@@ -264,16 +277,16 @@
         },
         {
             "name": "openbuildings/jam",
-            "version": "0.4.35",
+            "version": "0.4.45",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/jam.git",
-                "reference": "cda804e6c92afbc512b084d087401abaa1b3b990"
+                "reference": "a91cddb899c1188a82cbd91384ed0f8eee42ff58"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/jam/zipball/cda804e6c92afbc512b084d087401abaa1b3b990",
-                "reference": "cda804e6c92afbc512b084d087401abaa1b3b990",
+                "url": "https://api.github.com/repos/OpenBuildings/jam/zipball/a91cddb899c1188a82cbd91384ed0f8eee42ff58",
+                "reference": "a91cddb899c1188a82cbd91384ed0f8eee42ff58",
                 "shasum": ""
             },
             "require": {
@@ -313,7 +326,7 @@
                 "upload",
                 "validation"
             ],
-            "time": "2013-11-13 10:06:23"
+            "time": "2014-01-30 15:05:19"
         },
         {
             "name": "openbuildings/jam-auth",
@@ -503,16 +516,16 @@
         },
         {
             "name": "openbuildings/jam-monetary",
-            "version": "0.1.16",
+            "version": "0.1.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/jam-monetary.git",
-                "reference": "190dfe42d280ed089c4cc4cb357394e1d59e0329"
+                "reference": "170df0dbfe292ad1db598473dbb061857f5a800b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/jam-monetary/zipball/190dfe42d280ed089c4cc4cb357394e1d59e0329",
-                "reference": "190dfe42d280ed089c4cc4cb357394e1d59e0329",
+                "url": "https://api.github.com/repos/OpenBuildings/jam-monetary/zipball/170df0dbfe292ad1db598473dbb061857f5a800b",
+                "reference": "170df0dbfe292ad1db598473dbb061857f5a800b",
                 "shasum": ""
             },
             "require": {
@@ -547,7 +560,7 @@
                 "money",
                 "price"
             ],
-            "time": "2013-10-29 16:40:22"
+            "time": "2014-01-06 15:00:53"
         },
         {
             "name": "openbuildings/monetary",
@@ -615,22 +628,22 @@
         },
         {
             "name": "openbuildings/purchases",
-            "version": "0.5.0",
+            "version": "0.5.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/purchases.git",
-                "reference": "b99d0a8eaee204dc70401f97b6ceff779e1a4e1e"
+                "reference": "f7ca5ff8686b984b4efed7e018da40f55c400037"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/purchases/zipball/b99d0a8eaee204dc70401f97b6ceff779e1a4e1e",
-                "reference": "b99d0a8eaee204dc70401f97b6ceff779e1a4e1e",
+                "url": "https://api.github.com/repos/OpenBuildings/purchases/zipball/f7ca5ff8686b984b4efed7e018da40f55c400037",
+                "reference": "f7ca5ff8686b984b4efed7e018da40f55c400037",
                 "shasum": ""
             },
             "require": {
                 "composer/installers": "*",
                 "openbuildings/emp": "0.1.*",
-                "openbuildings/jam": "0.4.*",
+                "openbuildings/jam": ">=0.4.35",
                 "openbuildings/jam-auth": "0.2.*",
                 "openbuildings/jam-freezable": "0.1.*",
                 "openbuildings/jam-locations": "0.1.*",
@@ -641,7 +654,7 @@
                 "claylo/selenium-server-standalone": "2.*",
                 "openbuildings/environment-backup": "0.1.*",
                 "openbuildings/kohana-test-bootsrap": "0.1.*",
-                "openbuildings/paypal": "0.3.*",
+                "openbuildings/paypal": "0.4.*",
                 "openbuildings/phpunit-spiderling": "0.1.*",
                 "paypal/rest-api-sdk-php": "0.7.*"
             },
@@ -680,7 +693,7 @@
                 "purchase",
                 "store"
             ],
-            "time": "2013-11-14 18:38:53"
+            "time": "2014-02-04 15:35:50"
         },
         {
             "name": "rackspace/php-opencloud",
@@ -767,16 +780,16 @@
         },
         {
             "name": "openbuildings/shipping",
-            "version": "0.4.0",
+            "version": "0.4.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/shipping.git",
-                "reference": "92f10b5bd58d88cc17a7f78cdb0029f7d03ad6fa"
+                "reference": "515c0e5c36af6594ba253349e841ea2d65ea461a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/shipping/zipball/92f10b5bd58d88cc17a7f78cdb0029f7d03ad6fa",
-                "reference": "92f10b5bd58d88cc17a7f78cdb0029f7d03ad6fa",
+                "url": "https://api.github.com/repos/OpenBuildings/shipping/zipball/515c0e5c36af6594ba253349e841ea2d65ea461a",
+                "reference": "515c0e5c36af6594ba253349e841ea2d65ea461a",
                 "shasum": ""
             },
             "require": {
@@ -811,7 +824,7 @@
                 "purchase",
                 "shipping"
             ],
-            "time": "2013-11-15 00:25:25"
+            "time": "2014-02-04 16:20:00"
         }
     ],
     "aliases": [
