@@ -47,6 +47,27 @@ class Model_PromotionTest extends Testcase_Promotions {
 		$promotion->applies_to(Jam::build('store_purchase'));
 	}
 
+	public function data_is_expired()
+	{
+		return array(
+			array(NULL, FALSE),
+			array('-1 day', TRUE),
+			array('+1 day', FALSE),
+		);
+	}
+
+	/**
+	 * @covers Model_Promotion::is_expired
+	 * @dataProvider data_is_expired
+	 */
+	public function test_is_expired($expires_at, $expected)
+	{
+		$promotion = Jam::build('promotion', array('expires_at' => $expires_at));
+
+		$this->assertEquals($expected, $promotion->is_expired());
+	}
+
+
 	/**
 	 * @covers Model_Promotion::build_purchase_item
 	 */
