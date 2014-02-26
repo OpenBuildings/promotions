@@ -36,8 +36,10 @@ class Kohana_Model_Promotion_Promocode_Giftcard extends Model_Promotion_Promocod
 
 	public function price_for_purchase_item(Model_Purchase_Item $purchase_item)
 	{
+		$store_purchases_count = $purchase_item->store_purchase->purchase->store_purchases->count();
+
 		return $this->amount
 			->monetary($purchase_item->monetary())
-			->multiply_by(-1);
+			->multiply_by(-1 / $store_purchases_count);
 	}
 }
