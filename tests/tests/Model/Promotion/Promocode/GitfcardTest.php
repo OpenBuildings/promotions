@@ -73,12 +73,23 @@ class Model_Promotion_Promocode_GiftcardTest extends Testcase_Promotions {
 			->method('monetary')
 			->will($this->returnValue($monetary));
 
+		$purchase_item->set(array(
+			'store_purchase' => array(
+				'purchase' => array(
+					'store_purchases' => array(
+						array('id' => 1),
+						array('id' => 2),
+					)
+				)
+			)
+		));
+
 		$promotion = Jam::build('promotion_promocode_giftcard', array(
 			'amount' => 20,
 			'currency' => 'GBP',
 		));
 
-		$expected_price = new Jam_Price(-20, 'GBP', $monetary, 'GBP');
+		$expected_price = new Jam_Price(-10, 'GBP', $monetary, 'GBP');
 
 		$this->assertEquals($expected_price, $promotion->price_for_purchase_item($purchase_item));
 	}
