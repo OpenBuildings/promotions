@@ -2,7 +2,7 @@
 
 /**
  * @group jam.behavior.promotable_purchase
- * 
+ *
  * @package Functest
  * @author Ivan Kerin <ikerin@gmail.com>
  * @copyright  (c) 2011-2013 Despark Ltd.
@@ -26,7 +26,7 @@ class Jam_Behavior_Promotable_PurchaseTest extends Testcase_Promotions {
 		$this->assertEquals($promo_code, $purchase->promo_code);
 
 		$purchase->promo_code_text = NULL;
-		
+
 		$this->assertTrue($purchase->check());
 		$this->assertNull($purchase->promo_code);
 	}

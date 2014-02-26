@@ -2,7 +2,7 @@
 
 /**
  * @group jam.behavior.promotable_purchase
- * 
+ *
  * @package Functest
  * @author Ivan Kerin <ikerin@gmail.com>
  * @copyright  (c) 2011-2013 Despark Ltd.

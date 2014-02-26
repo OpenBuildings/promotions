@@ -2,7 +2,7 @@
 
 /**
  * @group model.promo_code
- * 
+ *
  * @package Functest
  * @author Ivan Kerin <ikerin@gmail.com>
  * @copyright  (c) 2011-2013 Despark Ltd.
@@ -33,7 +33,7 @@ class Model_Promo_CodeTest extends Testcase_Promotions {
 	public function test_validate_purchase()
 	{
 		$purchase = Jam::build('purchase');
-		
+
 		$promotion = $this->getMock('Model_Promotion', array('validate_purchase'), array('promotion'));
 		$promotion
 			->expects($this->once())

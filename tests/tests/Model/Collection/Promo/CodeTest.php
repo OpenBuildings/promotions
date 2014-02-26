@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Functest_TestsTest 
+ * Functest_TestsTest
  *
  * @group model.collection.promo_code
- * 
+ *
  * @package Functest
  * @author Ivan Kerin
  * @copyright  (c) 2011-2013 Despark Ltd.

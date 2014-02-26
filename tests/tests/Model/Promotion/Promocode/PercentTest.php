@@ -5,7 +5,7 @@ use OpenBuildings\Monetary\Source_Static;
 
 /**
  * @group model.promotion_promocode_percent
- * 
+ *
  * @package Functest
  * @author Ivan Kerin <ikerin@gmail.com>
  * @copyright  (c) 2011-2013 Despark Ltd.
@@ -31,7 +31,7 @@ class Model_Promotion_Promocode_PercentTest extends Testcase_Promotions {
 		$purchase_item = Jam::build('purchase_item_promotion', array('store_purchase' => $store_purchase));
 
 		$promotion = Jam::build('promotion_promocode_percent', array(
-			'amount' => 0.12, 
+			'amount' => 0.12,
 		));
 
 		$expected_price = new Jam_Price(-1.44, 'GBP', $monetary);

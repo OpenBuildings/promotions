@@ -5,7 +5,7 @@ use OpenBuildings\Monetary\Source_Static;
 
 /**
  * @group model.promotion_promocode_giftcard
- * 
+ *
  * @package Functest
  * @author Ivan Kerin <ikerin@gmail.com>
  * @copyright  (c) 2011-2013 Despark Ltd.
@@ -44,7 +44,7 @@ class Model_Promotion_Promocode_GiftcardTest extends Testcase_Promotions {
 
 		$promotion->validate_purchase($purchase);
 
-		if ($expected_errors) 
+		if ($expected_errors)
 		{
 			$this->assertFalse($purchase->is_valid());
 			$this->assertEquals($expected_errors, $purchase->errors()->as_array());
