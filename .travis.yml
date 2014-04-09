@@ -4,18 +4,21 @@ php:
   - 5.4
 
 notifications:
-  campfire:
-    rooms:
-      secure: ce8kUR0vS0Mz9vL7fpCkED0Or7qzSFerXZBPLhpGZF+yLbnOJGbd9PiZvPvpG5LLUCZPlXioIS/dTrFznH83qGldrWIhYBuWvIUzjoORI8mvi4HoZ+L6gOBGKMxXPiEftKXE0k92k1gllSRq5nXrO1274iouFUSiDYjM23DQF40=
+  email: false
+  slack:
+    secure: jkZDWqI+za7mMP1RnozFmsB6SM2THjp59elBEpMrewjG270NpCdB2fCc2XFSeHVJ1vyPax/Q139CsWhctpD4smA4An1GmTsvQyVcWVvKsqsrTG0q22cBx+WKJKL9cwxQ+UQSbvySVCY6V3oXaqmaPBK97oqHZOc+FET2Z9WDHhc=
 
-script:
-  - phpunit --coverage-clover build/logs/clover.xml
+install:
+  - composer selfupdate
+  - composer install --no-interaction
 
 before_script:
   - mkdir -p build/logs
-  - composer install
   - mysql -e 'create database `test-promotions`;'
   - mysql --default-character-set=utf8 test-promotions < tests/test_data/structure.sql
+
+script:
+  - phpunit --coverage-clover build/logs/clover.xml
 
 after_script:
   - wget https://scrutinizer-ci.com/ocular.phar
