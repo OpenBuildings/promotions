@@ -20,13 +20,18 @@
 	"require": {
 		"php": ">=5.3.0",
 		"composer/installers": "*",
-		"openbuildings/purchases": "0.5.*"
+		"openbuildings/purchases": "0.6.*@dev"
 	},
 	"require-dev": {
-		"openbuildings/shipping": "0.4.*",
+		"openbuildings/shipping": "0.6.*@dev",
 		"openbuildings/kohana-test-bootsrap": "0.1.*"
 	},
 	"autoload": {
 		"psr-0": {"Openbuildings\\Promotions\\": "src/"}
+	},
+	"extra": {
+		"branch-alias": {
+			"dev-master": "0.4.x-dev"
+		}
 	}
 }
