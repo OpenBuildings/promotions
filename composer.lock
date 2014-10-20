@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "062df0ed7d309a0c0ddb1a15db931048",
+    "hash": "b0ec3d8b9d36183442e76b191484240b",
     "packages": [
         {
             "name": "clippings/freezable",
@@ -632,12 +632,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/purchases.git",
-                "reference": "f7acb75cde4baf234557a0069abb7f29c8e7e388"
+                "reference": "71c1a017164e9e0a8f17b842f3c41728e1ca0f9b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/purchases/zipball/f7acb75cde4baf234557a0069abb7f29c8e7e388",
-                "reference": "f7acb75cde4baf234557a0069abb7f29c8e7e388",
+                "url": "https://api.github.com/repos/OpenBuildings/purchases/zipball/71c1a017164e9e0a8f17b842f3c41728e1ca0f9b",
+                "reference": "71c1a017164e9e0a8f17b842f3c41728e1ca0f9b",
                 "shasum": ""
             },
             "require": {
@@ -696,7 +696,7 @@
                 "purchase",
                 "store"
             ],
-            "time": "2014-10-20 13:18:05"
+            "time": "2014-10-20 16:15:58"
         },
         {
             "name": "rackspace/php-opencloud",
