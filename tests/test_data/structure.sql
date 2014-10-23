@@ -21,6 +21,7 @@ CREATE TABLE `store_purchases` (
   `number` VARCHAR(40) NOT NULL,
   `store_id` INT(10) UNSIGNED NULL,
   `purchase_id` INT(10) UNSIGNED NULL,
+  `is_frozen` INT(1) UNSIGNED NOT NULL,
   `is_deleted` INT(1) UNSIGNED NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8;
@@ -72,6 +73,7 @@ CREATE TABLE `purchase_items` (
   `model` VARCHAR(255) NULL,
   `is_payable` INT(1) UNSIGNED NOT NULL,
   `is_discount` INT(1) UNSIGNED NOT NULL,
+  `is_frozen` INT(1) UNSIGNED NOT NULL,
   `is_deleted` INT(1) UNSIGNED NOT NULL,
   `created_at` DATETIME,
   `updated_at` DATETIME,
