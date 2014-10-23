@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b0ec3d8b9d36183442e76b191484240b",
+    "hash": "0e210686948e0b47ddd7b42d832c8d6f",
     "packages": [
         {
             "name": "clippings/freezable",
@@ -628,7 +628,7 @@
         },
         {
             "name": "openbuildings/purchases",
-            "version": "dev-master",
+            "version": "0.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/purchases.git",
@@ -783,22 +783,22 @@
         },
         {
             "name": "openbuildings/shipping",
-            "version": "dev-master",
+            "version": "0.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/shipping.git",
-                "reference": "977226cf9bc85311f346670088f4b770355149bf"
+                "reference": "e6dc0d0392066027a827359cf34c7ac9deb95858"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/shipping/zipball/977226cf9bc85311f346670088f4b770355149bf",
-                "reference": "977226cf9bc85311f346670088f4b770355149bf",
+                "url": "https://api.github.com/repos/OpenBuildings/shipping/zipball/e6dc0d0392066027a827359cf34c7ac9deb95858",
+                "reference": "e6dc0d0392066027a827359cf34c7ac9deb95858",
                 "shasum": ""
             },
             "require": {
                 "clippings/freezable": "0.2.*",
                 "composer/installers": "*",
-                "openbuildings/purchases": "0.6.*@dev",
+                "openbuildings/purchases": "0.6.*",
                 "php": ">=5.3.0"
             },
             "require-dev": {
@@ -832,15 +832,12 @@
                 "purchase",
                 "shipping"
             ],
-            "time": "2014-10-20 14:12:15"
+            "time": "2014-10-23 11:11:21"
         }
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "openbuildings/purchases": 20,
-        "openbuildings/shipping": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "platform": {
         "php": ">=5.3.0"
