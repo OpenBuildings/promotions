@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0e210686948e0b47ddd7b42d832c8d6f",
+    "hash": "3c318cf2c9571d3c87242ccf96714cec",
     "packages": [
         {
             "name": "clippings/freezable",
@@ -230,54 +230,300 @@
             "time": "2013-11-19 23:11:14"
         },
         {
-            "name": "openbuildings/emp",
-            "version": "0.1.11",
+            "name": "guzzle/common",
+            "version": "v3.9.2",
+            "target-dir": "Guzzle/Common",
             "source": {
                 "type": "git",
-                "url": "https://github.com/OpenBuildings/emp.git",
-                "reference": "11fd3878bc0d24fdc65e376d36839b9983358554"
+                "url": "https://github.com/guzzle/common.git",
+                "reference": "2e36af7cf2ce3ea1f2d7c2831843b883a8e7b7dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/emp/zipball/11fd3878bc0d24fdc65e376d36839b9983358554",
-                "reference": "11fd3878bc0d24fdc65e376d36839b9983358554",
+                "url": "https://api.github.com/repos/guzzle/common/zipball/2e36af7cf2ce3ea1f2d7c2831843b883a8e7b7dc",
+                "reference": "2e36af7cf2ce3ea1f2d7c2831843b883a8e7b7dc",
                 "shasum": ""
             },
             "require": {
-                "ext-curl": "*",
-                "php": ">=5.3.0"
+                "php": ">=5.3.2",
+                "symfony/event-dispatcher": ">=2.1"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.7-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
-                    "Openbuildings\\Emp\\": "src/"
+                    "Guzzle\\Common": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD-3-Clause"
+                "MIT"
+            ],
+            "description": "Common libraries used by Guzzle",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "collection",
+                "common",
+                "event",
+                "exception"
+            ],
+            "time": "2014-08-11 04:32:36"
+        },
+        {
+            "name": "guzzle/http",
+            "version": "v3.9.2",
+            "target-dir": "Guzzle/Http",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/http.git",
+                "reference": "1e8dd1e2ba9dc42332396f39fbfab950b2301dc5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/http/zipball/1e8dd1e2ba9dc42332396f39fbfab950b2301dc5",
+                "reference": "1e8dd1e2ba9dc42332396f39fbfab950b2301dc5",
+                "shasum": ""
+            },
+            "require": {
+                "guzzle/common": "self.version",
+                "guzzle/parser": "self.version",
+                "guzzle/stream": "self.version",
+                "php": ">=5.3.2"
+            },
+            "suggest": {
+                "ext-curl": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Guzzle\\Http": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
             ],
             "authors": [
                 {
-                    "name": "Ivan Kerin",
-                    "email": "ivan@openbuildings.com",
-                    "role": "Author"
-                },
-                {
-                    "name": "Haralan Dobrev",
-                    "email": "hdobrev@despark.com"
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
                 }
             ],
-            "description": "Payments for eMerchantPay (EMP) https://www.emerchantpay.com/",
-            "homepage": "https://github.com/OpenBuildings/emp",
+            "description": "HTTP libraries used by Guzzle",
+            "homepage": "http://guzzlephp.org/",
             "keywords": [
-                "EMP",
-                "credit cards",
-                "eMerchantPay",
-                "money",
-                "payments"
+                "Guzzle",
+                "client",
+                "curl",
+                "http",
+                "http client"
             ],
-            "time": "2014-10-02 09:13:56"
+            "time": "2014-08-11 04:32:36"
+        },
+        {
+            "name": "guzzle/parser",
+            "version": "v3.9.2",
+            "target-dir": "Guzzle/Parser",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/parser.git",
+                "reference": "6874d171318a8e93eb6d224cf85e4678490b625c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/parser/zipball/6874d171318a8e93eb6d224cf85e4678490b625c",
+                "reference": "6874d171318a8e93eb6d224cf85e4678490b625c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Guzzle\\Parser": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Interchangeable parsers used by Guzzle",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "URI Template",
+                "cookie",
+                "http",
+                "message",
+                "url"
+            ],
+            "time": "2014-02-05 18:29:46"
+        },
+        {
+            "name": "guzzle/stream",
+            "version": "v3.9.2",
+            "target-dir": "Guzzle/Stream",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/stream.git",
+                "reference": "60c7fed02e98d2c518dae8f97874c8f4622100f0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/stream/zipball/60c7fed02e98d2c518dae8f97874c8f4622100f0",
+                "reference": "60c7fed02e98d2c518dae8f97874c8f4622100f0",
+                "shasum": ""
+            },
+            "require": {
+                "guzzle/common": "self.version",
+                "php": ">=5.3.2"
+            },
+            "suggest": {
+                "guzzle/http": "To convert Guzzle request objects to PHP streams"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Guzzle\\Stream": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Guzzle stream wrapper component",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "Guzzle",
+                "component",
+                "stream"
+            ],
+            "time": "2014-05-01 21:36:02"
+        },
+        {
+            "name": "omnipay/common",
+            "version": "v2.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/omnipay-common.git",
+                "reference": "2c83349327ed3534237043a7a882cbaff55a7866"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/omnipay-common/zipball/2c83349327ed3534237043a7a882cbaff55a7866",
+                "reference": "2c83349327ed3534237043a7a882cbaff55a7866",
+                "shasum": ""
+            },
+            "require": {
+                "guzzle/http": "~3.1",
+                "php": ">=5.3.2",
+                "symfony/http-foundation": "~2.1"
+            },
+            "require-dev": {
+                "omnipay/tests": "~2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                },
+                "gateways": [
+                    "AuthorizeNet_AIM",
+                    "AuthorizeNet_SIM",
+                    "Buckaroo",
+                    "Buckaroo_Ideal",
+                    "Buckaroo_PayPal",
+                    "CardSave",
+                    "Coinbase",
+                    "Dummy",
+                    "Eway_Rapid",
+                    "FirstData_Connect",
+                    "GoCardless",
+                    "Manual",
+                    "Migs_ThreeParty",
+                    "Migs_TwoParty",
+                    "Mollie",
+                    "MultiSafepay",
+                    "Netaxept",
+                    "NetBanx",
+                    "PayFast",
+                    "Payflow_Pro",
+                    "PaymentExpress_PxPay",
+                    "PaymentExpress_PxPost",
+                    "PayPal_Express",
+                    "PayPal_Pro",
+                    "Pin",
+                    "SagePay_Direct",
+                    "SagePay_Server",
+                    "SecurePay_DirectPost",
+                    "Stripe",
+                    "TargetPay_Directebanking",
+                    "TargetPay_Ideal",
+                    "TargetPay_Mrcash",
+                    "TwoCheckout",
+                    "WorldPay"
+                ]
+            },
+            "autoload": {
+                "psr-0": {
+                    "Omnipay\\Common\\": "src/"
+                },
+                "classmap": [
+                    "src/Omnipay/Omnipay.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Adrian Macneil",
+                    "email": "adrian@adrianmacneil.com"
+                },
+                {
+                    "name": "Omnipay Contributors",
+                    "homepage": "https://github.com/thephpleague/omnipay-common/contributors"
+                }
+            ],
+            "description": "Common components for Omnipay payment processing library",
+            "homepage": "https://github.com/thephpleague/omnipay-common",
+            "keywords": [
+                "gateway",
+                "merchant",
+                "omnipay",
+                "pay",
+                "payment",
+                "purchase"
+            ],
+            "time": "2014-09-17 00:38:32"
         },
         {
             "name": "openbuildings/flex-storage",
@@ -319,16 +565,16 @@
         },
         {
             "name": "openbuildings/jam",
-            "version": "0.4.59",
+            "version": "0.4.60",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/jam.git",
-                "reference": "361bc4dd3a95c7f96962cc00e53add7b778525e0"
+                "reference": "e8b77469ab0ef612409044995e2cf24276fde0e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/jam/zipball/361bc4dd3a95c7f96962cc00e53add7b778525e0",
-                "reference": "361bc4dd3a95c7f96962cc00e53add7b778525e0",
+                "url": "https://api.github.com/repos/OpenBuildings/jam/zipball/e8b77469ab0ef612409044995e2cf24276fde0e2",
+                "reference": "e8b77469ab0ef612409044995e2cf24276fde0e2",
                 "shasum": ""
             },
             "require": {
@@ -368,7 +614,7 @@
                 "upload",
                 "validation"
             ],
-            "time": "2014-09-26 08:35:49"
+            "time": "2014-11-05 13:57:38"
         },
         {
             "name": "openbuildings/jam-auth",
@@ -628,22 +874,22 @@
         },
         {
             "name": "openbuildings/purchases",
-            "version": "0.6.0",
+            "version": "0.7.0-alpha.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/purchases.git",
-                "reference": "71c1a017164e9e0a8f17b842f3c41728e1ca0f9b"
+                "reference": "a0ddcf157407cf2bd4396c97a2924873bd1170a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/purchases/zipball/71c1a017164e9e0a8f17b842f3c41728e1ca0f9b",
-                "reference": "71c1a017164e9e0a8f17b842f3c41728e1ca0f9b",
+                "url": "https://api.github.com/repos/OpenBuildings/purchases/zipball/a0ddcf157407cf2bd4396c97a2924873bd1170a3",
+                "reference": "a0ddcf157407cf2bd4396c97a2924873bd1170a3",
                 "shasum": ""
             },
             "require": {
                 "clippings/freezable": "0.2.*",
                 "composer/installers": "*",
-                "openbuildings/emp": "~0.1.11",
+                "omnipay/common": "~2.0",
                 "openbuildings/jam": ">=0.4.35",
                 "openbuildings/jam-auth": "0.2.*",
                 "openbuildings/jam-locations": "0.1.*",
@@ -651,23 +897,19 @@
                 "php": ">=5.3.0"
             },
             "require-dev": {
-                "claylo/selenium-server-standalone": "2.*",
+                "omnipay/dummy": "~2.0",
                 "openbuildings/environment-backup": "0.1.*",
                 "openbuildings/kohana-test-bootsrap": "0.1.*",
-                "openbuildings/paypal": "0.4.*",
-                "openbuildings/phpunit-spiderling": "0.1.*",
-                "paypal/rest-api-sdk-php": "~0.13.1"
+                "openbuildings/phpunit-spiderling": "0.1.*"
             },
             "suggest": {
-                "openbuildings/paypal": "Require this package if you need to use PayPal payments with ChainedPayments",
                 "openbuildings/promotions": "Extends purchases functionality with promotions and gift cards",
-                "openbuildings/shipping": "Extends purchases functionality with shipping and delivery",
-                "paypal/rest-api-sdk-php": "Require this package if you need to use PayPal payments with REST API"
+                "openbuildings/shipping": "Extends purchases functionality with shipping and delivery"
             },
             "type": "kohana-module",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.6.x-dev"
+                    "dev-master": "0.7.x-dev"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -696,7 +938,7 @@
                 "purchase",
                 "store"
             ],
-            "time": "2014-10-20 16:15:58"
+            "time": "2014-11-28 12:46:51"
         },
         {
             "name": "rackspace/php-opencloud",
@@ -743,6 +985,116 @@
                 "opencloud"
             ],
             "time": "2013-08-01 16:12:19"
+        },
+        {
+            "name": "symfony/event-dispatcher",
+            "version": "v2.5.7",
+            "target-dir": "Symfony/Component/EventDispatcher",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/EventDispatcher.git",
+                "reference": "bb6fc12085cd195dceaf48016087b12b632df497"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/bb6fc12085cd195dceaf48016087b12b632df497",
+                "reference": "bb6fc12085cd195dceaf48016087b12b632df497",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "psr/log": "~1.0",
+                "symfony/config": "~2.0",
+                "symfony/dependency-injection": "~2.0,<2.6.0",
+                "symfony/stopwatch": "~2.2"
+            },
+            "suggest": {
+                "symfony/dependency-injection": "",
+                "symfony/http-kernel": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\EventDispatcher\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Symfony EventDispatcher Component",
+            "homepage": "http://symfony.com",
+            "time": "2014-10-30 20:17:55"
+        },
+        {
+            "name": "symfony/http-foundation",
+            "version": "v2.5.7",
+            "target-dir": "Symfony/Component/HttpFoundation",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/HttpFoundation.git",
+                "reference": "24545d3def96e6d6c3d7f1efdb48f330f27e244d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/24545d3def96e6d6c3d7f1efdb48f330f27e244d",
+                "reference": "24545d3def96e6d6c3d7f1efdb48f330f27e244d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "symfony/expression-language": "~2.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\HttpFoundation\\": ""
+                },
+                "classmap": [
+                    "Symfony/Component/HttpFoundation/Resources/stubs"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Symfony HttpFoundation Component",
+            "homepage": "http://symfony.com",
+            "time": "2014-11-20 13:22:25"
         }
     ],
     "packages-dev": [
@@ -783,22 +1135,22 @@
         },
         {
             "name": "openbuildings/shipping",
-            "version": "0.6.0",
+            "version": "0.7.0-alpha.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/shipping.git",
-                "reference": "e6dc0d0392066027a827359cf34c7ac9deb95858"
+                "reference": "47b138a878dc812b87d318a8d1e2d53c5ad141c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/shipping/zipball/e6dc0d0392066027a827359cf34c7ac9deb95858",
-                "reference": "e6dc0d0392066027a827359cf34c7ac9deb95858",
+                "url": "https://api.github.com/repos/OpenBuildings/shipping/zipball/47b138a878dc812b87d318a8d1e2d53c5ad141c7",
+                "reference": "47b138a878dc812b87d318a8d1e2d53c5ad141c7",
                 "shasum": ""
             },
             "require": {
                 "clippings/freezable": "0.2.*",
                 "composer/installers": "*",
-                "openbuildings/purchases": "0.6.*",
+                "openbuildings/purchases": "0.7.*@alpha",
                 "php": ">=5.3.0"
             },
             "require-dev": {
@@ -808,7 +1160,7 @@
             "type": "kohana-module",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.6.x-dev"
+                    "dev-master": "0.7.x-dev"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -832,12 +1184,15 @@
                 "purchase",
                 "shipping"
             ],
-            "time": "2014-10-23 11:11:21"
+            "time": "2014-11-28 14:35:17"
         }
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "openbuildings/purchases": 15,
+        "openbuildings/shipping": 15
+    },
     "prefer-stable": false,
     "platform": {
         "php": ">=5.3.0"

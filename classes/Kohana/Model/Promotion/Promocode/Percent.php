@@ -24,9 +24,9 @@ class Kohana_Model_Promotion_Promocode_Percent extends Model_Promotion_Promocode
 
 	public function price_for_purchase_item(Model_Purchase_Item $purchase_item)
 	{
-		$store_purchase_price = $purchase_item->get_insist('store_purchase')->total_price('product');
+		$brand_purchase_price = $purchase_item->get_insist('brand_purchase')->total_price('product');
 
-		return $store_purchase_price
+		return $brand_purchase_price
 			->multiply_by($this->amount)
 			->multiply_by(-1);
 	}

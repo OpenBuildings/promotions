@@ -1,14 +1,14 @@
 <?php defined('SYSPATH') OR die('No direct access allowed.');
 
 /**
- * This behavior adds filter_items and update_items events to work with promotions for Model_Store_Purchase
+ * This behavior adds filter_items and update_items events to work with promotions for Model_Brand_Purchase
  *
  * @package    openbuildings\promotions
  * @author     Ivan Kerin <ikerin@gmail.com>
  * @copyright  (c) 2013 OpenBuildings Ltd.
  * @license    http://spdx.org/licenses/BSD-3-Clause
  */
-class Kohana_Jam_Behavior_Promotable_Store_Purchase extends Jam_Behavior {
+class Kohana_Jam_Behavior_Promotable_Brand_Purchase extends Jam_Behavior {
 
 	/**
 	 * @codeCoverageIgnore
@@ -31,12 +31,12 @@ class Kohana_Jam_Behavior_Promotable_Store_Purchase extends Jam_Behavior {
 	 * This will return only items that are "promotion_promocode_giftcard" models.
 	 * Can be an array too.
 	 *
-	 * @param  Model_Store_Purchase $store_purchase
+	 * @param  Model_Brand_Purchase $brand_purchase
 	 * @param  Jam_Event_Data       $data
 	 * @param  array                $items
 	 * @param  array                $filter
 	 */
-	public function filter_promotion_items(Model_Store_Purchase $store_purchase, Jam_Event_Data $data, array $items, array $filter)
+	public function filter_promotion_items(Model_Brand_Purchase $brand_purchase, Jam_Event_Data $data, array $items, array $filter)
 	{
 		$items = is_array($data->return) ? $data->return : $items;
 		$filtered = array();
@@ -45,13 +45,13 @@ class Kohana_Jam_Behavior_Promotable_Store_Purchase extends Jam_Behavior {
 		{
 			if (array_key_exists('promotion', $filter))
 			{
-				if ( ! Jam_Behavior_Promotable_Store_Purchase::purchase_item_is_promotion($item, $filter['promotion']))
+				if ( ! Jam_Behavior_Promotable_Brand_Purchase::purchase_item_is_promotion($item, $filter['promotion']))
 					continue;
 			}
 
 			if (array_key_exists('not_promotion', $filter))
 			{
-				if (Jam_Behavior_Promotable_Store_Purchase::purchase_item_is_promotion($item, $filter['not_promotion']))
+				if (Jam_Behavior_Promotable_Brand_Purchase::purchase_item_is_promotion($item, $filter['not_promotion']))
 					continue;
 			}
 
@@ -81,24 +81,24 @@ class Kohana_Jam_Behavior_Promotable_Store_Purchase extends Jam_Behavior {
 	 */
 	public static function purchase_item_is_promotion(Model_Purchase_Item $item, $promotion)
 	{
-		$model_names = Jam_Behavior_Promotable_Store_Purchase::promotion_model_names($promotion);
+		$model_names = Jam_Behavior_Promotable_Brand_Purchase::promotion_model_names($promotion);
 
 		return in_array($item->reference_model, $model_names);
 	}
 
 	/**
-	 * Iterate through available promotions and update its status on the store purchase (does it apply or not)
+	 * Iterate through available promotions and update its status on the brand purchase (does it apply or not)
 	 *
-	 * @param  Model_Store_Purchase $store_purchase
+	 * @param  Model_Brand_Purchase $brand_purchase
 	 */
-	public function update_promotion_items(Model_Store_Purchase $store_purchase)
+	public function update_promotion_items(Model_Brand_Purchase $brand_purchase)
 	{
-		$items = $store_purchase->items->as_array();
+		$items = $brand_purchase->items->as_array();
 		foreach ($this->available_promotions() as $promotion)
 		{
-			$promotion->update_store_purchase_items($promotion->applies_to($store_purchase), $items);
+			$promotion->update_brand_purchase_items($promotion->applies_to($brand_purchase), $items);
 		}
-		$store_purchase->items = $items;
+		$brand_purchase->items = $items;
 	}
 
 	/**

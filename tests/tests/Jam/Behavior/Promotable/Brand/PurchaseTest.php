@@ -1,20 +1,20 @@
 <?php
 
 /**
- * @group jam.behavior.promotable_store_purchase
+ * @group jam.behavior.promotable_brand_purchase
  *
  * @package Functest
  * @author Ivan Kerin <ikerin@gmail.com>
  * @copyright  (c) 2011-2013 Despark Ltd.
  */
-class Jam_Behavior_Promotable_Store_PurchaseTest extends Testcase_Promotions {
+class Jam_Behavior_Promotable_Brand_PurchaseTest extends Testcase_Promotions {
 
 	/**
-	 * @covers Jam_Behavior_Promotable_Store_Purchase::available_promotions
+	 * @covers Jam_Behavior_Promotable_Brand_Purchase::available_promotions
 	 */
 	public function test_available_promotions()
 	{
-		$behavior = Jam::behavior('promotable_store_purchase');
+		$behavior = Jam::behavior('promotable_brand_purchase');
 
 		$promotions = $behavior->available_promotions();
 
@@ -28,22 +28,22 @@ class Jam_Behavior_Promotable_Store_PurchaseTest extends Testcase_Promotions {
 	}
 
 	/**
-	 * @covers Jam_Behavior_Promotable_Store_Purchase::update_promotion_items
+	 * @covers Jam_Behavior_Promotable_Brand_Purchase::update_promotion_items
 	 */
 	public function test_update_promotion_items()
 	{
-		$store_purchase = Jam::build('store_purchase');
+		$brand_purchase = Jam::build('brand_purchase');
 
-		$promotion = $this->getMock('Model_Promotion', array('update_store_purchase_items', 'applies_to'), array('promotion'));
+		$promotion = $this->getMock('Model_Promotion', array('update_brand_purchase_items', 'applies_to'), array('promotion'));
 
 		$promotion
 			->expects($this->at(1))
-			->method('update_store_purchase_items')
+			->method('update_brand_purchase_items')
 			->with($this->equalTo(TRUE), $this->equalTo(array()));
 
 		$promotion
 			->expects($this->at(3))
-			->method('update_store_purchase_items')
+			->method('update_brand_purchase_items')
 			->with($this->equalTo(FALSE), $this->equalTo(array()));
 
 		$promotion
@@ -51,41 +51,41 @@ class Jam_Behavior_Promotable_Store_PurchaseTest extends Testcase_Promotions {
 			->method('applies_to')
 			->will($this->onConsecutiveCalls(TRUE, FALSE));
 
-		$behavior = $this->getMock('Jam_Behavior_Promotable_Store_Purchase', array('available_promotions'));
+		$behavior = $this->getMock('Jam_Behavior_Promotable_Brand_Purchase', array('available_promotions'));
 
 		$behavior
 			->expects($this->once())
 			->method('available_promotions')
 			->will($this->returnValue(array($promotion, $promotion)));
 
-		$behavior->update_promotion_items($store_purchase);
+		$behavior->update_promotion_items($brand_purchase);
 	}
 
 
 	/**
-	 * @covers Jam_Behavior_Promotable_Store_Purchase::filter_promotion_items
+	 * @covers Jam_Behavior_Promotable_Brand_Purchase::filter_promotion_items
 	 */
 	public function test_filter_promotion_items()
 	{
 		$promocode_giftcard = Jam::build('promotion_promocode_giftcard', array('id' => 20));
 		$promocode_percent = Jam::build('promotion_promocode_percent', array('id' => 21));
 
-		$store_purchase = Jam::find('store_purchase', 2);
+		$brand_purchase = Jam::find('brand_purchase', 2);
 
-		$store_purchase->items->add(Jam::build('purchase_item_promotion', array('id' => 12, 'reference' => $promocode_giftcard, 'is_discount' => TRUE, 'is_payable' => TRUE)));
+		$brand_purchase->items->add(Jam::build('purchase_item_promotion', array('id' => 12, 'reference' => $promocode_giftcard, 'is_discount' => TRUE, 'is_payable' => TRUE)));
 
-		$store_purchase->items->add(Jam::build('purchase_item_promotion', array('id' => 16, 'reference' => $promocode_percent, 'is_discount' => TRUE, 'is_payable' => TRUE)));
+		$brand_purchase->items->add(Jam::build('purchase_item_promotion', array('id' => 16, 'reference' => $promocode_percent, 'is_discount' => TRUE, 'is_payable' => TRUE)));
 
-		$items = $store_purchase->items(array('promotion' => 'promocode_giftcard'));
+		$items = $brand_purchase->items(array('promotion' => 'promocode_giftcard'));
 		$this->assertEquals(array(12), $this->ids($items));
 
-		$items = $store_purchase->items(array('promotion' => 'promocode_percent'));
+		$items = $brand_purchase->items(array('promotion' => 'promocode_percent'));
 		$this->assertEquals(array(16), $this->ids($items));
 
-		$items = $store_purchase->items(array('promotion' => array('promocode_percent', 'promocode_giftcard')));
+		$items = $brand_purchase->items(array('promotion' => array('promocode_percent', 'promocode_giftcard')));
 		$this->assertEquals(array(12, 16), $this->ids($items));
 
-		$items = $store_purchase->items(array('promotion', 'not_promotion' => 'promocode_giftcard'));
+		$items = $brand_purchase->items(array('promotion', 'not_promotion' => 'promocode_giftcard'));
 		$this->assertEquals(array(16), $this->ids($items));
 	}
 
@@ -100,11 +100,11 @@ class Jam_Behavior_Promotable_Store_PurchaseTest extends Testcase_Promotions {
 
 	/**
 	 * @dataProvider data_promotion_model_names
-	 * @covers Jam_Behavior_Promotable_Store_Purchase::promotion_model_names
+	 * @covers Jam_Behavior_Promotable_Brand_Purchase::promotion_model_names
 	 */
 	public function test_promotion_model_names($promotion, $expected)
 	{
-		$this->assertEquals($expected, Jam_Behavior_Promotable_Store_Purchase::promotion_model_names($promotion));
+		$this->assertEquals($expected, Jam_Behavior_Promotable_Brand_Purchase::promotion_model_names($promotion));
 	}
 
 	public function data_purchase_item_is_promotion()
@@ -119,12 +119,12 @@ class Jam_Behavior_Promotable_Store_PurchaseTest extends Testcase_Promotions {
 
 	/**
 	 * @dataProvider data_purchase_item_is_promotion
-	 * @covers Jam_Behavior_Promotable_Store_Purchase::purchase_item_is_promotion
+	 * @covers Jam_Behavior_Promotable_Brand_Purchase::purchase_item_is_promotion
 	 */
 	public function test_purchase_item_is_promotion($reference_model, $promotion, $expected)
 	{
 		$item = Jam::build('purchase_item_promotion', array('reference_model' => $reference_model));
 
-		$this->assertEquals($expected, Jam_Behavior_Promotable_Store_Purchase::purchase_item_is_promotion($item, $promotion));
+		$this->assertEquals($expected, Jam_Behavior_Promotable_Brand_Purchase::purchase_item_is_promotion($item, $promotion));
 	}
 }

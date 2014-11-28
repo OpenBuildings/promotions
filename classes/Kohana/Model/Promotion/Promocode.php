@@ -25,22 +25,22 @@ class Kohana_Model_Promotion_Promocode extends Model_Promotion {
 			));
 	}
 
-	public function applies_to(Model_Store_Purchase $store_purchase)
+	public function applies_to(Model_Brand_Purchase $brand_purchase)
 	{
-		return $this->matches_store_purchase_promo_code($store_purchase);
+		return $this->matches_brand_purchase_promo_code($brand_purchase);
 	}
 
 	/**
 	 * @codeCoverageIgnore
 	 */
-	public function validate_purchase(Model_Purchase $store_purchase)
+	public function validate_purchase(Model_Purchase $brand_purchase)
 	{
 		// extend this to add custom validation for the purchase (or promocode)
 	}
 
-	public function matches_store_purchase_promo_code(Model_Store_Purchase $store_purchase)
+	public function matches_brand_purchase_promo_code(Model_Brand_Purchase $brand_purchase)
 	{
-		$promo_code = $store_purchase->get_insist('purchase')->promo_code;
+		$promo_code = $brand_purchase->get_insist('purchase')->promo_code;
 
 		if ( ! $promo_code)
 			return FALSE;

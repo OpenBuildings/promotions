@@ -20,15 +20,15 @@ class Model_Promotion_Promocode_PercentTest extends Testcase_Promotions {
 		$monetary = new Monetary(new Source_Static);
 		$total_price = new Jam_Price(12, 'GBP', $monetary);
 
-		$store_purchase = $this->getMock('Model_Store_Purchase', array('total_price'), array('store_purchase'));
+		$brand_purchase = $this->getMock('Model_Brand_Purchase', array('total_price'), array('brand_purchase'));
 
-		$store_purchase
+		$brand_purchase
 			->expects($this->once())
 			->method('total_price')
 			->with($this->equalTo('product'))
 			->will($this->returnValue($total_price));
 
-		$purchase_item = Jam::build('purchase_item_promotion', array('store_purchase' => $store_purchase));
+		$purchase_item = Jam::build('purchase_item_promotion', array('brand_purchase' => $brand_purchase));
 
 		$promotion = Jam::build('promotion_promocode_percent', array(
 			'amount' => 0.12,
