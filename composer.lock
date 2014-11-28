@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5346e1b2a7b05bce67f2bb6ae1c2e922",
+    "hash": "3c318cf2c9571d3c87242ccf96714cec",
     "packages": [
         {
             "name": "clippings/freezable",
@@ -1135,16 +1135,16 @@
         },
         {
             "name": "openbuildings/shipping",
-            "version": "dev-store-to-brand",
+            "version": "0.7.0-alpha.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/shipping.git",
-                "reference": "bdffcfbae82be9a54e8b153ee6f398be2fde40d1"
+                "reference": "47b138a878dc812b87d318a8d1e2d53c5ad141c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/shipping/zipball/bdffcfbae82be9a54e8b153ee6f398be2fde40d1",
-                "reference": "bdffcfbae82be9a54e8b153ee6f398be2fde40d1",
+                "url": "https://api.github.com/repos/OpenBuildings/shipping/zipball/47b138a878dc812b87d318a8d1e2d53c5ad141c7",
+                "reference": "47b138a878dc812b87d318a8d1e2d53c5ad141c7",
                 "shasum": ""
             },
             "require": {
@@ -1184,14 +1184,14 @@
                 "purchase",
                 "shipping"
             ],
-            "time": "2014-11-28 14:09:56"
+            "time": "2014-11-28 14:35:17"
         }
     ],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
         "openbuildings/purchases": 15,
-        "openbuildings/shipping": 20
+        "openbuildings/shipping": 15
     },
     "prefer-stable": false,
     "platform": {

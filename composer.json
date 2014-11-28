@@ -23,7 +23,7 @@
 		"openbuildings/purchases": "0.7.*@alpha"
 	},
 	"require-dev": {
-		"openbuildings/shipping": "dev-store-to-brand@dev",
+		"openbuildings/shipping": "0.7.*@alpha",
 		"openbuildings/kohana-test-bootsrap": "0.1.*"
 	},
 	"autoload": {
