@@ -11,10 +11,10 @@ Promotions can also have ontime or multiple time uses for promo_codes
 
 ## Usage
 
-Add a behavior to the purchase and store_purchase models:
+Add a behavior to the purchase and brand_purchase models:
 
 ```php
-class Model_Store_Purchase extends Kohana_Model_Store_Purchase {
+class Model_Brand_Purchase extends Kohana_Model_Brand_Purchase {
 
 	public static function initialize(Jam_Meta $meta)
 	{
@@ -22,7 +22,7 @@ class Model_Store_Purchase extends Kohana_Model_Store_Purchase {
 
 		$meta
 			->behaviors(array(
-				'promotable_store_purchase' => Jam::behavior('promotable_store_purchase'),
+				'promotable_brand_purchase' => Jam::behavior('promotable_brand_purchase'),
 			));
 	}
 }
@@ -46,7 +46,7 @@ And you'll need to add actual promotions to the database. The promtion modle use
 There are 2 availbale predefined promotions:
 
 * Model_Promotion_Promocode_Giftcard - to use it you'll need to enter requirement - the minimum price where the promotion applies, and amount - the amount (Jam_Price) to be reducted from the purchase
-* Model_Promotion_Promocode_Percent - get a static reduction of some percent (amount). Amount is a value from 0 to 1. 
+* Model_Promotion_Promocode_Percent - get a static reduction of some percent (amount). Amount is a value from 0 to 1.
 
 ## promo_code_text
 

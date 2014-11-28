@@ -2,7 +2,7 @@
 
 /**
  * This is a base
- * 
+ *
  * @package    openbuildings\promotions
  * @author     Ivan Kerin <ikerin@gmail.com>
  * @author     Yasen Yanev <yasen@openbuildings.com>
@@ -61,7 +61,7 @@ class Kohana_Model_Promotion extends Jam_Model implements Sellable {
 	/**
 	 * @codeCoverageIgnore
 	 */
-	public function applies_to(Model_Store_Purchase $purchase)
+	public function applies_to(Model_Brand_Purchase $purchase)
 	{
 		throw new Kohana_Exception('Not a valid promotion');
 	}
@@ -86,10 +86,10 @@ class Kohana_Model_Promotion extends Jam_Model implements Sellable {
 	}
 
 	/**
-	 * If the promotion applies to the store_purchase - add a purchase_item for this promotion, otherwise remove the associated purchase item
-	 * @param  Model_Store_Purchase $store_purchase
+	 * If the promotion applies to the brand_purchase - add a purchase_item for this promotion, otherwise remove the associated purchase item
+	 * @param  Model_Brand_Purchase $brand_purchase
 	 */
-	public function update_store_purchase_items($applies, & $items)
+	public function update_brand_purchase_items($applies, & $items)
 	{
 		$promo_item = Jam::build('purchase_item_promotion', array('reference' => $this));
 

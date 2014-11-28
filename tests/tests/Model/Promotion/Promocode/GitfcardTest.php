@@ -74,9 +74,9 @@ class Model_Promotion_Promocode_GiftcardTest extends Testcase_Promotions {
 			->will($this->returnValue($monetary));
 
 		$purchase_item->set(array(
-			'store_purchase' => array(
+			'brand_purchase' => array(
 				'purchase' => array(
-					'store_purchases' => array(
+					'brand_purchases' => array(
 						array('id' => 1),
 						array('id' => 2),
 					)

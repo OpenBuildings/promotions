@@ -44,7 +44,7 @@ class Model_PromotionTest extends Testcase_Promotions {
 	{
 		$promotion = Jam::build('promotion');
 
-		$promotion->applies_to(Jam::build('store_purchase'));
+		$promotion->applies_to(Jam::build('brand_purchase'));
 	}
 
 	public function data_is_expired()
@@ -82,43 +82,43 @@ class Model_PromotionTest extends Testcase_Promotions {
 		$this->assertTrue($purchase_item->is_payable);
 	}
 
-	public function test_update_store_purchase()
+	public function test_update_brand_purchase()
 	{
-		$store_purchase = $this->getMock('Model_Store_Purchase', array(
+		$brand_purchase = $this->getMock('Model_Brand_Purchase', array(
 			'search_same_item'
 		), array(
-			'store_purchase'
+			'brand_purchase'
 		));
 
-		$store_purchase->items = array(
+		$brand_purchase->items = array(
 			array('id' => 10, 'model' => 'purchase_item_product'),
 			array('id' => 15, 'model' => 'purchase_item_product'),
 		);
 
 		$promotion = Jam::build('promotion')->load_fields(array('id' => 10));
 
-		$items = $store_purchase->items->as_array();
+		$items = $brand_purchase->items->as_array();
 
 		// applies_to = TRUE, offset = 0
-		$promotion->update_store_purchase_items(TRUE, $items);
+		$promotion->update_brand_purchase_items(TRUE, $items);
 
 		$this->assertCount(3, $items);
 		$this->assertSame($promotion, $items[2]->reference);
 
 		// applies_to = TRUE, offset = NULL
-		$promotion->update_store_purchase_items(TRUE, $items);
+		$promotion->update_brand_purchase_items(TRUE, $items);
 
 		$this->assertCount(3, $items);
 		$this->assertSame($promotion, $items[2]->reference);
 
 		// applies_to = FALSE, offset = 1
-		$promotion->update_store_purchase_items(FALSE, $items);
+		$promotion->update_brand_purchase_items(FALSE, $items);
 
 		$this->assertCount(2, $items);
 		$this->assertFalse(isset($items[2]));
 
 		// applies_to = FALSE, offset = NULL
-		$promotion->update_store_purchase_items(FALSE, $items);
+		$promotion->update_brand_purchase_items(FALSE, $items);
 
 		$this->assertCount(2, $items);
 	}

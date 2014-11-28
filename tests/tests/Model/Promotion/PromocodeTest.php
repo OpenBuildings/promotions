@@ -10,11 +10,11 @@
 class Model_Promotion_PromocodeTest extends Testcase_Promotions {
 
 	/**
-	 * @covers Model_Promotion_Promocode::matches_store_purchase_promo_code
+	 * @covers Model_Promotion_Promocode::matches_brand_purchase_promo_code
 	 */
-	public function test_matches_store_purchase_promo_code()
+	public function test_matches_brand_purchase_promo_code()
 	{
-		$store_purchase = Jam::build('store_purchase', array('purchase' => Jam::build('purchase')));
+		$brand_purchase = Jam::build('brand_purchase', array('purchase' => Jam::build('purchase')));
 
 		$promotion = $this->getMock('Model_Promotion_Promocode', array('has_promo_code'), array('promotion_promocode'));
 		$promo_code = Jam::build('promo_code');
@@ -25,12 +25,12 @@ class Model_Promotion_PromocodeTest extends Testcase_Promotions {
 			->with($this->identicalTo($promo_code))
 			->will($this->onConsecutiveCalls(TRUE, FALSE));
 
-		$this->assertFalse($promotion->matches_store_purchase_promo_code($store_purchase));
+		$this->assertFalse($promotion->matches_brand_purchase_promo_code($brand_purchase));
 
-		$store_purchase->purchase->promo_code = $promo_code;
+		$brand_purchase->purchase->promo_code = $promo_code;
 
-		$this->assertTrue($promotion->matches_store_purchase_promo_code($store_purchase));
-		$this->assertFalse($promotion->matches_store_purchase_promo_code($store_purchase));
+		$this->assertTrue($promotion->matches_brand_purchase_promo_code($brand_purchase));
+		$this->assertFalse($promotion->matches_brand_purchase_promo_code($brand_purchase));
 	}
 
 	/**
@@ -38,18 +38,18 @@ class Model_Promotion_PromocodeTest extends Testcase_Promotions {
 	 */
 	public function test_applies_to()
 	{
-		$store_purchase = Jam::build('store_purchase');
+		$brand_purchase = Jam::build('brand_purchase');
 
-		$promotion = $this->getMock('Model_Promotion_Promocode', array('matches_store_purchase_promo_code'), array('promotion'));
+		$promotion = $this->getMock('Model_Promotion_Promocode', array('matches_brand_purchase_promo_code'), array('promotion'));
 
 		$promotion
 			->expects($this->exactly(2))
-			->method('matches_store_purchase_promo_code')
-			->with($this->identicalTo($store_purchase))
+			->method('matches_brand_purchase_promo_code')
+			->with($this->identicalTo($brand_purchase))
 			->will($this->onConsecutiveCalls(TRUE, FALSE));
 
-		$this->assertTrue($promotion->applies_to($store_purchase));
-		$this->assertFalse($promotion->applies_to($store_purchase));
+		$this->assertTrue($promotion->applies_to($brand_purchase));
+		$this->assertFalse($promotion->applies_to($brand_purchase));
 	}
 
 	/**
