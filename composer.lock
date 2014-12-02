@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3c318cf2c9571d3c87242ccf96714cec",
+    "hash": "2d3c9856c1e23c195586d79e2f760894",
     "packages": [
         {
             "name": "clippings/freezable",
@@ -874,16 +874,16 @@
         },
         {
             "name": "openbuildings/purchases",
-            "version": "0.7.0-alpha.2",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/purchases.git",
-                "reference": "a0ddcf157407cf2bd4396c97a2924873bd1170a3"
+                "reference": "6659a1a35e51fea1359bb758aed9baa7b8fa9a4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/purchases/zipball/a0ddcf157407cf2bd4396c97a2924873bd1170a3",
-                "reference": "a0ddcf157407cf2bd4396c97a2924873bd1170a3",
+                "url": "https://api.github.com/repos/OpenBuildings/purchases/zipball/6659a1a35e51fea1359bb758aed9baa7b8fa9a4e",
+                "reference": "6659a1a35e51fea1359bb758aed9baa7b8fa9a4e",
                 "shasum": ""
             },
             "require": {
@@ -938,7 +938,7 @@
                 "purchase",
                 "store"
             ],
-            "time": "2014-11-28 12:46:51"
+            "time": "2014-12-01 15:38:47"
         },
         {
             "name": "rackspace/php-opencloud",
@@ -1135,16 +1135,16 @@
         },
         {
             "name": "openbuildings/shipping",
-            "version": "0.7.0-alpha.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/shipping.git",
-                "reference": "47b138a878dc812b87d318a8d1e2d53c5ad141c7"
+                "reference": "f9d7a424cb9a8665d348680019d59e1f26accd1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/shipping/zipball/47b138a878dc812b87d318a8d1e2d53c5ad141c7",
-                "reference": "47b138a878dc812b87d318a8d1e2d53c5ad141c7",
+                "url": "https://api.github.com/repos/OpenBuildings/shipping/zipball/f9d7a424cb9a8665d348680019d59e1f26accd1f",
+                "reference": "f9d7a424cb9a8665d348680019d59e1f26accd1f",
                 "shasum": ""
             },
             "require": {
@@ -1184,14 +1184,14 @@
                 "purchase",
                 "shipping"
             ],
-            "time": "2014-11-28 14:35:17"
+            "time": "2014-12-01 16:27:04"
         }
     ],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "openbuildings/purchases": 15,
-        "openbuildings/shipping": 15
+        "openbuildings/purchases": 20,
+        "openbuildings/shipping": 20
     },
     "prefer-stable": false,
     "platform": {
