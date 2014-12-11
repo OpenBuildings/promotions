@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2d3c9856c1e23c195586d79e2f760894",
+    "hash": "db9447194a68bd63d7159ca7786931e0",
     "packages": [
         {
             "name": "clippings/freezable",
@@ -182,52 +182,6 @@
                 "redis"
             ],
             "time": "2013-07-10 12:22:00"
-        },
-        {
-            "name": "facebook/php-sdk",
-            "version": "v3.2.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/facebook/facebook-php-sdk.git",
-                "reference": "6714042fa2f5979d4c64c7d11fb4bcab16bdf6cb"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/facebook/facebook-php-sdk/zipball/6714042fa2f5979d4c64c7d11fb4bcab16bdf6cb",
-                "reference": "6714042fa2f5979d4c64c7d11fb4bcab16bdf6cb",
-                "shasum": ""
-            },
-            "require": {
-                "ext-curl": "*",
-                "ext-json": "*",
-                "php": ">=5.2.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "3.7.*"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "src"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache2"
-            ],
-            "authors": [
-                {
-                    "name": "Facebook",
-                    "homepage": "https://github.com/facebook/facebook-php-sdk/contributors"
-                }
-            ],
-            "description": "Facebook PHP SDK",
-            "homepage": "https://github.com/facebook/facebook-php-sdk",
-            "keywords": [
-                "facebook",
-                "sdk"
-            ],
-            "time": "2013-11-19 23:11:14"
         },
         {
             "name": "guzzle/common",
@@ -618,25 +572,25 @@
         },
         {
             "name": "openbuildings/jam-auth",
-            "version": "0.2.3",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/jam-auth.git",
-                "reference": "88097b132467b64e2985bc67ca218e162a33d7c1"
+                "reference": "e9bb8bd25f03d39f3247c9bc7e9eb4390c0224b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/jam-auth/zipball/88097b132467b64e2985bc67ca218e162a33d7c1",
-                "reference": "88097b132467b64e2985bc67ca218e162a33d7c1",
+                "url": "https://api.github.com/repos/OpenBuildings/jam-auth/zipball/e9bb8bd25f03d39f3247c9bc7e9eb4390c0224b9",
+                "reference": "e9bb8bd25f03d39f3247c9bc7e9eb4390c0224b9",
                 "shasum": ""
             },
             "require": {
                 "composer/installers": "*",
-                "facebook/php-sdk": "3.2.*",
                 "openbuildings/jam": "0.4.*",
                 "php": ">=5.3.0"
             },
             "require-dev": {
+                "facebook/php-sdk": "3.2.*",
                 "openbuildings/kohana-test-bootsrap": "0.1.*"
             },
             "type": "kohana-module",
@@ -648,7 +602,6 @@
                 {
                     "name": "Ivan Kerin",
                     "email": "ivan@openbuildings.com",
-                    "homepage": "https://github.com/OpenBuildings/jam",
                     "role": "Author"
                 }
             ],
@@ -662,7 +615,7 @@
                 "kohana",
                 "login"
             ],
-            "time": "2013-09-18 07:28:00"
+            "time": "2014-12-09 15:27:57"
         },
         {
             "name": "openbuildings/jam-closuretable",
@@ -874,16 +827,16 @@
         },
         {
             "name": "openbuildings/purchases",
-            "version": "dev-master",
+            "version": "0.7.0-rc.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/purchases.git",
-                "reference": "6659a1a35e51fea1359bb758aed9baa7b8fa9a4e"
+                "reference": "7194184c7cb936270d1a6922f666a78ed047d435"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/purchases/zipball/6659a1a35e51fea1359bb758aed9baa7b8fa9a4e",
-                "reference": "6659a1a35e51fea1359bb758aed9baa7b8fa9a4e",
+                "url": "https://api.github.com/repos/OpenBuildings/purchases/zipball/7194184c7cb936270d1a6922f666a78ed047d435",
+                "reference": "7194184c7cb936270d1a6922f666a78ed047d435",
                 "shasum": ""
             },
             "require": {
@@ -891,7 +844,7 @@
                 "composer/installers": "*",
                 "omnipay/common": "~2.0",
                 "openbuildings/jam": ">=0.4.35",
-                "openbuildings/jam-auth": "0.2.*",
+                "openbuildings/jam-auth": "0.3.*",
                 "openbuildings/jam-locations": "0.1.*",
                 "openbuildings/jam-monetary": "0.1.*",
                 "php": ">=5.3.0"
@@ -938,7 +891,7 @@
                 "purchase",
                 "store"
             ],
-            "time": "2014-12-01 15:38:47"
+            "time": "2014-12-11 17:35:05"
         },
         {
             "name": "rackspace/php-opencloud",
@@ -1135,22 +1088,22 @@
         },
         {
             "name": "openbuildings/shipping",
-            "version": "dev-master",
+            "version": "0.7.0-rc.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/shipping.git",
-                "reference": "f9d7a424cb9a8665d348680019d59e1f26accd1f"
+                "reference": "88cb5ecdb19b6df5b520b0f6cd70007ad0ff64bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/shipping/zipball/f9d7a424cb9a8665d348680019d59e1f26accd1f",
-                "reference": "f9d7a424cb9a8665d348680019d59e1f26accd1f",
+                "url": "https://api.github.com/repos/OpenBuildings/shipping/zipball/88cb5ecdb19b6df5b520b0f6cd70007ad0ff64bc",
+                "reference": "88cb5ecdb19b6df5b520b0f6cd70007ad0ff64bc",
                 "shasum": ""
             },
             "require": {
                 "clippings/freezable": "0.2.*",
                 "composer/installers": "*",
-                "openbuildings/purchases": "0.7.*@alpha",
+                "openbuildings/purchases": "0.7.*@RC",
                 "php": ">=5.3.0"
             },
             "require-dev": {
@@ -1184,14 +1137,14 @@
                 "purchase",
                 "shipping"
             ],
-            "time": "2014-12-01 16:27:04"
+            "time": "2014-12-11 17:47:32"
         }
     ],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "openbuildings/purchases": 20,
-        "openbuildings/shipping": 20
+        "openbuildings/purchases": 5,
+        "openbuildings/shipping": 5
     },
     "prefer-stable": false,
     "platform": {
