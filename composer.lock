@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "db9447194a68bd63d7159ca7786931e0",
+    "hash": "9a1fe2d34e270aaba17672904cca5f89",
     "packages": [
         {
             "name": "clippings/freezable",
@@ -519,16 +519,16 @@
         },
         {
             "name": "openbuildings/jam",
-            "version": "0.4.60",
+            "version": "0.4.62",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/jam.git",
-                "reference": "e8b77469ab0ef612409044995e2cf24276fde0e2"
+                "reference": "628f498636e3251e8839863ae68624fc30dd8320"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/jam/zipball/e8b77469ab0ef612409044995e2cf24276fde0e2",
-                "reference": "e8b77469ab0ef612409044995e2cf24276fde0e2",
+                "url": "https://api.github.com/repos/OpenBuildings/jam/zipball/628f498636e3251e8839863ae68624fc30dd8320",
+                "reference": "628f498636e3251e8839863ae68624fc30dd8320",
                 "shasum": ""
             },
             "require": {
@@ -568,7 +568,7 @@
                 "upload",
                 "validation"
             ],
-            "time": "2014-11-05 13:57:38"
+            "time": "2014-12-11 14:55:07"
         },
         {
             "name": "openbuildings/jam-auth",
@@ -827,16 +827,16 @@
         },
         {
             "name": "openbuildings/purchases",
-            "version": "0.7.0-rc.2",
+            "version": "0.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/purchases.git",
-                "reference": "7194184c7cb936270d1a6922f666a78ed047d435"
+                "reference": "6583b78670684115ef958de52120485164cd0c40"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/purchases/zipball/7194184c7cb936270d1a6922f666a78ed047d435",
-                "reference": "7194184c7cb936270d1a6922f666a78ed047d435",
+                "url": "https://api.github.com/repos/OpenBuildings/purchases/zipball/6583b78670684115ef958de52120485164cd0c40",
+                "reference": "6583b78670684115ef958de52120485164cd0c40",
                 "shasum": ""
             },
             "require": {
@@ -891,7 +891,7 @@
                 "purchase",
                 "store"
             ],
-            "time": "2014-12-11 17:35:05"
+            "time": "2014-12-15 14:12:02"
         },
         {
             "name": "rackspace/php-opencloud",
@@ -941,17 +941,17 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.5.7",
+            "version": "v2.6.1",
             "target-dir": "Symfony/Component/EventDispatcher",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/EventDispatcher.git",
-                "reference": "bb6fc12085cd195dceaf48016087b12b632df497"
+                "reference": "720fe9bca893df7ad1b4546649473b5afddf0216"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/bb6fc12085cd195dceaf48016087b12b632df497",
-                "reference": "bb6fc12085cd195dceaf48016087b12b632df497",
+                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/720fe9bca893df7ad1b4546649473b5afddf0216",
+                "reference": "720fe9bca893df7ad1b4546649473b5afddf0216",
                 "shasum": ""
             },
             "require": {
@@ -960,7 +960,8 @@
             "require-dev": {
                 "psr/log": "~1.0",
                 "symfony/config": "~2.0",
-                "symfony/dependency-injection": "~2.0,<2.6.0",
+                "symfony/dependency-injection": "~2.6",
+                "symfony/expression-language": "~2.6",
                 "symfony/stopwatch": "~2.2"
             },
             "suggest": {
@@ -970,7 +971,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.5-dev"
+                    "dev-master": "2.6-dev"
                 }
             },
             "autoload": {
@@ -994,21 +995,21 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "http://symfony.com",
-            "time": "2014-10-30 20:17:55"
+            "time": "2014-12-02 20:19:20"
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v2.5.7",
+            "version": "v2.6.1",
             "target-dir": "Symfony/Component/HttpFoundation",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpFoundation.git",
-                "reference": "24545d3def96e6d6c3d7f1efdb48f330f27e244d"
+                "reference": "0109221f3cf012bf027768ad3e4236dae1af5332"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/24545d3def96e6d6c3d7f1efdb48f330f27e244d",
-                "reference": "24545d3def96e6d6c3d7f1efdb48f330f27e244d",
+                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/0109221f3cf012bf027768ad3e4236dae1af5332",
+                "reference": "0109221f3cf012bf027768ad3e4236dae1af5332",
                 "shasum": ""
             },
             "require": {
@@ -1020,7 +1021,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.5-dev"
+                    "dev-master": "2.6-dev"
                 }
             },
             "autoload": {
@@ -1047,7 +1048,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "http://symfony.com",
-            "time": "2014-11-20 13:22:25"
+            "time": "2014-12-02 20:19:20"
         }
     ],
     "packages-dev": [
@@ -1088,22 +1089,22 @@
         },
         {
             "name": "openbuildings/shipping",
-            "version": "0.7.0-rc.1",
+            "version": "0.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/shipping.git",
-                "reference": "88cb5ecdb19b6df5b520b0f6cd70007ad0ff64bc"
+                "reference": "78de2ffda429f2f646680a8ce3400580cb358f3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/shipping/zipball/88cb5ecdb19b6df5b520b0f6cd70007ad0ff64bc",
-                "reference": "88cb5ecdb19b6df5b520b0f6cd70007ad0ff64bc",
+                "url": "https://api.github.com/repos/OpenBuildings/shipping/zipball/78de2ffda429f2f646680a8ce3400580cb358f3e",
+                "reference": "78de2ffda429f2f646680a8ce3400580cb358f3e",
                 "shasum": ""
             },
             "require": {
                 "clippings/freezable": "0.2.*",
                 "composer/installers": "*",
-                "openbuildings/purchases": "0.7.*@RC",
+                "openbuildings/purchases": "~0.7.0",
                 "php": ">=5.3.0"
             },
             "require-dev": {
@@ -1137,16 +1138,14 @@
                 "purchase",
                 "shipping"
             ],
-            "time": "2014-12-11 17:47:32"
+            "time": "2014-12-16 08:04:04"
         }
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "openbuildings/purchases": 5,
-        "openbuildings/shipping": 5
-    },
+    "stability-flags": [],
     "prefer-stable": false,
+    "prefer-lowest": false,
     "platform": {
         "php": ">=5.3.0"
     },
