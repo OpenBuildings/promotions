@@ -43,4 +43,9 @@ class Kohana_Model_Promo_Code extends Jam_Model {
 	{
 		$this->get_insist('promotion')->validate_purchase($purchase);
 	}
+
+	public function is_expired()
+	{
+		return (bool) $this->expires_at AND strtotime($this->expires_at) < time();
+	}
 }

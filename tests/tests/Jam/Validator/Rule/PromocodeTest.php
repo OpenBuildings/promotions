@@ -40,18 +40,6 @@ class Jam_Validator_Rule_PromocodeTest extends Testcase_Promotions {
 
 		$result = $validator_rule->valid_promo_code($promo_code3->get('code'));
 		$this->assertEquals($promo_code3, $result, 'Should match because its an allow_multiple=TRUE promocode');
-
-		// Expired
-		$promo_code2->update_fields(array('expires_at' => strtotime('-1 day')));
-
-		$result = $validator_rule->valid_promo_code($promo_code2->get('code'));
-		$this->assertNull($result);
-
-		// Expired Allow multiple
-		$promo_code3->update_fields(array('expires_at' => strtotime('-1 month')));
-
-		$result = $validator_rule->valid_promo_code($promo_code3->get('code'));
-		$this->assertNull($result);
 	}
 
 	/**
@@ -61,14 +49,18 @@ class Jam_Validator_Rule_PromocodeTest extends Testcase_Promotions {
 	{
 		$model = Jam::find('product', 1);
 		$model2 = Jam::find('product', 1);
+		$model3 = Jam::find('product', 1);
 		$promo_code = Jam::build('promo_code');
+		$expired_promo_code = Jam::build('promo_code', array(
+			'expires_at' => date('Y-m-d H:i:s', strtotime('-1 month')),
+		));
 
 		$validator_rule = $this->getMock('Jam_Validator_Rule_Promocode', array('valid_promo_code'), array(array()));
 		$validator_rule
-			->expects($this->exactly(2))
+			->expects($this->exactly(3))
 			->method('valid_promo_code')
 			->with($this->equalTo('PROMOCODE'))
-			->will($this->onConsecutiveCalls(NULL, $promo_code));
+			->will($this->onConsecutiveCalls(NULL, $promo_code, $expired_promo_code));
 
 		$validator_rule->validate($model, 'promo_code', 'PROMOCODE');
 		$this->assertFalse($model->is_valid());
@@ -79,5 +71,12 @@ class Jam_Validator_Rule_PromocodeTest extends Testcase_Promotions {
 
 		$validator_rule->validate($model2, 'promo_code', 'PROMOCODE');
 		$this->assertTrue($model2->is_valid());
+
+		$validator_rule->validate($model3, 'promo_code', 'PROMOCODE');
+		$this->assertFalse($model3->is_valid());
+
+		$errors = $model3->errors()->as_array();
+		$expected = array('promo_code_text' => array('expired' => array()));
+		$this->assertEquals($expected, $errors);
 	}
 }

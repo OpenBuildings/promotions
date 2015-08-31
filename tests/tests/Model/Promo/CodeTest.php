@@ -44,4 +44,29 @@ class Model_Promo_CodeTest extends Testcase_Promotions {
 
 		$promo_code->validate_purchase($purchase);
 	}
+
+	public function data_is_expired()
+	{
+		return array(
+			array(NULL, FALSE),
+			array('+5 minutes', FALSE),
+			array('+0 minutes', FALSE),
+			array('-5 minutes', TRUE),
+		);
+	}
+
+	/**
+	 * @dataProvider data_is_expired
+	 * @covers Model_Promo_Code::is_expired
+	 */
+	public function test_is_expired($relative_expires_at, $expected)
+	{
+		$promo_code = Jam::build('promo_code', array(
+			'expires_at' => $relative_expires_at
+				? date('Y-m-d H:i:s', strtotime($relative_expires_at))
+				: NULL,
+		));
+
+		$this->assertSame($expected, $promo_code->is_expired());
+	}
 }
