@@ -15,13 +15,17 @@ class Kohana_Jam_Validator_Rule_Purchase_Promocode extends Jam_Validator_Rule {
 	{
 		$promo_code = $this->valid_promo_code($value, $model);
 
-		if ($promo_code)
+		if (! $promo_code)
 		{
-			$promo_code->validate_purchase($model);
+			$model->errors()->add('promo_code_text', 'invalid');
+		}
+		elseif ($promo_code->is_expired())
+		{
+			$model->errors()->add('promo_code_text', 'expired');
 		}
 		else
 		{
-			$model->errors()->add('promo_code_text', 'invalid');
+			$promo_code->validate_purchase($model);
 		}
 	}
 
@@ -29,7 +33,6 @@ class Kohana_Jam_Validator_Rule_Purchase_Promocode extends Jam_Validator_Rule {
 	{
 		return Jam::all('promo_code')
 			->where('code', '=', $code)
-			->not_expired()
 			->available_for_purchase($purchase)
 			->first();
 	}

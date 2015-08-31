@@ -18,13 +18,16 @@ class Kohana_Jam_Validator_Rule_Promocode extends Jam_Validator_Rule {
 		{
 			$model->errors()->add('promo_code_text', 'invalid');
 		}
+		elseif ($promo_code->is_expired())
+		{
+			$model->errors()->add('promo_code_text', 'expired');
+		}
 	}
 
 	public function valid_promo_code($code)
 	{
 		return Jam::all('promo_code')
 			->where('code', '=', $code)
-			->not_expired()
 			->available()
 			->first();
 	}
