@@ -9,7 +9,7 @@
  * @copyright  (c) 2011-2013 Despark Ltd.
  */
 abstract class Testcase_Promotions extends PHPUnit_Framework_TestCase {
-	
+
 	public function setUp()
 	{
 		parent::setUp();
@@ -19,7 +19,7 @@ abstract class Testcase_Promotions extends PHPUnit_Framework_TestCase {
 
 	public function tearDown()
 	{
-		Database::instance()->rollback();	
+		Database::instance()->rollback();
 		parent::tearDown();
 	}
 

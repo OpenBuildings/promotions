@@ -4,6 +4,14 @@ sudo: false
 
 php:
   - 5.4
+  - 5.5
+  - 5.6
+  - 7
+
+matrix:
+  fast_finish: true
+  allow_failures:
+    - php: 7
 
 cache:
   directories:
@@ -20,8 +28,8 @@ install:
 
 before_script:
   - mkdir -p build/logs
-  - mysql -e 'create database `test-promotions`;'
-  - mysql --default-character-set=utf8 test-promotions < tests/test_data/structure.sql
+  - mysql -e 'create database `OpenBuildings/promotions`;'
+  - mysql --default-character-set=utf8 OpenBuildings/promotions < tests/test_data/structure.sql
 
 script:
   - phpunit --coverage-clover build/logs/clover.xml

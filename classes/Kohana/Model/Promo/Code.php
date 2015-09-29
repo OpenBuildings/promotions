@@ -8,7 +8,7 @@
  * @license    http://spdx.org/licenses/BSD-3-Clause
  */
 class Kohana_Model_Promo_Code extends Jam_Model {
-	
+
 	/**
 	 * @codeCoverageIgnore
 	 */

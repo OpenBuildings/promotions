@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 spl_autoload_register(function($class)
 {
@@ -26,15 +26,15 @@ Kohana::modules(array(
 Kohana::$config
 	->load('database')
 		->set('default', array(
-			'type'       => 'MySQL',
+			'type'       => 'PDO',
 			'connection' => array(
-				'hostname'   => 'localhost',
-				'database'   => 'test-promotions',
+				'dsn'        => 'mysql:host=localhost;dbname=OpenBuildings/promotions',
 				'username'   => 'root',
 				'password'   => '',
 				'persistent' => TRUE,
 			),
 			'table_prefix' => '',
+			'identifier'   => '`',
 			'charset'      => 'utf8',
 			'caching'      => FALSE,
 		));

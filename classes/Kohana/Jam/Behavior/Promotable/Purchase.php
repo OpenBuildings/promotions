@@ -5,7 +5,7 @@
  *
  * When you assign promo_code_text then it tries to find the appropriate promo_code and assign it.
  * When you assign promo_code object, its code can be retrieved from promo_code_text (two way binding)
- * 
+ *
  * @package    openbuildings\promotions
  * @author     Ivan Kerin <ikerin@gmail.com>
  * @copyright  (c) 2013 OpenBuildings Ltd.
@@ -16,7 +16,7 @@ class Kohana_Jam_Behavior_Promotable_Purchase extends Jam_Behavior {
 	/**
 	 * @codeCoverageIgnore
 	 */
-	public function initialize(Jam_Meta $meta, $name) 
+	public function initialize(Jam_Meta $meta, $name)
 	{
 		parent::initialize($meta, $name);
 
@@ -32,7 +32,7 @@ class Kohana_Jam_Behavior_Promotable_Purchase extends Jam_Behavior {
 
 	/**
 	 * If there is a promo_code object, load it into the promo_code_text
-	 * @param  Model_Purchase $purchase 
+	 * @param  Model_Purchase $purchase
 	 */
 	public function model_after_load(Model_Purchase $purchase)
 	{
@@ -45,13 +45,13 @@ class Kohana_Jam_Behavior_Promotable_Purchase extends Jam_Behavior {
 	/**
 	 * If there is a new value in promo_code_text, try to load promo_code object.
 	 * If the new value is NULL, remove it
-	 * @param  Model_Purchase $purchase 
+	 * @param  Model_Purchase $purchase
 	 */
 	public function model_after_check(Model_Purchase $purchase)
 	{
 		if ($purchase->changed('promo_code_text') AND ! $purchase->errors('promo_code_text'))
 		{
-			if ($purchase->promo_code_text) 
+			if ($purchase->promo_code_text)
 			{
 				$purchase->promo_code = Jam::find('promo_code', $purchase->promo_code_text);
 			}

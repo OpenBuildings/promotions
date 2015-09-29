@@ -3,7 +3,7 @@
 /**
  * Validate for available and not expired promo_code_text
  * Specific for a purchase model
- * 
+ *
  * @package    openbuildings\promotions
  * @author     Ivan Kerin <ikerin@gmail.com>
  * @copyright  (c) 2013 OpenBuildings Ltd.

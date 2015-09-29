@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "806834e60a96005dd20c31d83ea3d393",
+    "hash": "809e30df92f54dd51489fca5b4c3c146",
     "packages": [
         {
             "name": "clippings/freezable",
@@ -445,16 +445,16 @@
         },
         {
             "name": "openbuildings/jam",
-            "version": "0.5.4",
+            "version": "0.5.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/jam.git",
-                "reference": "ad125065598fa84458c76d9216538f238b4e915e"
+                "reference": "9570f3045c0f3ca9ba27d10f4262c57fa0972426"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/jam/zipball/ad125065598fa84458c76d9216538f238b4e915e",
-                "reference": "ad125065598fa84458c76d9216538f238b4e915e",
+                "url": "https://api.github.com/repos/OpenBuildings/jam/zipball/9570f3045c0f3ca9ba27d10f4262c57fa0972426",
+                "reference": "9570f3045c0f3ca9ba27d10f4262c57fa0972426",
                 "shasum": ""
             },
             "require": {
@@ -494,30 +494,30 @@
                 "upload",
                 "validation"
             ],
-            "time": "2015-04-24 16:19:10"
+            "time": "2015-07-17 13:21:45"
         },
         {
             "name": "openbuildings/jam-auth",
-            "version": "0.3.2",
+            "version": "0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/jam-auth.git",
-                "reference": "e991a02c75755b4e30bddc843a3dad6c63219f21"
+                "reference": "0d84564c6c9a0536d2f75d7dd4fbf405d88ec7d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/jam-auth/zipball/e991a02c75755b4e30bddc843a3dad6c63219f21",
-                "reference": "e991a02c75755b4e30bddc843a3dad6c63219f21",
+                "url": "https://api.github.com/repos/OpenBuildings/jam-auth/zipball/0d84564c6c9a0536d2f75d7dd4fbf405d88ec7d0",
+                "reference": "0d84564c6c9a0536d2f75d7dd4fbf405d88ec7d0",
                 "shasum": ""
             },
             "require": {
                 "composer/installers": "*",
-                "openbuildings/jam": "~0.5.0",
+                "openbuildings/jam": "^0.5.0",
                 "php": ">=5.3.0"
             },
             "require-dev": {
-                "facebook/php-sdk": "3.2.*",
-                "openbuildings/kohana-test-bootsrap": "0.1.*"
+                "facebook/php-sdk-v4": "^5.0",
+                "openbuildings/kohana-test-bootsrap": "^0.1.2"
             },
             "type": "kohana-module",
             "notification-url": "https://packagist.org/downloads/",
@@ -541,7 +541,7 @@
                 "kohana",
                 "login"
             ],
-            "time": "2015-02-09 16:24:06"
+            "time": "2015-09-28 09:11:25"
         },
         {
             "name": "openbuildings/jam-closuretable",
@@ -751,16 +751,16 @@
         },
         {
             "name": "openbuildings/purchases",
-            "version": "0.8.0",
+            "version": "0.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/purchases.git",
-                "reference": "189a2762b86e3b84eae6cdff32bce07576e9959b"
+                "reference": "9a3770e15676481df442a9d14f67a6d8dad1129a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/purchases/zipball/189a2762b86e3b84eae6cdff32bce07576e9959b",
-                "reference": "189a2762b86e3b84eae6cdff32bce07576e9959b",
+                "url": "https://api.github.com/repos/OpenBuildings/purchases/zipball/9a3770e15676481df442a9d14f67a6d8dad1129a",
+                "reference": "9a3770e15676481df442a9d14f67a6d8dad1129a",
                 "shasum": ""
             },
             "require": {
@@ -768,7 +768,7 @@
                 "composer/installers": "*",
                 "omnipay/common": "~2.0",
                 "openbuildings/jam": "~0.5.0",
-                "openbuildings/jam-auth": "~0.3.2",
+                "openbuildings/jam-auth": "^0.4.0",
                 "openbuildings/jam-locations": "0.1.*",
                 "openbuildings/jam-monetary": "~0.1.19",
                 "php": ">=5.3.0"
@@ -815,26 +815,27 @@
                 "purchase",
                 "store"
             ],
-            "time": "2015-03-27 12:22:29"
+            "time": "2015-09-29 09:48:56"
         },
         {
             "name": "openbuildings/shipping",
-            "version": "0.9.0",
+            "version": "0.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/shipping.git",
-                "reference": "5b886b4c757838973542814da7a1407eb37928f6"
+                "reference": "60ff43673262799788e9370fffda3dc110bc21e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/shipping/zipball/5b886b4c757838973542814da7a1407eb37928f6",
-                "reference": "5b886b4c757838973542814da7a1407eb37928f6",
+                "url": "https://api.github.com/repos/OpenBuildings/shipping/zipball/60ff43673262799788e9370fffda3dc110bc21e3",
+                "reference": "60ff43673262799788e9370fffda3dc110bc21e3",
                 "shasum": ""
             },
             "require": {
                 "clippings/freezable": "0.2.*",
                 "composer/installers": "*",
-                "openbuildings/purchases": "~0.8.0",
+                "openbuildings/jam": "~0.5.5",
+                "openbuildings/purchases": "^0.9.0",
                 "php": ">=5.3.0"
             },
             "require-dev": {
@@ -842,11 +843,6 @@
                 "openbuildings/kohana-test-bootsrap": "0.1.*"
             },
             "type": "kohana-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.8.x-dev"
-                }
-            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
@@ -868,7 +864,7 @@
                 "purchase",
                 "shipping"
             ],
-            "time": "2015-05-20 12:34:58"
+            "time": "2015-09-29 10:07:54"
         },
         {
             "name": "rackspace/php-opencloud",
@@ -918,21 +914,20 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.6.7",
-            "target-dir": "Symfony/Component/EventDispatcher",
+            "version": "v2.7.5",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/EventDispatcher.git",
-                "reference": "672593bc4b0043a0acf91903bb75a1c82d8f2e02"
+                "url": "https://github.com/symfony/event-dispatcher.git",
+                "reference": "ae4dcc2a8d3de98bd794167a3ccda1311597c5d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/672593bc4b0043a0acf91903bb75a1c82d8f2e02",
-                "reference": "672593bc4b0043a0acf91903bb75a1c82d8f2e02",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/ae4dcc2a8d3de98bd794167a3ccda1311597c5d9",
+                "reference": "ae4dcc2a8d3de98bd794167a3ccda1311597c5d9",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": ">=5.3.9"
             },
             "require-dev": {
                 "psr/log": "~1.0",
@@ -949,11 +944,11 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.6-dev"
+                    "dev-master": "2.7-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
+                "psr-4": {
                     "Symfony\\Component\\EventDispatcher\\": ""
                 }
             },
@@ -973,25 +968,24 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2015-05-02 15:18:45"
+            "time": "2015-09-22 13:49:29"
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v2.6.7",
-            "target-dir": "Symfony/Component/HttpFoundation",
+            "version": "v2.7.5",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/HttpFoundation.git",
-                "reference": "8a0d00980ef9f6b47ddbf24bdfbf70fead760816"
+                "url": "https://github.com/symfony/http-foundation.git",
+                "reference": "e1509119f164a0d0a940d7d924d693a7a28a5470"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/8a0d00980ef9f6b47ddbf24bdfbf70fead760816",
-                "reference": "8a0d00980ef9f6b47ddbf24bdfbf70fead760816",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/e1509119f164a0d0a940d7d924d693a7a28a5470",
+                "reference": "e1509119f164a0d0a940d7d924d693a7a28a5470",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": ">=5.3.9"
             },
             "require-dev": {
                 "symfony/expression-language": "~2.4",
@@ -1000,15 +994,15 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.6-dev"
+                    "dev-master": "2.7-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
+                "psr-4": {
                     "Symfony\\Component\\HttpFoundation\\": ""
                 },
                 "classmap": [
-                    "Symfony/Component/HttpFoundation/Resources/stubs"
+                    "Resources/stubs"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1027,7 +1021,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2015-05-02 15:18:45"
+            "time": "2015-09-22 13:49:29"
         }
     ],
     "packages-dev": [
