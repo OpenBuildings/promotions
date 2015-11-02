@@ -36,10 +36,25 @@ class Kohana_Model_Promotion_Promocode_Giftcard extends Model_Promotion_Promocod
 
 	public function price_for_purchase_item(Model_Purchase_Item $purchase_item)
 	{
-		$brand_purchases_count = $purchase_item->brand_purchase->purchase->brand_purchases->count();
+		$brand_purchase = $purchase_item->get_insist('brand_purchase');
+		$brand_total = $brand_purchase->total_price('product');
+
+		$purchase = $brand_purchase->get_insist('purchase');
+
+		$totals = array_map(function ($brand_purchase) {
+			return $this->applies_to($brand_purchase)
+				? $brand_purchase->total_price('product')
+				: 0;
+		}, $purchase->brand_purchases->as_array());
+
+		$total = Jam_Price::sum($totals, $purchase_item->currency(), $purchase_item->monetary());
+
+		$multiplier = $total->amount()
+			? $brand_total->amount() / $total->amount()
+			: 1;
 
 		return $this->amount
 			->monetary($purchase_item->monetary())
-			->multiply_by(-1 / $brand_purchases_count);
+			->multiply_by(-$multiplier);
 	}
 }
