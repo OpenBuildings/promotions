@@ -49,7 +49,7 @@ class Kohana_Model_Promotion_Promocode_Giftcard extends Model_Promotion_Promocod
 
 		$total = Jam_Price::sum($totals, $purchase_item->currency(), $purchase_item->monetary());
 
-		$multiplier = $total->amount()
+		$multiplier = $total->is(Jam_Price::GREATER_THAN, 0)
 			? $brand_total->amount() / $total->amount()
 			: 1;
 
