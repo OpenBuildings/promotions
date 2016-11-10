@@ -4,7 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "809e30df92f54dd51489fca5b4c3c146",
+    "hash": "d68cac2f13e8f76625b024f6036dcc98",
+    "content-hash": "8c0de91d921f577c9b51a2ba39a78298",
     "packages": [
         {
             "name": "clippings/freezable",
@@ -287,6 +288,7 @@
                 "rest",
                 "web service"
             ],
+            "abandoned": "guzzlehttp/guzzle",
             "time": "2015-03-18 18:23:50"
         },
         {
@@ -819,16 +821,16 @@
         },
         {
             "name": "openbuildings/shipping",
-            "version": "0.10.0",
+            "version": "0.11.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/shipping.git",
-                "reference": "60ff43673262799788e9370fffda3dc110bc21e3"
+                "reference": "d8003e33d8bea7a0d63648da00eab132b319821e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/shipping/zipball/60ff43673262799788e9370fffda3dc110bc21e3",
-                "reference": "60ff43673262799788e9370fffda3dc110bc21e3",
+                "url": "https://api.github.com/repos/OpenBuildings/shipping/zipball/d8003e33d8bea7a0d63648da00eab132b319821e",
+                "reference": "d8003e33d8bea7a0d63648da00eab132b319821e",
                 "shasum": ""
             },
             "require": {
@@ -864,7 +866,7 @@
                 "purchase",
                 "shipping"
             ],
-            "time": "2015-09-29 10:07:54"
+            "time": "2016-11-10 11:42:50"
         },
         {
             "name": "rackspace/php-opencloud",
@@ -1058,6 +1060,7 @@
                 }
             ],
             "description": "Kohana core classes repackaged with composer, used to test modules",
+            "abandoned": "openbuildings/kohana-test-bootstrap",
             "time": "2013-10-01 08:57:54"
         }
     ],
