@@ -38,7 +38,13 @@ class Kohana_Jam_Behavior_Promotable_Purchase extends Jam_Behavior {
 	{
 		if ($purchase->promo_code_id)
 		{
-			$purchase->retrieved('promo_code_text', $purchase->promo_code->code);
+			$promo_code = Jam_Behavior_Paranoid::with_filter(
+				Jam_Behavior_Paranoid::ALL,
+				function () use ($purchase) {
+					return $purchase->promo_code;
+				}
+			);
+			$purchase->retrieved('promo_code_text', $promo_code->code);
 		}
 	}
 
