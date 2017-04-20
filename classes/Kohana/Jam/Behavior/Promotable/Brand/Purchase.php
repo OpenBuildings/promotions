@@ -94,7 +94,7 @@ class Kohana_Jam_Behavior_Promotable_Brand_Purchase extends Jam_Behavior {
 	public function update_promotion_items(Model_Brand_Purchase $brand_purchase)
 	{
 		$items = $brand_purchase->items->as_array();
-		foreach ($this->available_promotions() as $promotion)
+		foreach ($this->available_promotions($brand_purchase) as $promotion)
 		{
 			$promotion->update_brand_purchase_items($promotion->applies_to($brand_purchase), $items);
 		}
@@ -105,7 +105,7 @@ class Kohana_Jam_Behavior_Promotable_Brand_Purchase extends Jam_Behavior {
 	 * Return available (non expired) promotions
 	 * @return Jam_Array_Model
 	 */
-	public function available_promotions()
+	public function available_promotions(Model_Brand_Purchase $brand_purchase = null)
 	{
 		return Jam::all('promotion')->not_expired()->order_by('priority', 'ASC');
 	}
