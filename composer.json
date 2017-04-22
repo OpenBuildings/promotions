@@ -26,5 +26,8 @@
 	},
 	"require-dev": {
 		"openbuildings/kohana-test-bootstrap": "^0.2"
+	},
+	"autoload-dev": {
+		"classmap": ["tests/classes"]
 	}
 }
