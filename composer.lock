@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "fcf162259c11994f3d0d00782b5c43fb",
+    "content-hash": "7509aa0ccf86a9e607589bb845770ac5",
     "packages": [
         {
             "name": "clippings/freezable",

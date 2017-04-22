@@ -22,10 +22,12 @@
 		"composer/installers": "*",
 		"openbuildings/jam": "^0.5",
 		"openbuildings/purchases": "^0.9 | ^0.10",
-		"openbuildings/shipping": "^0.10 | ^0.11"
+		"openbuildings/shipping": "^0.10 | ^0.11",
+		"openbuildings/jam-monetary": "^0.1.21"
 	},
 	"require-dev": {
-		"openbuildings/kohana-test-bootstrap": "^0.2"
+		"openbuildings/kohana-test-bootstrap": "^0.2",
+		"kohana/auth": "^3.3"
 	},
 	"autoload-dev": {
 		"classmap": ["tests/classes"]
