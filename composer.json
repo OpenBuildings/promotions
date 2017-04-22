@@ -26,8 +26,5 @@
 	},
 	"require-dev": {
 		"openbuildings/kohana-test-bootstrap": "^0.2"
-	},
-	"autoload": {
-		"psr-0": {"Openbuildings\\Promotions\\": "src/"}
 	}
 }
