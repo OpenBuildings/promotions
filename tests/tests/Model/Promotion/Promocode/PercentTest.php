@@ -20,7 +20,10 @@ class Model_Promotion_Promocode_PercentTest extends Testcase_Promotions {
 		$monetary = new Monetary(new Source_Static);
 		$total_price = new Jam_Price(12, 'GBP', $monetary);
 
-		$brand_purchase = $this->getMock('Model_Brand_Purchase', array('total_price'), array('brand_purchase'));
+		$brand_purchase = $this->getMockBuilder('Model_Brand_Purchase')
+			->setMethods(array('total_price'))
+			->setConstructorArgs(array('brand_purchase'))
+			->getMock();
 
 		$brand_purchase
 			->expects($this->once())

@@ -34,7 +34,10 @@ class Model_Promo_CodeTest extends Testcase_Promotions {
 	{
 		$purchase = Jam::build('purchase');
 
-		$promotion = $this->getMock('Model_Promotion', array('validate_purchase'), array('promotion'));
+		$promotion = $this->getMockBuilder('Model_Promotion')
+			->setMethods(array('validate_purchase'))
+			->setConstructorArgs(array('promotion'))
+			->getMock();
 		$promotion
 			->expects($this->once())
 			->method('validate_purchase')

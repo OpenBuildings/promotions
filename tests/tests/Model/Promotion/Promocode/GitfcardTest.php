@@ -28,7 +28,10 @@ class Model_Promotion_Promocode_GiftcardTest extends Testcase_Promotions {
 	 */
 	public function test_validate_purchase($total_price, $expected_errors)
 	{
-		$purchase = $this->getMock('Model_Purchase', array('total_price'), array('purchase'));
+		$purchase = $this->getMockBuilder('Model_Purchase')
+			->setMethods(array('total_price'))
+			->setConstructorArgs(array('purchase'))
+			->getMock();
 
 		$promotion = Jam::build('promotion', array(
 			'currency' => 'GBP',
@@ -62,11 +65,10 @@ class Model_Promotion_Promocode_GiftcardTest extends Testcase_Promotions {
 	{
 		$monetary = new Monetary(new Source_Static);
 
-		$purchase_item = $this->getMock('Model_Purchase_Item_Promotion', array(
-			'monetary'
-		), array(
-			'purchase_item_promotion'
-		));
+		$purchase_item = $this->getMockBuilder('Model_Purchase_Item_Promotion')
+			->setMethods(array('monetary'))
+			->setConstructorArgs(array('purchase_item_promotion'))
+			->getMock();
 
 		$purchase_item
 			->expects($this->any())
@@ -86,11 +88,10 @@ class Model_Promotion_Promocode_GiftcardTest extends Testcase_Promotions {
 			)
 		));
 
-		$promotion = $this->getMock('Model_Promotion_Promocode_Giftcard', array(
-			'applies_to'
-		), array(
-			'promotion'
-		));
+		$promotion = $this->getMockBuilder('Model_Promotion_Promocode_Giftcard')
+			->setMethods(array('applies_to'))
+			->setConstructorArgs(array('promotion'))
+			->getMock();
 
 		$promotion
 			->expects($this->exactly(2))
