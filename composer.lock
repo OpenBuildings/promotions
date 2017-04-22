@@ -4,8 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d68cac2f13e8f76625b024f6036dcc98",
-    "content-hash": "8c0de91d921f577c9b51a2ba39a78298",
+    "content-hash": "fcf162259c11994f3d0d00782b5c43fb",
     "packages": [
         {
             "name": "clippings/freezable",
@@ -47,21 +46,24 @@
                 }
             ],
             "description": "Freeze values in objects",
-            "time": "2014-10-17 12:21:06"
+            "time": "2014-10-17T12:21:06+00:00"
         },
         {
             "name": "composer/installers",
-            "version": "v1.0.21",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "d64e23fce42a4063d63262b19b8e7c0f3b5e4c45"
+                "reference": "d78064c68299743e0161004f2de3a0204e33b804"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/d64e23fce42a4063d63262b19b8e7c0f3b5e4c45",
-                "reference": "d64e23fce42a4063d63262b19b8e7c0f3b5e4c45",
+                "url": "https://api.github.com/repos/composer/installers/zipball/d78064c68299743e0161004f2de3a0204e33b804",
+                "reference": "d78064c68299743e0161004f2de3a0204e33b804",
                 "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0"
             },
             "replace": {
                 "roundcube/plugin-installer": "*",
@@ -71,16 +73,16 @@
                 "composer/composer": "1.0.*@dev",
                 "phpunit/phpunit": "4.1.*"
             },
-            "type": "composer-installer",
+            "type": "composer-plugin",
             "extra": {
-                "class": "Composer\\Installers\\Installer",
+                "class": "Composer\\Installers\\Plugin",
                 "branch-alias": {
                     "dev-master": "1.0-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Composer\\Installers\\": "src/"
+                "psr-4": {
+                    "Composer\\Installers\\": "src/Composer/Installers"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -95,28 +97,35 @@
                 }
             ],
             "description": "A multi-framework Composer library installer",
-            "homepage": "http://composer.github.com/installers/",
+            "homepage": "https://composer.github.io/installers/",
             "keywords": [
                 "Craft",
                 "Dolibarr",
                 "Hurad",
+                "ImageCMS",
                 "MODX Evo",
+                "Mautic",
                 "OXID",
+                "Plentymarkets",
+                "RadPHP",
                 "SMF",
                 "Thelia",
                 "WolfCMS",
                 "agl",
                 "aimeos",
                 "annotatecms",
+                "attogram",
                 "bitrix",
                 "cakephp",
                 "chef",
+                "cockpit",
                 "codeigniter",
                 "concrete5",
                 "croogo",
                 "dokuwiki",
                 "drupal",
                 "elgg",
+                "expressionengine",
                 "fuelphp",
                 "grav",
                 "installer",
@@ -133,16 +142,18 @@
                 "piwik",
                 "ppi",
                 "puppet",
+                "reindex",
                 "roundcube",
                 "shopware",
                 "silverstripe",
                 "symfony",
                 "typo3",
                 "wordpress",
+                "yawik",
                 "zend",
                 "zikula"
             ],
-            "time": "2015-02-18 17:17:01"
+            "time": "2016-08-13T20:53:52+00:00"
         },
         {
             "name": "desarrolla2/cache",
@@ -193,7 +204,7 @@
                 "mysql",
                 "redis"
             ],
-            "time": "2013-07-10 12:22:00"
+            "time": "2013-07-10T12:22:00+00:00"
         },
         {
             "name": "guzzle/guzzle",
@@ -289,39 +300,276 @@
                 "web service"
             ],
             "abandoned": "guzzlehttp/guzzle",
-            "time": "2015-03-18 18:23:50"
+            "time": "2015-03-18T18:23:50+00:00"
         },
         {
-            "name": "omnipay/common",
-            "version": "v2.3.4",
+            "name": "kohana/auth",
+            "version": "v3.3.6",
             "source": {
                 "type": "git",
-                "url": "https://github.com/thephpleague/omnipay-common.git",
-                "reference": "fcd5a606713d11536c89315a5ae02d965a737c21"
+                "url": "https://github.com/kohana/auth.git",
+                "reference": "8cefbb2625508887f92e2c6e702bab8b608ae588"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/omnipay-common/zipball/fcd5a606713d11536c89315a5ae02d965a737c21",
-                "reference": "fcd5a606713d11536c89315a5ae02d965a737c21",
+                "url": "https://api.github.com/repos/kohana/auth/zipball/8cefbb2625508887f92e2c6e702bab8b608ae588",
+                "reference": "8cefbb2625508887f92e2c6e702bab8b608ae588",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "kohana/core": ">=3.3",
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "kohana/core": "3.3.*@dev",
+                "kohana/koharness": "*@dev",
+                "kohana/unittest": "3.3.*@dev"
+            },
+            "type": "kohana-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-3.3/develop": "3.3.x-dev",
+                    "dev-3.4/develop": "3.4.x-dev"
+                },
+                "installer-paths": {
+                    "vendor/{$vendor}/{$name}": [
+                        "type:kohana-module"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kohana Team",
+                    "email": "team@kohanaframework.org",
+                    "homepage": "http://kohanaframework.org/team",
+                    "role": "developer"
+                }
+            ],
+            "description": "The official Kohana auth module",
+            "homepage": "http://kohanaframework.org",
+            "keywords": [
+                "Authentication",
+                "framework",
+                "kohana"
+            ],
+            "time": "2016-03-24T11:12:43+00:00"
+        },
+        {
+            "name": "kohana/core",
+            "version": "v3.3.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kohana/core.git",
+                "reference": "bdbe81afb5a09cee4269d2e2210a0d293265231a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kohana/core/zipball/bdbe81afb5a09cee4269d2e2210a0d293265231a",
+                "reference": "bdbe81afb5a09cee4269d2e2210a0d293265231a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "kohana/koharness": "*@dev",
+                "kohana/unittest": "3.3.*@dev"
+            },
+            "suggest": {
+                "ext-curl": "*",
+                "ext-http": "*",
+                "ext-mcrypt": "*"
+            },
+            "type": "library",
+            "extra": {
+                "installer-paths": {
+                    "vendor/{$vendor}/{$name}": [
+                        "type:kohana-module"
+                    ]
+                },
+                "branch-alias": {
+                    "dev-3.3/develop": "3.3.x-dev",
+                    "dev-3.4/develop": "3.4.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kohana Team",
+                    "email": "team@kohanaframework.org",
+                    "homepage": "http://kohanaframework.org/team",
+                    "role": "developer"
+                }
+            ],
+            "description": "Core system classes for the Kohana application framework",
+            "homepage": "http://kohanaframework.org",
+            "keywords": [
+                "framework",
+                "kohana"
+            ],
+            "time": "2016-07-25T13:15:13+00:00"
+        },
+        {
+            "name": "kohana/database",
+            "version": "v3.3.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kohana/database.git",
+                "reference": "3edf2fe2cc6deeab41acfff032f38f697f9ef6fc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kohana/database/zipball/3edf2fe2cc6deeab41acfff032f38f697f9ef6fc",
+                "reference": "3edf2fe2cc6deeab41acfff032f38f697f9ef6fc",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "kohana/core": ">=3.3",
+                "php": ">=5.3.6"
+            },
+            "require-dev": {
+                "kohana/core": "3.3.*@dev",
+                "kohana/koharness": "*@dev",
+                "kohana/unittest": "3.3.*@dev"
+            },
+            "suggest": {
+                "ext-mysql": "*",
+                "ext-pdo": "*"
+            },
+            "type": "kohana-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-3.3/develop": "3.3.x-dev",
+                    "dev-3.4/develop": "3.4.x-dev"
+                },
+                "installer-paths": {
+                    "vendor/{$vendor}/{$name}": [
+                        "type:kohana-module"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kohana Team",
+                    "email": "team@kohanaframework.org",
+                    "homepage": "http://kohanaframework.org/team",
+                    "role": "developer"
+                }
+            ],
+            "description": "The official Kohana module for database interactions, building queries, and prepared statements",
+            "homepage": "http://kohanaframework.org",
+            "keywords": [
+                "database",
+                "framework",
+                "kohana"
+            ],
+            "time": "2016-03-23T17:12:30+00:00"
+        },
+        {
+            "name": "kohana/image",
+            "version": "v3.3.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kohana/image.git",
+                "reference": "40f196dd9246a35988e17fdd211bd312687d14e8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kohana/image/zipball/40f196dd9246a35988e17fdd211bd312687d14e8",
+                "reference": "40f196dd9246a35988e17fdd211bd312687d14e8",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "kohana/core": ">=3.3",
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "kohana/core": "3.3.*@dev",
+                "kohana/koharness": "*@dev",
+                "kohana/unittest": "3.3.*@dev"
+            },
+            "suggest": {
+                "ext-gd": "*"
+            },
+            "type": "kohana-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-3.3/develop": "3.3.x-dev",
+                    "dev-3.4/develop": "3.4.x-dev"
+                },
+                "installer-paths": {
+                    "vendor/{$vendor}/{$name}": [
+                        "type:kohana-module"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kohana Team",
+                    "email": "team@kohanaframework.org",
+                    "homepage": "http://kohanaframework.org/team",
+                    "role": "developer"
+                }
+            ],
+            "description": "The official Kohana module for manipulating images",
+            "homepage": "http://kohanaframework.org",
+            "keywords": [
+                "framework",
+                "image",
+                "kohana"
+            ],
+            "time": "2016-03-23T17:12:48+00:00"
+        },
+        {
+            "name": "omnipay/common",
+            "version": "2.5.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/omnipay-common.git",
+                "reference": "54910f2ece6b1be64f5e53e2111dd1254d50ee49"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/omnipay-common/zipball/54910f2ece6b1be64f5e53e2111dd1254d50ee49",
+                "reference": "54910f2ece6b1be64f5e53e2111dd1254d50ee49",
                 "shasum": ""
             },
             "require": {
                 "guzzle/guzzle": "~3.9",
                 "php": ">=5.3.2",
-                "symfony/http-foundation": "~2.1"
+                "symfony/http-foundation": "~2.1|~3.0"
             },
             "require-dev": {
-                "omnipay/tests": "~2.0"
+                "omnipay/tests": "~2.0",
+                "squizlabs/php_codesniffer": "~1.5"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "2.5.x-dev"
                 },
                 "gateways": [
                     "AuthorizeNet_AIM",
                     "AuthorizeNet_SIM",
-                    "Buckaroo",
+                    "Buckaroo_CreditCard",
                     "Buckaroo_Ideal",
                     "Buckaroo_PayPal",
                     "CardSave",
@@ -351,26 +599,7 @@
                     "TargetPay_Directebanking",
                     "TargetPay_Ideal",
                     "TargetPay_Mrcash",
-                    "TwoCheckout",
-                    "WorldPay",
-                    "Alipay Bank",
-                    "AliPay Dual Func",
-                    "Alipay Express",
-                    "Alipay Mobile Express",
-                    "Alipay Secured",
-                    "Alipay Wap Express",
-                    "Cybersource",
-                    "DataCash",
-                    "Ecopayz",
-                    "Neteller",
-                    "Pacnet",
-                    "PaymentSense",
-                    "Realex Remote",
-                    "SecPay (PayPoint.net)",
-                    "Sisow",
-                    "Skrill",
-                    "YandexMoney",
-                    "YandexMoneyIndividual"
+                    "WorldPay"
                 ]
             },
             "autoload": {
@@ -405,7 +634,7 @@
                 "payment",
                 "purchase"
             ],
-            "time": "2015-03-30 14:34:46"
+            "time": "2016-11-07T06:10:23+00:00"
         },
         {
             "name": "openbuildings/flex-storage",
@@ -443,30 +672,36 @@
                 }
             ],
             "description": "Flexible storage provider for files (rackspace, aws, ftp, local)",
-            "time": "2014-07-08 12:07:06"
+            "time": "2014-07-08T12:07:06+00:00"
         },
         {
             "name": "openbuildings/jam",
-            "version": "0.5.8",
+            "version": "0.5.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/jam.git",
-                "reference": "9570f3045c0f3ca9ba27d10f4262c57fa0972426"
+                "reference": "87e7a519fc59e7fd71ac3bb6102f179a9197f842"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/jam/zipball/9570f3045c0f3ca9ba27d10f4262c57fa0972426",
-                "reference": "9570f3045c0f3ca9ba27d10f4262c57fa0972426",
+                "url": "https://api.github.com/repos/OpenBuildings/jam/zipball/87e7a519fc59e7fd71ac3bb6102f179a9197f842",
+                "reference": "87e7a519fc59e7fd71ac3bb6102f179a9197f842",
                 "shasum": ""
             },
             "require": {
                 "composer/installers": "*",
-                "openbuildings/flex-storage": "0.1.*",
+                "kohana/core": "^3.3.0",
+                "kohana/database": "^3.3.0",
+                "kohana/image": "^3.3.0",
+                "openbuildings/flex-storage": "^0.1.3",
                 "php": ">=5.3.0"
             },
             "require-dev": {
-                "openbuildings/kohana-test-bootsrap": "0.1.*",
-                "phpunit/phpunit-dom-assertions": "1.0.*@dev"
+                "openbuildings/kohana-test-bootstrap": "^0.2",
+                "phpunit/phpunit": "~4.0.0",
+                "phpunit/phpunit-dom-assertions": "1.0.*@dev",
+                "symfony/css-selector": ">=2.3",
+                "symfony/dom-crawler": ">=2.3"
             },
             "suggest": {
                 "openbuildings/jam-auth": "A Kohana Auth implementation for Jam, with services",
@@ -496,30 +731,34 @@
                 "upload",
                 "validation"
             ],
-            "time": "2015-07-17 13:21:45"
+            "time": "2017-01-19T22:39:39+00:00"
         },
         {
             "name": "openbuildings/jam-auth",
-            "version": "0.4.0",
+            "version": "0.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/jam-auth.git",
-                "reference": "0d84564c6c9a0536d2f75d7dd4fbf405d88ec7d0"
+                "reference": "51798c74fb97892f6a2961e18f9942a5deb86513"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/jam-auth/zipball/0d84564c6c9a0536d2f75d7dd4fbf405d88ec7d0",
-                "reference": "0d84564c6c9a0536d2f75d7dd4fbf405d88ec7d0",
+                "url": "https://api.github.com/repos/OpenBuildings/jam-auth/zipball/51798c74fb97892f6a2961e18f9942a5deb86513",
+                "reference": "51798c74fb97892f6a2961e18f9942a5deb86513",
                 "shasum": ""
             },
             "require": {
                 "composer/installers": "*",
-                "openbuildings/jam": "^0.5.0",
-                "php": ">=5.3.0"
+                "kohana/auth": "^3.3.0",
+                "kohana/core": "^3.3.0",
+                "openbuildings/jam": "^0.5.13",
+                "php": ">=5.4.0"
             },
             "require-dev": {
                 "facebook/php-sdk-v4": "^5.0",
-                "openbuildings/kohana-test-bootsrap": "^0.1.2"
+                "kohana/database": "^3.3.0",
+                "openbuildings/kohana-test-bootstrap": "^0.2",
+                "phpunit/phpunit": ">=4.0,<6.0"
             },
             "type": "kohana-module",
             "notification-url": "https://packagist.org/downloads/",
@@ -543,29 +782,31 @@
                 "kohana",
                 "login"
             ],
-            "time": "2015-09-28 09:11:25"
+            "time": "2016-08-16T10:33:41+00:00"
         },
         {
             "name": "openbuildings/jam-closuretable",
-            "version": "0.1.2",
+            "version": "0.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/jam-closuretable.git",
-                "reference": "9cefdc810e6a1e3dbc3322780394102b84e65918"
+                "reference": "9f269bb930d4f5f04665891830ab5097d2cecf12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/jam-closuretable/zipball/9cefdc810e6a1e3dbc3322780394102b84e65918",
-                "reference": "9cefdc810e6a1e3dbc3322780394102b84e65918",
+                "url": "https://api.github.com/repos/OpenBuildings/jam-closuretable/zipball/9f269bb930d4f5f04665891830ab5097d2cecf12",
+                "reference": "9f269bb930d4f5f04665891830ab5097d2cecf12",
                 "shasum": ""
             },
             "require": {
                 "composer/installers": "*",
-                "openbuildings/jam": "~0.5.0",
+                "kohana/core": "^3.3",
                 "php": ">=5.3.0"
             },
             "require-dev": {
-                "openbuildings/kohana-test-bootsrap": "0.1.*"
+                "openbuildings/jam": "^0.5.13",
+                "openbuildings/kohana-test-bootstrap": "^0.2",
+                "phpunit/phpunit": "^4.0, <4.5"
             },
             "type": "kohana-module",
             "notification-url": "https://packagist.org/downloads/",
@@ -589,7 +830,7 @@
                 "structure",
                 "tree"
             ],
-            "time": "2015-02-09 16:09:16"
+            "time": "2016-09-17T23:03:59+00:00"
         },
         {
             "name": "openbuildings/jam-locations",
@@ -637,30 +878,31 @@
                 "kohana",
                 "location"
             ],
-            "time": "2014-04-16 08:27:51"
+            "time": "2014-04-16T08:27:51+00:00"
         },
         {
             "name": "openbuildings/jam-monetary",
-            "version": "0.1.19",
+            "version": "0.1.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/jam-monetary.git",
-                "reference": "b431213561995a67c8a08f2fcf543db9d2585311"
+                "reference": "df57dad08f8dc5771a50f4c2c2e52485434b3851"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/jam-monetary/zipball/b431213561995a67c8a08f2fcf543db9d2585311",
-                "reference": "b431213561995a67c8a08f2fcf543db9d2585311",
+                "url": "https://api.github.com/repos/OpenBuildings/jam-monetary/zipball/df57dad08f8dc5771a50f4c2c2e52485434b3851",
+                "reference": "df57dad08f8dc5771a50f4c2c2e52485434b3851",
                 "shasum": ""
             },
             "require": {
                 "composer/installers": "*",
-                "openbuildings/jam": "~0.5.0",
                 "openbuildings/monetary": "~0.4.1",
                 "php": ">=5.3.0"
             },
             "require-dev": {
-                "openbuildings/kohana-test-bootsrap": "0.1.*"
+                "openbuildings/jam": "^0.5.13",
+                "openbuildings/kohana-test-bootstrap": "^0.2.0",
+                "phpunit/phpunit": "^4.0, <4.5"
             },
             "type": "kohana-module",
             "notification-url": "https://packagist.org/downloads/",
@@ -684,7 +926,7 @@
                 "money",
                 "price"
             ],
-            "time": "2015-02-09 16:48:03"
+            "time": "2016-09-18T08:45:53+00:00"
         },
         {
             "name": "openbuildings/monetary",
@@ -749,37 +991,40 @@
                 "money",
                 "yahoo"
             ],
-            "time": "2013-10-28 11:21:15"
+            "time": "2013-10-28T11:21:15+00:00"
         },
         {
             "name": "openbuildings/purchases",
-            "version": "0.9.0",
+            "version": "0.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/purchases.git",
-                "reference": "9a3770e15676481df442a9d14f67a6d8dad1129a"
+                "reference": "3e79e81348c7602c8e828fb58942ad73ed4bc035"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/purchases/zipball/9a3770e15676481df442a9d14f67a6d8dad1129a",
-                "reference": "9a3770e15676481df442a9d14f67a6d8dad1129a",
+                "url": "https://api.github.com/repos/OpenBuildings/purchases/zipball/3e79e81348c7602c8e828fb58942ad73ed4bc035",
+                "reference": "3e79e81348c7602c8e828fb58942ad73ed4bc035",
                 "shasum": ""
             },
             "require": {
-                "clippings/freezable": "0.2.*",
+                "clippings/freezable": "^0.2",
                 "composer/installers": "*",
-                "omnipay/common": "~2.0",
-                "openbuildings/jam": "~0.5.0",
-                "openbuildings/jam-auth": "^0.4.0",
-                "openbuildings/jam-locations": "0.1.*",
-                "openbuildings/jam-monetary": "~0.1.19",
-                "php": ">=5.3.0"
+                "kohana/core": "^3.3",
+                "kohana/database": "^3.3.4",
+                "omnipay/common": "^2",
+                "openbuildings/jam": "^0.5",
+                "openbuildings/jam-auth": "^0.4",
+                "openbuildings/jam-locations": "^0.1",
+                "openbuildings/jam-monetary": "^0.1.19",
+                "php": "^7"
             },
             "require-dev": {
-                "omnipay/dummy": "~2.0",
-                "openbuildings/environment-backup": "0.1.*",
-                "openbuildings/kohana-test-bootsrap": "0.1.*",
-                "openbuildings/phpunit-spiderling": "0.1.*"
+                "omnipay/dummy": "^2",
+                "openbuildings/environment-backup": "^0.1",
+                "openbuildings/kohana-test-bootstrap": "^0.2",
+                "openbuildings/phpunit-spiderling": "^0.2",
+                "phpunit/phpunit": "^6"
             },
             "suggest": {
                 "openbuildings/promotions": "Extends purchases functionality with promotions and gift cards",
@@ -817,32 +1062,34 @@
                 "purchase",
                 "store"
             ],
-            "time": "2015-09-29 09:48:56"
+            "time": "2017-04-22T11:28:49+00:00"
         },
         {
             "name": "openbuildings/shipping",
-            "version": "0.11.1",
+            "version": "0.11.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/shipping.git",
-                "reference": "d8003e33d8bea7a0d63648da00eab132b319821e"
+                "reference": "c6a9c91f029d64f4bc16e17b599069b40a32ae07"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/shipping/zipball/d8003e33d8bea7a0d63648da00eab132b319821e",
-                "reference": "d8003e33d8bea7a0d63648da00eab132b319821e",
+                "url": "https://api.github.com/repos/OpenBuildings/shipping/zipball/c6a9c91f029d64f4bc16e17b599069b40a32ae07",
+                "reference": "c6a9c91f029d64f4bc16e17b599069b40a32ae07",
                 "shasum": ""
             },
             "require": {
                 "clippings/freezable": "0.2.*",
                 "composer/installers": "*",
-                "openbuildings/jam": "~0.5.5",
-                "openbuildings/purchases": "^0.9.0",
-                "php": ">=5.3.0"
+                "openbuildings/jam": "^0.5.13",
+                "openbuildings/purchases": "^0.9 | ^0.10",
+                "php": "^7"
             },
             "require-dev": {
                 "openbuildings/environment-backup": "0.1.*",
-                "openbuildings/kohana-test-bootsrap": "0.1.*"
+                "openbuildings/jam-auth": "^0.4",
+                "openbuildings/kohana-test-bootstrap": "^0.2.0",
+                "phpunit/phpunit": "^6"
             },
             "type": "kohana-module",
             "notification-url": "https://packagist.org/downloads/",
@@ -866,7 +1113,7 @@
                 "purchase",
                 "shipping"
             ],
-            "time": "2016-11-10 11:42:50"
+            "time": "2017-04-22T11:35:14+00:00"
         },
         {
             "name": "rackspace/php-opencloud",
@@ -912,20 +1159,20 @@
                 "cloudfiles",
                 "opencloud"
             ],
-            "time": "2013-08-01 16:12:19"
+            "time": "2013-08-01T16:12:19+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.7.5",
+            "version": "v2.8.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "ae4dcc2a8d3de98bd794167a3ccda1311597c5d9"
+                "reference": "88b65f0ac25355090e524aba4ceb066025df8bd2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/ae4dcc2a8d3de98bd794167a3ccda1311597c5d9",
-                "reference": "ae4dcc2a8d3de98bd794167a3ccda1311597c5d9",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/88b65f0ac25355090e524aba4ceb066025df8bd2",
+                "reference": "88b65f0ac25355090e524aba4ceb066025df8bd2",
                 "shasum": ""
             },
             "require": {
@@ -933,11 +1180,10 @@
             },
             "require-dev": {
                 "psr/log": "~1.0",
-                "symfony/config": "~2.0,>=2.0.5",
-                "symfony/dependency-injection": "~2.6",
-                "symfony/expression-language": "~2.6",
-                "symfony/phpunit-bridge": "~2.7",
-                "symfony/stopwatch": "~2.3"
+                "symfony/config": "^2.0.5|~3.0.0",
+                "symfony/dependency-injection": "~2.6|~3.0.0",
+                "symfony/expression-language": "~2.6|~3.0.0",
+                "symfony/stopwatch": "~2.3|~3.0.0"
             },
             "suggest": {
                 "symfony/dependency-injection": "",
@@ -946,13 +1192,16 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.7-dev"
+                    "dev-master": "2.8-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
                     "Symfony\\Component\\EventDispatcher\\": ""
-                }
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -970,41 +1219,41 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2015-09-22 13:49:29"
+            "time": "2017-04-03T20:37:06+00:00"
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v2.7.5",
+            "version": "v3.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "e1509119f164a0d0a940d7d924d693a7a28a5470"
+                "reference": "cb0b6418f588952c9290b3df4ca650f1b7ab570a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/e1509119f164a0d0a940d7d924d693a7a28a5470",
-                "reference": "e1509119f164a0d0a940d7d924d693a7a28a5470",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/cb0b6418f588952c9290b3df4ca650f1b7ab570a",
+                "reference": "cb0b6418f588952c9290b3df4ca650f1b7ab570a",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9"
+                "php": ">=5.5.9",
+                "symfony/polyfill-mbstring": "~1.1"
             },
             "require-dev": {
-                "symfony/expression-language": "~2.4",
-                "symfony/phpunit-bridge": "~2.7"
+                "symfony/expression-language": "~2.8|~3.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.7-dev"
+                    "dev-master": "3.2-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
                     "Symfony\\Component\\HttpFoundation\\": ""
                 },
-                "classmap": [
-                    "Resources/stubs"
+                "exclude-from-classmap": [
+                    "/Tests/"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1023,23 +1272,85 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2015-09-22 13:49:29"
+            "time": "2017-04-04T15:30:56+00:00"
+        },
+        {
+            "name": "symfony/polyfill-mbstring",
+            "version": "v1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-mbstring.git",
+                "reference": "e79d363049d1c2128f133a2667e4f4190904f7f4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/e79d363049d1c2128f133a2667e4f4190904f7f4",
+                "reference": "e79d363049d1c2128f133a2667e4f4190904f7f4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "suggest": {
+                "ext-mbstring": "For best performance"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Mbstring\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill for the Mbstring extension",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "mbstring",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "time": "2016-11-14T01:06:16+00:00"
         }
     ],
     "packages-dev": [
         {
-            "name": "openbuildings/kohana-test-bootsrap",
-            "version": "0.1.2",
+            "name": "openbuildings/kohana-test-bootstrap",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/kohana-test-bootstrap.git",
-                "reference": "57c9cae9bd97edbe58d1c41c35c499c7d54f4030"
+                "reference": "83b9e254f385b907c859b8332e4396b151a7e80e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/kohana-test-bootstrap/zipball/57c9cae9bd97edbe58d1c41c35c499c7d54f4030",
-                "reference": "57c9cae9bd97edbe58d1c41c35c499c7d54f4030",
+                "url": "https://api.github.com/repos/OpenBuildings/kohana-test-bootstrap/zipball/83b9e254f385b907c859b8332e4396b151a7e80e",
+                "reference": "83b9e254f385b907c859b8332e4396b151a7e80e",
                 "shasum": ""
+            },
+            "require": {
+                "kohana/core": "^3.3"
             },
             "type": "library",
             "autoload": {
@@ -1054,14 +1365,17 @@
             "authors": [
                 {
                     "name": "Ivan Kerin",
-                    "email": "ivan@openbuildings.com",
-                    "homepage": "https://github.com/OpenBuildings/jam",
+                    "email": "ikerin@gmail.com",
                     "role": "Author"
+                },
+                {
+                    "name": "Haralan Dobrev",
+                    "email": "hkdobrev@gmail.com",
+                    "role": "Maintainer"
                 }
             ],
-            "description": "Kohana core classes repackaged with composer, used to test modules",
-            "abandoned": "openbuildings/kohana-test-bootstrap",
-            "time": "2013-10-01 08:57:54"
+            "description": "Helper package for testing Kohana modules",
+            "time": "2016-07-28T14:07:23+00:00"
         }
     ],
     "aliases": [],
@@ -1070,7 +1384,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.3.0"
+        "php": "^7"
     },
     "platform-dev": []
 }
