@@ -84,11 +84,10 @@ class Model_PromotionTest extends Testcase_Promotions {
 
 	public function test_update_brand_purchase()
 	{
-		$brand_purchase = $this->getMock('Model_Brand_Purchase', array(
-			'search_same_item'
-		), array(
-			'brand_purchase'
-		));
+		$brand_purchase = $this->getMockBuilder('Model_Brand_Purchase')
+			->setMethods(array('search_same_item'))
+			->setConstructorArgs(array('brand_purchase'))
+			->getMock();
 
 		$brand_purchase->items = array(
 			array('id' => 10, 'model' => 'purchase_item_product'),

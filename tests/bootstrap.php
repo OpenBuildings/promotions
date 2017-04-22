@@ -1,25 +1,15 @@
 <?php
 
-spl_autoload_register(function($class)
-{
-	$file = __DIR__.DIRECTORY_SEPARATOR.'classes'.DIRECTORY_SEPARATOR.str_replace('_', '/', $class).'.php';
-
-	if (is_file($file))
-	{
-		require_once $file;
-	}
-});
-
 require_once __DIR__.'/../vendor/autoload.php';
 
 Kohana::modules(array(
 	'database'      => MODPATH.'database',
 	'auth'          => MODPATH.'auth',
-	'jam'           => __DIR__.'/../modules/jam',
-	'jam-auth'      => __DIR__.'/../modules/jam-auth',
-	'jam-monetary'  => __DIR__.'/../modules/jam-monetary',
-	'shipping'      => __DIR__.'/../modules/shipping',
-	'purchases'     => __DIR__.'/../modules/purchases',
+	'jam'           => MODPATH.'jam',
+	'jam-monetary'  => MODPATH.'jam-monetary',
+	'jam-auth'      => MODPATH.'jam-auth',
+	'shipping'      => MODPATH.'shipping',
+	'purchases'     => MODPATH.'purchases',
 	'promotions'    => __DIR__.'/..',
 ));
 

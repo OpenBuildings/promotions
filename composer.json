@@ -18,15 +18,20 @@
 		}
 	],
 	"require": {
-		"php": ">=5.3.0",
+		"php": "^7",
 		"composer/installers": "*",
-		"openbuildings/purchases": "^0.9.0",
-		"openbuildings/shipping": "^0.10 | ^0.11"
+		"openbuildings/jam": "^0.5",
+		"openbuildings/purchases": "^0.9 | ^0.10",
+		"openbuildings/shipping": "^0.10 | ^0.11",
+		"openbuildings/jam-monetary": "^0.1.21"
 	},
 	"require-dev": {
-		"openbuildings/kohana-test-bootsrap": "0.1.*"
+		"openbuildings/kohana-test-bootstrap": "^0.2",
+		"kohana/auth": "^3.3",
+		"openbuildings/jam-auth": "^0.4.3",
+		"phpunit/phpunit": "^6.1"
 	},
-	"autoload": {
-		"psr-0": {"Openbuildings\\Promotions\\": "src/"}
+	"autoload-dev": {
+		"classmap": ["tests/classes"]
 	}
 }

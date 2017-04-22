@@ -8,7 +8,7 @@
  * @author Yasen Yanev
  * @copyright  (c) 2011-2013 Despark Ltd.
  */
-abstract class Testcase_Promotions extends PHPUnit_Framework_TestCase {
+abstract class Testcase_Promotions extends \PHPUnit\Framework\TestCase {
 
 	public function setUp()
 	{

@@ -34,7 +34,10 @@ class Jam_Behavior_Promotable_Brand_PurchaseTest extends Testcase_Promotions {
 	{
 		$brand_purchase = Jam::build('brand_purchase');
 
-		$promotion = $this->getMock('Model_Promotion', array('update_brand_purchase_items', 'applies_to'), array('promotion'));
+		$promotion = $this->getMockBuilder('Model_Promotion')
+			->setMethods(array('update_brand_purchase_items', 'applies_to'))
+			->setConstructorArgs(array('promotion'))
+			->getMock();
 
 		$promotion
 			->expects($this->at(1))
@@ -51,7 +54,9 @@ class Jam_Behavior_Promotable_Brand_PurchaseTest extends Testcase_Promotions {
 			->method('applies_to')
 			->will($this->onConsecutiveCalls(TRUE, FALSE));
 
-		$behavior = $this->getMock('Jam_Behavior_Promotable_Brand_Purchase', array('available_promotions'));
+		$behavior = $this->getMockBuilder('Jam_Behavior_Promotable_Brand_Purchase')
+			->setMethods(array('available_promotions'))
+			->getMock();
 
 		$behavior
 			->expects($this->once())

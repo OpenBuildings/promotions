@@ -16,7 +16,10 @@ class Model_Promotion_PromocodeTest extends Testcase_Promotions {
 	{
 		$brand_purchase = Jam::build('brand_purchase', array('purchase' => Jam::build('purchase')));
 
-		$promotion = $this->getMock('Model_Promotion_Promocode', array('has_promo_code'), array('promotion_promocode'));
+		$promotion = $this->getMockBuilder('Model_Promotion_Promocode')
+			->setMethods(array('has_promo_code'))
+			->setConstructorArgs(array('promotion_promocode'))
+			->getMock();
 		$promo_code = Jam::build('promo_code');
 
 		$promotion
@@ -40,7 +43,10 @@ class Model_Promotion_PromocodeTest extends Testcase_Promotions {
 	{
 		$brand_purchase = Jam::build('brand_purchase');
 
-		$promotion = $this->getMock('Model_Promotion_Promocode', array('matches_brand_purchase_promo_code'), array('promotion'));
+		$promotion = $this->getMockBuilder('Model_Promotion_Promocode')
+			->setMethods(array('matches_brand_purchase_promo_code'))
+			->setConstructorArgs(array('promotion'))
+			->getMock();
 
 		$promotion
 			->expects($this->exactly(2))

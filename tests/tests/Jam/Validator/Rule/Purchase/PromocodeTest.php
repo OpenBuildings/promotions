@@ -56,7 +56,10 @@ class Jam_Validator_Rule_Purchase_PromocodeTest extends Testcase_Promotions {
 		$purchase = Jam::find('purchase', 1);
 		$purchase2 = Jam::find('purchase', 1);
 		$purchase3 = Jam::find('purchase', 1);
-		$promo_code = $this->getMock('Model_Promo_Code', array('validate_purchase'), array('promo_code'));
+		$promo_code = $this->getMockBuilder('Model_Promo_Code')
+			->setMethods(array('validate_purchase'))
+			->setConstructorArgs(array('promo_code'))
+			->getMock();
 		$promo_code
 			->expects($this->once())
 			->method('validate_purchase')
@@ -66,7 +69,10 @@ class Jam_Validator_Rule_Purchase_PromocodeTest extends Testcase_Promotions {
 			'expires_at' => date('Y-m-d H:i:s', strtotime('-1 month')),
 		));
 
-		$validator_rule = $this->getMock('Jam_Validator_Rule_Purchase_Promocode', array('valid_promo_code'), array(array()));
+		$validator_rule = $this->getMockBuilder('Jam_Validator_Rule_Purchase_Promocode')
+			->setMethods(array('valid_promo_code'))
+			->setConstructorArgs(array(array()))
+			->getMock();
 		$validator_rule
 			->expects($this->exactly(3))
 			->method('valid_promo_code')

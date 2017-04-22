@@ -55,7 +55,10 @@ class Jam_Validator_Rule_PromocodeTest extends Testcase_Promotions {
 			'expires_at' => date('Y-m-d H:i:s', strtotime('-1 month')),
 		));
 
-		$validator_rule = $this->getMock('Jam_Validator_Rule_Promocode', array('valid_promo_code'), array(array()));
+		$validator_rule = $this->getMockBuilder('Jam_Validator_Rule_Promocode')
+			->setMethods(array('valid_promo_code'))
+			->setConstructorArgs(array(array()))
+			->getMock();
 		$validator_rule
 			->expects($this->exactly(3))
 			->method('valid_promo_code')
