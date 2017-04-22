@@ -4,8 +4,10 @@ require_once __DIR__.'/../vendor/autoload.php';
 
 Kohana::modules(array(
 	'database'      => MODPATH.'database',
+	'auth'          => MODPATH.'auth',
 	'jam'           => MODPATH.'jam',
 	'jam-monetary'  => MODPATH.'jam-monetary',
+	'jam-auth'      => MODPATH.'jam-auth',
 	'shipping'      => MODPATH.'shipping',
 	'purchases'     => MODPATH.'purchases',
 	'promotions'    => __DIR__.'/..',

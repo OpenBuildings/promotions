@@ -27,7 +27,8 @@
 	},
 	"require-dev": {
 		"openbuildings/kohana-test-bootstrap": "^0.2",
-		"kohana/auth": "^3.3"
+		"kohana/auth": "^3.3",
+		"openbuildings/jam-auth": "^0.4.3"
 	},
 	"autoload-dev": {
 		"classmap": ["tests/classes"]
