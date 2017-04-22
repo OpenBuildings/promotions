@@ -3,3 +3,6 @@
 /vendor/
 /build/
 /modules/
+
+# Ignore local modifications
+/phpunit.xml
