@@ -93,17 +93,17 @@ class Kohana_Model_Promotion extends Jam_Model implements Sellable {
 	{
 		$promo_item = Jam::build('purchase_item_promotion', array('reference' => $this));
 
-		$existing_promotion = false;
+		$has_existing_promotion = false;
 		foreach ($items as $index => $item){
 			if ($item->is_same($promo_item)) {
-				$existing_promotion = true;
+				$has_existing_promotion = true;
 				if (!$applies) {
 					unset($items[$index]);
 				}
 			}
 		}
 
-		if ($applies && !$existing_promotion) {
+		if ($applies && !$has_existing_promotion) {
 			$items[] = $promo_item;
 		}
 	}
