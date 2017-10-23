@@ -104,10 +104,13 @@ class Model_PromotionTest extends Testcase_Promotions {
 		$this->assertCount(3, $items);
 		$this->assertSame($promotion, $items[2]->reference);
 
+		$previous_promotion_item = $items[2];
+
 		// applies_to = TRUE, offset = NULL
 		$promotion->update_brand_purchase_items(TRUE, $items);
 
 		$this->assertCount(3, $items);
+		$this->assertSame($previous_promotion_item, $items[2], 'Failed asserting that promotion item is reused on update');
 		$this->assertSame($promotion, $items[2]->reference);
 
 		// applies_to = FALSE, offset = 1
