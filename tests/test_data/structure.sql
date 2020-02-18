@@ -168,35 +168,35 @@ VALUES
 # Dump of table purchases
 # ------------------------------------------------------------
 
-INSERT INTO `purchases` (`id`, `creator_id`, `number`, `currency`, `monetary`, `is_frozen`, `is_deleted`)
+INSERT INTO `purchases` (`id`, `creator_id`, `number`, `currency`, `monetary`, `is_frozen`, `is_deleted`, `promo_code_text`)
 VALUES
-  (1,1,'CNV7IC','EUR','O:31:\"OpenBuildings\\Monetary\\Monetary\":3:{s:20:\"\0*\0_default_currency\";C:33:\"OpenBuildings\\Monetary\\Source_ECB\":728:{a:31:{s:3:\"USD\";s:6:\"1.1170\";s:3:\"JPY\";s:6:\"134.13\";s:3:\"BGN\";s:6:\"1.9558\";s:3:\"CZK\";s:6:\"27.220\";s:3:\"DKK\";s:6:\"7.4597\";s:3:\"GBP\";s:7:\"0.73520\";s:3:\"HUF\";s:6:\"315.43\";s:3:\"PLN\";s:6:\"4.2343\";s:3:\"RON\";s:6:\"4.4173\";s:3:\"SEK\";s:6:\"9.4527\";s:3:\"CHF\";s:6:\"1.0941\";s:3:\"NOK\";s:6:\"9.5820\";s:3:\"HRK\";s:6:\"7.6360\";s:3:\"RUB\";s:7:\"73.3737\";s:3:\"TRY\";s:6:\"3.4137\";s:3:\"AUD\";s:6:\"1.5967\";s:3:\"BRL\";s:6:\"4.4787\";s:3:\"CAD\";s:6:\"1.4921\";s:3:\"CNY\";s:6:\"7.1099\";s:3:\"HKD\";s:6:\"8.6569\";s:3:\"IDR\";s:8:\"16419.85\";s:3:\"ILS\";s:6:\"4.4024\";s:3:\"INR\";s:7:\"73.8391\";s:3:\"KRW\";s:7:\"1334.11\";s:3:\"MXN\";s:7:\"19.0756\";s:3:\"MYR\";s:6:\"4.9410\";s:3:\"NZD\";s:6:\"1.7585\";s:3:\"PHP\";s:6:\"52.271\";s:3:\"SGD\";s:6:\"1.5960\";s:3:\"THB\";s:6:\"40.603\";s:3:\"ZAR\";s:7:\"15.6728\";}}s:10:\"\0*\0_source\";N;s:13:\"\0*\0_precision\";i:2;}',1,0),
-  (2,1,'AAV7IC','GBP','',0,0);
+  (1,1,'CNV7IC','EUR','O:31:\"OpenBuildings\\Monetary\\Monetary\":3:{s:20:\"\0*\0_default_currency\";C:33:\"OpenBuildings\\Monetary\\Source_ECB\":728:{a:31:{s:3:\"USD\";s:6:\"1.1170\";s:3:\"JPY\";s:6:\"134.13\";s:3:\"BGN\";s:6:\"1.9558\";s:3:\"CZK\";s:6:\"27.220\";s:3:\"DKK\";s:6:\"7.4597\";s:3:\"GBP\";s:7:\"0.73520\";s:3:\"HUF\";s:6:\"315.43\";s:3:\"PLN\";s:6:\"4.2343\";s:3:\"RON\";s:6:\"4.4173\";s:3:\"SEK\";s:6:\"9.4527\";s:3:\"CHF\";s:6:\"1.0941\";s:3:\"NOK\";s:6:\"9.5820\";s:3:\"HRK\";s:6:\"7.6360\";s:3:\"RUB\";s:7:\"73.3737\";s:3:\"TRY\";s:6:\"3.4137\";s:3:\"AUD\";s:6:\"1.5967\";s:3:\"BRL\";s:6:\"4.4787\";s:3:\"CAD\";s:6:\"1.4921\";s:3:\"CNY\";s:6:\"7.1099\";s:3:\"HKD\";s:6:\"8.6569\";s:3:\"IDR\";s:8:\"16419.85\";s:3:\"ILS\";s:6:\"4.4024\";s:3:\"INR\";s:7:\"73.8391\";s:3:\"KRW\";s:7:\"1334.11\";s:3:\"MXN\";s:7:\"19.0756\";s:3:\"MYR\";s:6:\"4.9410\";s:3:\"NZD\";s:6:\"1.7585\";s:3:\"PHP\";s:6:\"52.271\";s:3:\"SGD\";s:6:\"1.5960\";s:3:\"THB\";s:6:\"40.603\";s:3:\"ZAR\";s:7:\"15.6728\";}}s:10:\"\0*\0_source\";N;s:13:\"\0*\0_precision\";i:2;}',1,0,''),
+  (2,1,'AAV7IC','GBP','',0,0,'');
 
 # Dump of table brand_purchases
 # ------------------------------------------------------------
 
-INSERT INTO `brand_purchases` (`id`, `number`, `brand_id`, `purchase_id`, `is_deleted`)
+INSERT INTO `brand_purchases` (`id`, `number`, `brand_id`, `purchase_id`, `is_deleted`, `is_frozen`)
 VALUES
-  (1,'3S2GJG',1,1,0),
-  (2,'AA2GJG',1,2,0);
+  (1,'3S2GJG',1,1,0,1),
+  (2,'AA2GJG',1,2,0,1);
 
 # Dump of table purchase_items
 # ------------------------------------------------------------
 
-INSERT INTO `purchase_items` (`id`, `brand_purchase_id`, `reference_id`, `reference_model`, `price`, `quantity`, `model`, `is_payable`, `is_discount`, `is_deleted`)
+INSERT INTO `purchase_items` (`id`, `brand_purchase_id`, `reference_id`, `reference_model`, `price`, `quantity`, `model`, `is_payable`, `is_discount`, `is_deleted`, `is_frozen`)
 VALUES
-  (1,1,1,'product',200.00,1,'purchase_item_product',1,0,0),
-  (2,1,1,'variation',200.00,1,'purchase_item_product',1,0,0),
-  (3,2,1,'product',NULL,1,'purchase_item_product',1,0,0);
+  (1,1,1,'product',200.00,1,'purchase_item_product',1,0,0,1),
+  (2,1,1,'variation',200.00,1,'purchase_item_product',1,0,0,1),
+  (3,2,1,'product',NULL,1,'purchase_item_product',1,0,0,1);
 
 # Dump of table brands
 # ------------------------------------------------------------
 
-INSERT INTO `brands` (`id`, `name`)
+INSERT INTO `brands` (`id`, `name`, `currency`)
 VALUES
-  (1,'Example Brand'),
-  (2,'Empty Brand');
+  (1,'Example Brand','EUR'),
+  (2,'Empty Brand','EUR');
 
 # Dump of table users
 # ------------------------------------------------------------
