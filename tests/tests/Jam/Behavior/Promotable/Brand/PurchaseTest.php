@@ -20,7 +20,7 @@ class Jam_Behavior_Promotable_Brand_PurchaseTest extends Testcase_Promotions {
 
 		$this->assertEquals(array(1, 2), $promotions->ids());
 
-		Jam::find('promotion', 1)->update_fields(array('expires_at' => strtotime('-2days')));
+		Jam::find('promotion', 1)->update_fields(array('expires_at' => date('Y-m-d H:i:s',strtotime('-2days'))));
 
 		$promotions = $behavior->available_promotions();
 

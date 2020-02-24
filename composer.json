@@ -17,6 +17,11 @@
 			"role": "Author"
 		}
 	],
+	"config": {
+		"platform": {
+			"php": "7.1.8"
+		}
+	},
 	"require": {
 		"php": "^7.1",
 		"composer/installers": "*",
@@ -29,7 +34,7 @@
 		"openbuildings/kohana-test-bootstrap": "^0.2",
 		"kohana/auth": "^3.3",
 		"openbuildings/jam-auth": "^0.4.3",
-		"phpunit/phpunit": "^6.1"
+		"phpunit/phpunit": "^7"
 	},
 	"autoload-dev": {
 		"classmap": ["tests/classes"]
