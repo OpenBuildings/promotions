@@ -4,29 +4,32 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3ce49ffa5609b7c0d8bf93e97b7fbeb5",
+    "content-hash": "c2d1c0402f9bd675910d069dc775ebcf",
     "packages": [
         {
             "name": "clippings/freezable",
-            "version": "0.2.0",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/clippings/freezable.git",
-                "reference": "8c3b74f2e5bca8811006f13aef8aeee99bd3e55a"
+                "reference": "9f4cc752a024234312ebfc3ea2e115258ef47db6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/clippings/freezable/zipball/8c3b74f2e5bca8811006f13aef8aeee99bd3e55a",
-                "reference": "8c3b74f2e5bca8811006f13aef8aeee99bd3e55a",
+                "url": "https://api.github.com/repos/clippings/freezable/zipball/9f4cc752a024234312ebfc3ea2e115258ef47db6",
+                "reference": "9f4cc752a024234312ebfc3ea2e115258ef47db6",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4"
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.1.x-dev"
+                    "dev-master": "0.2.x-dev"
                 }
             },
             "autoload": {
@@ -46,7 +49,7 @@
                 }
             ],
             "description": "Freeze values in objects",
-            "time": "2014-10-17T12:21:06+00:00"
+            "time": "2020-02-11T10:33:22+00:00"
         },
         {
             "name": "clue/stream-filter",
@@ -957,16 +960,16 @@
         },
         {
             "name": "openbuildings/jam",
-            "version": "0.5.24",
+            "version": "0.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/jam.git",
-                "reference": "3239e93564d100ddb65055235f87ec99fc0d4370"
+                "reference": "dbaa321ebbce31374db45bc85f1d60d118e4cc02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/jam/zipball/3239e93564d100ddb65055235f87ec99fc0d4370",
-                "reference": "3239e93564d100ddb65055235f87ec99fc0d4370",
+                "url": "https://api.github.com/repos/OpenBuildings/jam/zipball/dbaa321ebbce31374db45bc85f1d60d118e4cc02",
+                "reference": "dbaa321ebbce31374db45bc85f1d60d118e4cc02",
                 "shasum": ""
             },
             "require": {
@@ -975,15 +978,14 @@
                 "kohana/database": "^3.3.0",
                 "kohana/image": "^3.3.0",
                 "openbuildings/flex-storage": "^0.1.3",
-                "php": ">=5.4"
+                "php": "^7.1"
             },
             "require-dev": {
-                "openbuildings/jam-monetary": "^0.1",
+                "openbuildings/jam-monetary": "^0.2",
                 "openbuildings/kohana-test-bootstrap": "^0.2",
-                "phpunit/phpunit": "~4.0.0",
-                "phpunit/phpunit-dom-assertions": "^0.1",
-                "symfony/css-selector": ">=2.3",
-                "symfony/dom-crawler": ">=2.3"
+                "phpunit/phpunit": "^7",
+                "symfony/css-selector": "^4.4",
+                "symfony/dom-crawler": "^4.4"
             },
             "suggest": {
                 "openbuildings/jam-auth": "A Kohana Auth implementation for Jam, with services",
@@ -1013,34 +1015,34 @@
                 "upload",
                 "validation"
             ],
-            "time": "2018-10-11T08:08:53+00:00"
+            "time": "2020-02-28T09:50:03+00:00"
         },
         {
             "name": "openbuildings/jam-auth",
-            "version": "0.4.6",
+            "version": "0.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/jam-auth.git",
-                "reference": "7c219d76621f1b575f58ac2cb7b9e366fa023ba6"
+                "reference": "20ca2f6a8860b0e92db14ce2052867dad772b253"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/jam-auth/zipball/7c219d76621f1b575f58ac2cb7b9e366fa023ba6",
-                "reference": "7c219d76621f1b575f58ac2cb7b9e366fa023ba6",
+                "url": "https://api.github.com/repos/OpenBuildings/jam-auth/zipball/20ca2f6a8860b0e92db14ce2052867dad772b253",
+                "reference": "20ca2f6a8860b0e92db14ce2052867dad772b253",
                 "shasum": ""
             },
             "require": {
                 "composer/installers": "*",
                 "kohana/auth": "^3.3.0",
                 "kohana/core": "^3.3.0",
-                "openbuildings/jam": "^0.5.13",
-                "php": ">=5.4.0"
+                "openbuildings/jam": "^0.6",
+                "php": "^7.1"
             },
             "require-dev": {
                 "facebook/php-sdk-v4": "^5.0",
                 "kohana/database": "^3.3.0",
                 "openbuildings/kohana-test-bootstrap": "^0.2",
-                "phpunit/phpunit": ">=4.0,<6.0"
+                "phpunit/phpunit": "^7"
             },
             "type": "kohana-module",
             "notification-url": "https://packagist.org/downloads/",
@@ -1064,31 +1066,31 @@
                 "kohana",
                 "login"
             ],
-            "time": "2018-11-21T08:17:29+00:00"
+            "time": "2020-03-02T13:28:12+00:00"
         },
         {
             "name": "openbuildings/jam-closuretable",
-            "version": "0.1.4",
+            "version": "0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/jam-closuretable.git",
-                "reference": "cb39663ea1cea3df83975652ccd21f69dd4b8eeb"
+                "reference": "98a3c3ad02c3df33f0c47fb57a8748e08cd09152"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/jam-closuretable/zipball/cb39663ea1cea3df83975652ccd21f69dd4b8eeb",
-                "reference": "cb39663ea1cea3df83975652ccd21f69dd4b8eeb",
+                "url": "https://api.github.com/repos/OpenBuildings/jam-closuretable/zipball/98a3c3ad02c3df33f0c47fb57a8748e08cd09152",
+                "reference": "98a3c3ad02c3df33f0c47fb57a8748e08cd09152",
                 "shasum": ""
             },
             "require": {
                 "composer/installers": "*",
                 "kohana/core": "^3.3",
-                "php": ">=5.3.0"
+                "php": "^7.1"
             },
             "require-dev": {
                 "openbuildings/jam": "^0.5.13",
                 "openbuildings/kohana-test-bootstrap": "^0.2",
-                "phpunit/phpunit": "^4.0, <4.5"
+                "phpunit/phpunit": "^5.7.11"
             },
             "type": "kohana-module",
             "notification-url": "https://packagist.org/downloads/",
@@ -1112,31 +1114,32 @@
                 "structure",
                 "tree"
             ],
-            "time": "2018-04-04T02:05:08+00:00"
+            "time": "2019-12-17T12:07:06+00:00"
         },
         {
             "name": "openbuildings/jam-locations",
-            "version": "0.1.2",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/jam-locations.git",
-                "reference": "af9ca9e817652a6c72a532bfe858b17ff42733b3"
+                "reference": "f4e52e0c38c5bfc90e55065b35e7b9bdcd613135"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/jam-locations/zipball/af9ca9e817652a6c72a532bfe858b17ff42733b3",
-                "reference": "af9ca9e817652a6c72a532bfe858b17ff42733b3",
+                "url": "https://api.github.com/repos/OpenBuildings/jam-locations/zipball/f4e52e0c38c5bfc90e55065b35e7b9bdcd613135",
+                "reference": "f4e52e0c38c5bfc90e55065b35e7b9bdcd613135",
                 "shasum": ""
             },
             "require": {
-                "composer/installers": "*",
-                "openbuildings/jam-closuretable": "0.1.*",
-                "php": ">=5.3.0"
+                "composer/installers": "^1",
+                "openbuildings/jam": "^0.6",
+                "openbuildings/jam-closuretable": "^0.2",
+                "php": "^7.1"
             },
             "require-dev": {
-                "ext-geoip": "*",
-                "openbuildings/environment-backup": "0.1.*",
-                "openbuildings/kohana-test-bootsrap": "0.1.*"
+                "openbuildings/environment-backup": "^0.1.2",
+                "openbuildings/kohana-test-bootstrap": "^0.2",
+                "phpunit/phpunit": "^7"
             },
             "type": "kohana-module",
             "notification-url": "https://packagist.org/downloads/",
@@ -1147,7 +1150,6 @@
                 {
                     "name": "Ivan Kerin",
                     "email": "ikerin@gmail.com",
-                    "homepage": "http://www.openbuildings.com",
                     "role": "Author"
                 }
             ],
@@ -1160,31 +1162,31 @@
                 "kohana",
                 "location"
             ],
-            "time": "2014-04-16T08:27:51+00:00"
+            "time": "2020-03-02T14:07:13+00:00"
         },
         {
             "name": "openbuildings/jam-monetary",
-            "version": "0.1.24",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/jam-monetary.git",
-                "reference": "582cba6aea9803d092dad69258cd4a42caad82e1"
+                "reference": "5e913987036fa0d0f2589e871cafc4c4b0b77bbc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/jam-monetary/zipball/582cba6aea9803d092dad69258cd4a42caad82e1",
-                "reference": "582cba6aea9803d092dad69258cd4a42caad82e1",
+                "url": "https://api.github.com/repos/OpenBuildings/jam-monetary/zipball/5e913987036fa0d0f2589e871cafc4c4b0b77bbc",
+                "reference": "5e913987036fa0d0f2589e871cafc4c4b0b77bbc",
                 "shasum": ""
             },
             "require": {
                 "composer/installers": "*",
-                "openbuildings/monetary": "~0.4.1",
-                "php": ">=5.4.0"
+                "openbuildings/monetary": "^0.5",
+                "php": "^7.1"
             },
             "require-dev": {
-                "openbuildings/jam": "^0.5.13",
+                "openbuildings/jam": "^0.6",
                 "openbuildings/kohana-test-bootstrap": "^0.2.0",
-                "phpunit/phpunit": "^4.0, <4.5"
+                "phpunit/phpunit": "^7"
             },
             "type": "kohana-module",
             "notification-url": "https://packagist.org/downloads/",
@@ -1208,30 +1210,30 @@
                 "money",
                 "price"
             ],
-            "time": "2017-10-13T13:49:50+00:00"
+            "time": "2020-03-02T13:28:57+00:00"
         },
         {
             "name": "openbuildings/monetary",
-            "version": "0.4.1",
+            "version": "0.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/monetary.git",
-                "reference": "f05bc74cadc6d850b199705f10ee590aaf3bbd59"
+                "reference": "430b988f47e28fd9d004d8670b1a1a7de3e436c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/monetary/zipball/f05bc74cadc6d850b199705f10ee590aaf3bbd59",
-                "reference": "f05bc74cadc6d850b199705f10ee590aaf3bbd59",
+                "url": "https://api.github.com/repos/OpenBuildings/monetary/zipball/430b988f47e28fd9d004d8670b1a1a7de3e436c9",
+                "reference": "430b988f47e28fd9d004d8670b1a1a7de3e436c9",
                 "shasum": ""
             },
             "require": {
                 "desarrolla2/cache": "1.6.*",
                 "ext-curl": "*",
                 "ext-simplexml": "*",
-                "php": ">=5.3.0"
+                "php": "^7.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "~3.7.24"
+                "phpunit/phpunit": "^7"
             },
             "type": "library",
             "autoload": {
@@ -1245,21 +1247,16 @@
             ],
             "authors": [
                 {
+                    "name": "Yasen Yanev",
+                    "email": "yasen@openbuildings.com"
+                },
+                {
                     "name": "Ivan Kerin",
-                    "email": "ivan@openbuildings.com",
-                    "homepage": "https://github.com/OpenBuildings/jam",
-                    "role": "Author"
+                    "email": "ivan@openbuildings.com"
                 },
                 {
                     "name": "Haralan Dobrev",
-                    "email": "hdobrev@despark.com",
-                    "homepage": "https://github.com/hkdobrev",
-                    "role": "Author"
-                },
-                {
-                    "name": "Yasen Yanev",
-                    "email": "yasen@openbuildings.com",
-                    "role": "Author"
+                    "email": "hdobrev@despark.com"
                 }
             ],
             "description": "Useful tool for formatting and converting currencies",
@@ -1273,40 +1270,41 @@
                 "money",
                 "yahoo"
             ],
-            "time": "2013-10-28T11:21:15+00:00"
+            "time": "2020-02-21T09:15:06+00:00"
         },
         {
             "name": "openbuildings/purchases",
-            "version": "0.11.0",
+            "version": "0.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/purchases.git",
-                "reference": "13d0b208909b45d04b772ba7987f1ecad62b8bb6"
+                "reference": "e50d6d595e0e58fdecca4a12cd32c723c696fa45"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/purchases/zipball/13d0b208909b45d04b772ba7987f1ecad62b8bb6",
-                "reference": "13d0b208909b45d04b772ba7987f1ecad62b8bb6",
+                "url": "https://api.github.com/repos/OpenBuildings/purchases/zipball/e50d6d595e0e58fdecca4a12cd32c723c696fa45",
+                "reference": "e50d6d595e0e58fdecca4a12cd32c723c696fa45",
                 "shasum": ""
             },
             "require": {
-                "clippings/freezable": "^0.2",
+                "clippings/freezable": "^0.3",
                 "composer/installers": "*",
                 "kohana/core": "^3.3",
                 "kohana/database": "^3.3.4",
-                "league/omnipay": "^3",
-                "openbuildings/jam": "^0.5.24",
-                "openbuildings/jam-auth": "^0.4",
-                "openbuildings/jam-locations": "^0.1",
-                "openbuildings/jam-monetary": "^0.1.19",
-                "php": "^7.1"
+                "league/omnipay": "^3.0.2",
+                "openbuildings/jam": "^0.6",
+                "openbuildings/jam-auth": "^0.5.1",
+                "openbuildings/jam-locations": "^0.2.1",
+                "openbuildings/jam-monetary": "^0.2",
+                "php": "^7.1",
+                "php-http/httplug": "^2.0"
             },
             "require-dev": {
                 "omnipay/dummy": "^3.0",
                 "openbuildings/environment-backup": "^0.1",
                 "openbuildings/kohana-test-bootstrap": "^0.2",
-                "openbuildings/phpunit-spiderling": "^0.2",
-                "phpunit/phpunit": "^6"
+                "openbuildings/phpunit-spiderling": "^0.4",
+                "phpunit/phpunit": "^7"
             },
             "suggest": {
                 "openbuildings/promotions": "Extends purchases functionality with promotions and gift cards",
@@ -1344,34 +1342,34 @@
                 "purchase",
                 "store"
             ],
-            "time": "2019-04-01T19:46:22+00:00"
+            "time": "2020-03-02T15:42:45+00:00"
         },
         {
             "name": "openbuildings/shipping",
-            "version": "0.13.0",
+            "version": "0.14.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OpenBuildings/shipping.git",
-                "reference": "27e25e8d86412dc1fbc7250c66d41ad0371efdfa"
+                "reference": "e6e4612593d14e532ec938ff16147e4b83d1f873"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OpenBuildings/shipping/zipball/27e25e8d86412dc1fbc7250c66d41ad0371efdfa",
-                "reference": "27e25e8d86412dc1fbc7250c66d41ad0371efdfa",
+                "url": "https://api.github.com/repos/OpenBuildings/shipping/zipball/e6e4612593d14e532ec938ff16147e4b83d1f873",
+                "reference": "e6e4612593d14e532ec938ff16147e4b83d1f873",
                 "shasum": ""
             },
             "require": {
-                "clippings/freezable": "0.2.*",
+                "clippings/freezable": "^0.3",
                 "composer/installers": "*",
-                "openbuildings/jam": "^0.5.13",
-                "openbuildings/purchases": "^0.11",
+                "openbuildings/jam": "^0.6",
+                "openbuildings/purchases": "^0.12",
                 "php": "^7.1"
             },
             "require-dev": {
                 "openbuildings/environment-backup": "0.1.*",
-                "openbuildings/jam-auth": "^0.4",
+                "openbuildings/jam-auth": "^0.5",
                 "openbuildings/kohana-test-bootstrap": "^0.2.0",
-                "phpunit/phpunit": "^6"
+                "phpunit/phpunit": "^7"
             },
             "type": "kohana-module",
             "notification-url": "https://packagist.org/downloads/",
@@ -1395,7 +1393,7 @@
                 "purchase",
                 "shipping"
             ],
-            "time": "2019-04-01T19:56:14+00:00"
+            "time": "2020-03-02T16:18:49+00:00"
         },
         {
             "name": "php-http/discovery",
@@ -1941,16 +1939,16 @@
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v4.4.4",
+            "version": "v4.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "491a20dfa87e0b3990170593bc2de0bb34d828a5"
+                "reference": "7e41b4fcad4619535f45f8bfa7744c4f384e1648"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/491a20dfa87e0b3990170593bc2de0bb34d828a5",
-                "reference": "491a20dfa87e0b3990170593bc2de0bb34d828a5",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/7e41b4fcad4619535f45f8bfa7744c4f384e1648",
+                "reference": "7e41b4fcad4619535f45f8bfa7744c4f384e1648",
                 "shasum": ""
             },
             "require": {
@@ -1992,20 +1990,20 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2020-01-31T09:11:17+00:00"
+            "time": "2020-02-13T19:40:01+00:00"
         },
         {
             "name": "symfony/mime",
-            "version": "v4.4.4",
+            "version": "v4.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/mime.git",
-                "reference": "225034620ecd4b34fd826e9983d85e2b7a359094"
+                "reference": "304db017bafd71c122cd5223a9ac2d03dc24da32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/mime/zipball/225034620ecd4b34fd826e9983d85e2b7a359094",
-                "reference": "225034620ecd4b34fd826e9983d85e2b7a359094",
+                "url": "https://api.github.com/repos/symfony/mime/zipball/304db017bafd71c122cd5223a9ac2d03dc24da32",
+                "reference": "304db017bafd71c122cd5223a9ac2d03dc24da32",
                 "shasum": ""
             },
             "require": {
@@ -2054,7 +2052,7 @@
                 "mime",
                 "mime-type"
             ],
-            "time": "2020-01-04T13:00:46+00:00"
+            "time": "2020-02-04T09:32:40+00:00"
         },
         {
             "name": "symfony/polyfill-intl-idn",

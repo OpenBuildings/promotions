@@ -25,15 +25,15 @@
 	"require": {
 		"php": "^7.1",
 		"composer/installers": "*",
-		"openbuildings/jam": "^0.5",
-		"openbuildings/purchases": "^0.11",
-		"openbuildings/shipping": "^0.13",
-		"openbuildings/jam-monetary": "^0.1.21"
+		"openbuildings/jam": "^0.6",
+		"openbuildings/purchases": "^0.12",
+		"openbuildings/shipping": "^0.14",
+		"openbuildings/jam-monetary": "^0.2"
 	},
 	"require-dev": {
 		"openbuildings/kohana-test-bootstrap": "^0.2",
 		"kohana/auth": "^3.3",
-		"openbuildings/jam-auth": "^0.4.3",
+		"openbuildings/jam-auth": "^0.5",
 		"phpunit/phpunit": "^7"
 	},
 	"autoload-dev": {
