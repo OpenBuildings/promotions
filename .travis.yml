@@ -24,6 +24,9 @@ notifications:
   slack:
     secure: jkZDWqI+za7mMP1RnozFmsB6SM2THjp59elBEpMrewjG270NpCdB2fCc2XFSeHVJ1vyPax/Q139CsWhctpD4smA4An1GmTsvQyVcWVvKsqsrTG0q22cBx+WKJKL9cwxQ+UQSbvySVCY6V3oXaqmaPBK97oqHZOc+FET2Z9WDHhc=
 
+before_install:
+  - composer self-update --1
+
 install:
   - travis_retry composer install --no-interaction --no-progress --prefer-dist
 
@@ -31,7 +34,6 @@ before_script:
   - mkdir -p build/logs
   - mysql -e 'create database `OpenBuildings/promotions`;'
   - mysql --default-character-set=utf8 OpenBuildings/promotions < tests/test_data/structure.sql
-  - composer self-update --1
 
 script:
   - vendor/bin/phpunit --coverage-clover build/logs/clover.xml --coverage-text
