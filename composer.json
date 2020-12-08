@@ -27,7 +27,7 @@
 		"composer/installers": "*",
 		"openbuildings/jam": "^0.6",
 		"openbuildings/purchases": "^0.12",
-		"openbuildings/shipping": "^0.14",
+		"openbuildings/shipping": "^0.15",
 		"openbuildings/jam-monetary": "^0.2"
 	},
 	"require-dev": {
