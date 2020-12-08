@@ -6,8 +6,6 @@ services:
 sudo: false
 
 php:
-  - 7.1
-  - 7.2
   - 7.3
 
 matrix:
@@ -33,6 +31,7 @@ before_script:
   - mkdir -p build/logs
   - mysql -e 'create database `OpenBuildings/promotions`;'
   - mysql --default-character-set=utf8 OpenBuildings/promotions < tests/test_data/structure.sql
+  - composer self-update --1
 
 script:
   - vendor/bin/phpunit --coverage-clover build/logs/clover.xml --coverage-text
