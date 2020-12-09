@@ -10,14 +10,14 @@
  */
 abstract class Testcase_Promotions extends \PHPUnit\Framework\TestCase {
 
-	public function setUp()
+	public function setUp(): void
 	{
 		parent::setUp();
 		Database::instance()->begin();
 		Jam_Association_Creator::current(1);
 	}
 
-	public function tearDown()
+	public function tearDown(): void
 	{
 		Database::instance()->rollback();
 		parent::tearDown();

@@ -25,11 +25,12 @@ class Model_PromotionTest extends Testcase_Promotions {
 
 	/**
 	 * @covers Model_Promotion::price_for_purchase_item
-	 * @expectedException Kohana_Exception
-	 * @expectedExceptionMessage Not a valid promotion
 	 */
 	public function test_price_for_purchase_item()
 	{
+        $this->expectException(Kohana_Exception::class);
+        $this->expectExceptionMessage('Not a valid promotion');
+
 		$promotion = Jam::build('promotion');
 
 		$promotion->price_for_purchase_item(Jam::build('purchase_item_promotion'));
@@ -37,11 +38,12 @@ class Model_PromotionTest extends Testcase_Promotions {
 
 	/**
 	 * @covers Model_Promotion::price_for_purchase_item
-	 * @expectedException Kohana_Exception
-	 * @expectedExceptionMessage Not a valid promotion
 	 */
 	public function test_applies_to()
 	{
+        $this->expectException(Kohana_Exception::class);
+        $this->expectExceptionMessage('Not a valid promotion');
+
 		$promotion = Jam::build('promotion');
 
 		$promotion->applies_to(Jam::build('brand_purchase'));

@@ -19,22 +19,22 @@
 	],
 	"config": {
 		"platform": {
-			"php": "7.1.8"
+			"php": "7.3.23"
 		}
 	},
 	"require": {
-		"php": "^7.1",
+		"php": "^7.3",
 		"composer/installers": "*",
 		"openbuildings/jam": "^0.6",
 		"openbuildings/purchases": "^0.12",
-		"openbuildings/shipping": "^0.14",
+		"openbuildings/shipping": "^0.15",
 		"openbuildings/jam-monetary": "^0.2"
 	},
 	"require-dev": {
 		"openbuildings/kohana-test-bootstrap": "^0.2",
 		"kohana/auth": "^3.3",
 		"openbuildings/jam-auth": "^0.5",
-		"phpunit/phpunit": "^7"
+		"phpunit/phpunit": "^9"
 	},
 	"autoload-dev": {
 		"classmap": ["tests/classes"]
